@@ -6,11 +6,16 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Sql Core)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 
 add_executable(SyncCal
     src/main.cpp
 
     src/ui/MainWindow.cpp
+    src/ui/LoginDialog.cpp
+    src/ui/RegisterDialog.cpp
 
     src/models/User.cpp
     src/models/Calendar.cpp
