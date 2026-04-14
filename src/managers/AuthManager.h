@@ -8,8 +8,8 @@ class AuthManager
 {
 public:
     bool registerUser(const User &user);
-    bool loginUser(const QString &email, const QString &password) const;
-    int getUserIdByEmail(const QString &email) const;
+    bool loginUser(const QString &identifier, const QString &password) const;
+    int getUserId(const QString &identifier) const;
 };
 
 #endif

@@ -10,29 +10,29 @@ LoginDialog::LoginDialog(QWidget *parent)
     : QDialog(parent)
 {
     setupUi();
-    setWindowTitle("Logowanie");
+    setWindowTitle("Login");
     setModal(true);
 }
 
 void LoginDialog::setupUi()
 {
     emailEdit = new QLineEdit(this);
-    emailEdit->setPlaceholderText("adres e-mail");
+    emailEdit->setPlaceholderText("email or username");
 
     passwordEdit = new QLineEdit(this);
-    passwordEdit->setPlaceholderText("hasło");
+    passwordEdit->setPlaceholderText("password");
     passwordEdit->setEchoMode(QLineEdit::Password);
 
     errorLabel = new QLabel(this);
     errorLabel->setStyleSheet("color: red;");
     errorLabel->setVisible(false);
 
-    loginButton = new QPushButton("Zaloguj", this);
-    cancelButton = new QPushButton("Anuluj", this);
+    loginButton = new QPushButton("Login", this);
+    cancelButton = new QPushButton("Cancel", this);
 
     QFormLayout *formLayout = new QFormLayout();
-    formLayout->addRow("E-mail:", emailEdit);
-    formLayout->addRow("Hasło:", passwordEdit);
+    formLayout->addRow("Email or username:", emailEdit);
+    formLayout->addRow("Password:", passwordEdit);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addStretch();
@@ -55,7 +55,7 @@ void LoginDialog::onLoginClicked()
 
     if (email.isEmpty() || password.isEmpty())
     {
-        errorLabel->setText("Wypełnij wszystkie pola.");
+        errorLabel->setText("Please fill all fields.");
         errorLabel->setVisible(true);
         return;
     }
@@ -67,13 +67,13 @@ void LoginDialog::onLoginClicked()
     }
     else
     {
-        errorLabel->setText("Nieprawidłowy e-mail lub hasło.");
+        errorLabel->setText("Invalid email or password.");
         errorLabel->setVisible(true);
         passwordEdit->clear();
     }
 }
 
-QString LoginDialog::getEmail() const
+QString LoginDialog::getIdentifier() const
 {
     return emailEdit->text().trimmed();
 }

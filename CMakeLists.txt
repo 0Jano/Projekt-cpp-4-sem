@@ -16,6 +16,9 @@ add_executable(SyncCal
     src/ui/MainWindow.cpp
     src/ui/LoginDialog.cpp
     src/ui/RegisterDialog.cpp
+    src/ui/CalendarListWidget.cpp
+    src/ui/CreateCalendarDialog.cpp
+    src/ui/CalendarGridWidget.cpp
 
     src/models/User.cpp
     src/models/Calendar.cpp

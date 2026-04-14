@@ -26,13 +26,13 @@ bool AuthManager::registerUser(const User &user)
     return true;
 }
 
-bool AuthManager::loginUser(const QString &email, const QString &password) const
+bool AuthManager::loginUser(const QString &identifier, const QString &password) const
 {
     QSqlDatabase db = DatabaseManager::instance().getDatabase();
     QSqlQuery query(db);
 
-    query.prepare("SELECT id FROM users WHERE email = :email AND password = :password");
-    query.bindValue(":email", email);
+    query.prepare("SELECT id FROM users WHERE (email = :identifier OR username = :identifier) AND password = :password");
+    query.bindValue(":identifier", identifier);
     query.bindValue(":password", password);
 
     if (!query.exec())
@@ -44,13 +44,13 @@ bool AuthManager::loginUser(const QString &email, const QString &password) const
     return query.next();
 }
 
-int AuthManager::getUserIdByEmail(const QString &email) const
+int AuthManager::getUserId(const QString &identifier) const
 {
     QSqlDatabase db = DatabaseManager::instance().getDatabase();
     QSqlQuery query(db);
 
-    query.prepare("SELECT id FROM users WHERE email = :email");
-    query.bindValue(":email", email);
+    query.prepare("SELECT id FROM users WHERE email = :identifier OR username = :identifier");
+    query.bindValue(":identifier", identifier);
 
     if (!query.exec())
     {

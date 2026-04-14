@@ -13,7 +13,7 @@ class LoginDialog : public QDialog
 public:
     explicit LoginDialog(QWidget *parent = nullptr);
 
-    QString getEmail() const;
+    QString getIdentifier() const;
     QString getPassword() const;
 
 private slots:

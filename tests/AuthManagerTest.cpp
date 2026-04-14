@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "models/AuthManager.h"
+#include "managers/AuthManager.h"
 #include "models/User.h"
 
 // Test fixture for AuthManager
@@ -31,12 +31,20 @@ TEST_F(AuthManagerTest, RegisterUserWithExistingEmail) {
     EXPECT_FALSE(authManager.registerUser(user2));
 }
 
-// Test successful login
-TEST_F(AuthManagerTest, LoginSuccessful) {
+// Test successful login with email
+TEST_F(AuthManagerTest, LoginSuccessfulEmail) {
     User user("testuser", "test@example.com", "password123");
     authManager.registerUser(user);
 
     EXPECT_TRUE(authManager.loginUser("test@example.com", "password123"));
+}
+
+// Test successful login with username
+TEST_F(AuthManagerTest, LoginSuccessfulUsername) {
+    User user("testuser", "test@example.com", "password123");
+    authManager.registerUser(user);
+
+    EXPECT_TRUE(authManager.loginUser("testuser", "password123"));
 }
 
 // Test login with wrong password
@@ -47,9 +55,10 @@ TEST_F(AuthManagerTest, LoginWrongPassword) {
     EXPECT_FALSE(authManager.loginUser("test@example.com", "wrongpassword"));
 }
 
-// Test login with non-existent email
-TEST_F(AuthManagerTest, LoginNonExistentEmail) {
+// Test login with non-existent email/username
+TEST_F(AuthManagerTest, LoginNonExistent) {
     EXPECT_FALSE(authManager.loginUser("nonexistent@example.com", "password123"));
+    EXPECT_FALSE(authManager.loginUser("nonexistentuser", "password123"));
 }
 
 // Test login with empty credentials

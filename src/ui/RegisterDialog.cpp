@@ -10,38 +10,38 @@ RegisterDialog::RegisterDialog(QWidget *parent)
     : QDialog(parent)
 {
     setupUi();
-    setWindowTitle("Rejestracja");
+    setWindowTitle("Registration");
     setModal(true);
 }
 
 void RegisterDialog::setupUi()
 {
     usernameEdit = new QLineEdit(this);
-    usernameEdit->setPlaceholderText("nazwa użytkownika");
+    usernameEdit->setPlaceholderText("username");
 
     emailEdit = new QLineEdit(this);
-    emailEdit->setPlaceholderText("adres e-mail");
+    emailEdit->setPlaceholderText("email address");
 
     passwordEdit = new QLineEdit(this);
-    passwordEdit->setPlaceholderText("hasło");
+    passwordEdit->setPlaceholderText("password");
     passwordEdit->setEchoMode(QLineEdit::Password);
 
     passwordConfirmEdit = new QLineEdit(this);
-    passwordConfirmEdit->setPlaceholderText("powtórz hasło");
+    passwordConfirmEdit->setPlaceholderText("confirm password");
     passwordConfirmEdit->setEchoMode(QLineEdit::Password);
 
     errorLabel = new QLabel(this);
     errorLabel->setStyleSheet("color: red;");
     errorLabel->setVisible(false);
 
-    registerButton = new QPushButton("Zarejestruj", this);
-    cancelButton = new QPushButton("Anuluj", this);
+    registerButton = new QPushButton("Register", this);
+    cancelButton = new QPushButton("Cancel", this);
 
     QFormLayout *formLayout = new QFormLayout();
-    formLayout->addRow("Nazwa:", usernameEdit);
-    formLayout->addRow("E-mail:", emailEdit);
-    formLayout->addRow("Hasło:", passwordEdit);
-    formLayout->addRow("Powtórz hasło:", passwordConfirmEdit);
+    formLayout->addRow("Username:", usernameEdit);
+    formLayout->addRow("Email:", emailEdit);
+    formLayout->addRow("Password:", passwordEdit);
+    formLayout->addRow("Confirm password:", passwordConfirmEdit);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addStretch();
@@ -66,14 +66,14 @@ void RegisterDialog::onRegisterClicked()
 
     if (username.isEmpty() || email.isEmpty() || password.isEmpty())
     {
-        errorLabel->setText("Wypełnij wszystkie pola.");
+        errorLabel->setText("Please fill all fields.");
         errorLabel->setVisible(true);
         return;
     }
 
     if (password != passwordConfirm)
     {
-        errorLabel->setText("Hasła nie są zgodne.");
+        errorLabel->setText("Passwords do not match.");
         errorLabel->setVisible(true);
         passwordConfirmEdit->clear();
         return;
@@ -88,7 +88,7 @@ void RegisterDialog::onRegisterClicked()
     }
     else
     {
-        errorLabel->setText("Rejestracja nie powiodła się. Sprawdź, czy e-mail nie jest zajęty.");
+        errorLabel->setText("Registration failed. Check if email is already taken.");
         errorLabel->setVisible(true);
     }
 }
