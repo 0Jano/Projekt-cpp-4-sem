@@ -21,7 +21,6 @@ void MainWindow::setupUi()
     QWidget *centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
 
-    // top bar
     titleLabel = new QLabel("Welcome to SyncCal", this);
     statusLabel = new QLabel("Not logged in.", this);
     loginButton = new QPushButton("Log in", this);
@@ -37,14 +36,12 @@ void MainWindow::setupUi()
     topBar->addWidget(registerButton);
     topBar->addWidget(logoutButton);
 
-    // logged out view
     loggedOutView = new QWidget(this);
     QVBoxLayout *loggedOutLayout = new QVBoxLayout(loggedOutView);
     loggedOutLayout->addStretch();
     loggedOutLayout->addWidget(new QLabel("Log in to see your calendars.", loggedOutView));
     loggedOutLayout->addStretch();
 
-    // logged in view
     loggedInView = new QWidget(this);
     calendarListWidget = new CalendarListWidget(loggedInView);
     calendarGridWidget = new CalendarGridWidget(loggedInView);
@@ -53,7 +50,6 @@ void MainWindow::setupUi()
     loggedInLayout->addWidget(calendarListWidget);
     loggedInLayout->addWidget(calendarGridWidget, 1);
 
-    // stacked widget
     stackedWidget = new QStackedWidget(this);
     stackedWidget->addWidget(loggedOutView);
     stackedWidget->addWidget(loggedInView);
@@ -122,6 +118,7 @@ void MainWindow::updateStatus()
 void MainWindow::showLoggedInView()
 {
     calendarListWidget->setUserId(loggedInUserId);
+    calendarGridWidget->setUserId(loggedInUserId);
     stackedWidget->setCurrentWidget(loggedInView);
 }
 

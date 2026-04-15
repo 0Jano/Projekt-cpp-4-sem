@@ -19,20 +19,25 @@ public:
 
     void setCalendarId(int calendarId);
     void refresh();
+    void setUserId(int userId);
 
 private slots:
     void onPrevMonthClicked();
     void onNextMonthClicked();
+    void onAddEventClicked();
 
 private:
     int calendarId;
     QDate currentMonth;
+
+    int userId;
 
     QLabel *monthLabel;
     QPushButton *prevButton;
     QPushButton *nextButton;
     QGridLayout *gridLayout;
     QWidget *gridWidget;
+    QPushButton *addEventButton;
 
     std::map<int, std::vector<Event>> eventsByDay;
 

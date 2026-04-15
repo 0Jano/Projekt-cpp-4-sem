@@ -1,5 +1,6 @@
 #include "ui/CalendarGridWidget.h"
 #include "managers/EventManager.h"
+#include "ui/CreateEventDialog.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -13,7 +14,7 @@
 static const QStringList DAY_NAMES = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
 CalendarGridWidget::CalendarGridWidget(QWidget *parent)
-    : QWidget(parent), calendarId(-1), currentMonth(QDate::currentDate().year(), QDate::currentDate().month(), 1)
+    : QWidget(parent), calendarId(-1), userId(-1), currentMonth(QDate::currentDate().year(), QDate::currentDate().month(), 1)
 {
     setupUi();
 }
@@ -24,6 +25,9 @@ void CalendarGridWidget::setupUi()
     nextButton = new QPushButton(">", this);
     monthLabel = new QLabel(this);
     monthLabel->setAlignment(Qt::AlignCenter);
+
+    addEventButton = new QPushButton("+ New Event", this);
+    addEventButton->setEnabled(false);
 
     prevButton->setFixedWidth(32);
     nextButton->setFixedWidth(32);
@@ -44,10 +48,12 @@ void CalendarGridWidget::setupUi()
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addLayout(navLayout);
+    mainLayout->addWidget(addEventButton);
     mainLayout->addWidget(scrollArea);
 
     connect(prevButton, &QPushButton::clicked, this, &CalendarGridWidget::onPrevMonthClicked);
     connect(nextButton, &QPushButton::clicked, this, &CalendarGridWidget::onNextMonthClicked);
+    connect(addEventButton, &QPushButton::clicked, this, &CalendarGridWidget::onAddEventClicked);
 
     updateMonthLabel();
     rebuildGrid();
@@ -56,8 +62,14 @@ void CalendarGridWidget::setupUi()
 void CalendarGridWidget::setCalendarId(int id)
 {
     calendarId = id;
+    addEventButton->setEnabled(calendarId != -1);
     loadEvents();
     rebuildGrid();
+}
+
+void CalendarGridWidget::setUserId(int id)
+{
+    userId = id;
 }
 
 void CalendarGridWidget::refresh()
@@ -255,4 +267,29 @@ void CalendarGridWidget::onNextMonthClicked()
 void CalendarGridWidget::updateMonthLabel()
 {
     monthLabel->setText(currentMonth.toString("MMMM yyyy"));
+}
+
+void CalendarGridWidget::onAddEventClicked()
+{
+    CreateEventDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        EventManager eventManager;
+        Event newEvent(
+            -1,
+            calendarId,
+            dialog.getTitle(),
+            dialog.getDescription(),
+            dialog.getLocation(),
+            dialog.getStartDateTime(),
+            dialog.getEndDateTime(),
+            userId
+        );
+
+        if (eventManager.createEvent(newEvent))
+        {
+            loadEvents();
+            rebuildGrid();
+        }
+    }
 }
