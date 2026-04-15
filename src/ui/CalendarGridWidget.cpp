@@ -88,7 +88,6 @@ void CalendarGridWidget::loadEvents()
 
 void CalendarGridWidget::rebuildGrid()
 {
-    // clear old grid
     QLayoutItem *item;
     while ((item = gridLayout->takeAt(0)) != nullptr)
     {
@@ -96,7 +95,6 @@ void CalendarGridWidget::rebuildGrid()
         delete item;
     }
 
-    // day name headers
     for (int col = 0; col < 7; ++col)
     {
         QLabel *header = new QLabel(DAY_NAMES[col], gridWidget);
@@ -106,7 +104,6 @@ void CalendarGridWidget::rebuildGrid()
     }
 
     const int daysInMonth = currentMonth.daysInMonth();
-    // Qt: 1=Mon ... 7=Sun
     const int firstDayOfWeek = currentMonth.dayOfWeek() - 1;
 
     int col = firstDayOfWeek;
@@ -158,10 +155,7 @@ void CalendarGridWidget::rebuildGrid()
                 showDayPopup(date, dayEvents);
             });
 
-            // make whole cell clickable via mouse press
             cell->setProperty("hasEvents", true);
-            // store date and events for click handling — use a lambda via eventFilter workaround
-            // we'll handle clicks through a transparent overlay button
             QPushButton *clickOverlay = new QPushButton(cell);
             clickOverlay->setFlat(true);
             clickOverlay->setStyleSheet("QPushButton { background: transparent; border: none; }");
@@ -172,7 +166,6 @@ void CalendarGridWidget::rebuildGrid()
                 showDayPopup(date, dayEvents);
             });
 
-            // resize overlay when cell resizes
             cell->installEventFilter(this);
             clickOverlay->setObjectName("overlay");
             cell->setProperty("overlaySet", true);
@@ -188,7 +181,6 @@ void CalendarGridWidget::rebuildGrid()
         }
     }
 
-    // stretch columns evenly
     for (int c = 0; c < 7; ++c)
         gridLayout->setColumnStretch(c, 1);
 }
