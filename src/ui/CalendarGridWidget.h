@@ -45,7 +45,7 @@ private:
     QGridLayout *gridLayout;
     QWidget *gridWidget;
 
-    std::map<int, std::vector<Event>> eventsByDay; // day index -> events
+    std::map<QDate, std::vector<Event>> eventsByDay; // date -> events
 
     void setupUi();
     void loadEvents();

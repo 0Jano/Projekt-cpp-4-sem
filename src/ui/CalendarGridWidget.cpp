@@ -110,7 +110,7 @@ void CalendarGridWidget::loadEvents()
         const QDate date = event.getStartDateTime().date();
         if (date >= currentStartDate && date <= endDate)
         {
-            eventsByDay[date.day()].push_back(event);
+            eventsByDay[date].push_back(event);
         }
     }
 }
@@ -174,7 +174,7 @@ void CalendarGridWidget::rebuildMonthGrid()
         cellLayout->addWidget(dayLabel);
         cellLayout->addStretch();
 
-        const auto it = eventsByDay.find(day);
+        const auto it = eventsByDay.find(date);
         if (it != eventsByDay.end())
         {
             const int count = static_cast<int>(it->second.size());
@@ -252,7 +252,7 @@ void CalendarGridWidget::rebuildWeekGrid()
         cellLayout->setContentsMargins(2, 2, 2, 2);
         cellLayout->setSpacing(4);
 
-        const auto it = eventsByDay.find(date.day());
+        const auto it = eventsByDay.find(date);
         if (it != eventsByDay.end())
         {
             for (const Event &ev : it->second)
