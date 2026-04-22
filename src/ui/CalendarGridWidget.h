@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <QDate>
+#include <QComboBox>
 #include <vector>
 #include <map>
 #include "models/Event.h"
@@ -15,6 +16,7 @@ class CalendarGridWidget : public QWidget
     Q_OBJECT
 
 public:
+    enum ViewMode { Month, Week };
     explicit CalendarGridWidget(QWidget *parent = nullptr);
 
     void setCalendarId(int calendarId);
@@ -22,30 +24,36 @@ public:
     void setUserId(int userId);
 
 private slots:
-    void onPrevMonthClicked();
-    void onNextMonthClicked();
+    void onPrevClicked();
+    void onNextClicked();
     void onAddEventClicked();
+    void onViewModeChanged(int index);
 
 private:
     int calendarId;
-    QDate currentMonth;
+    QDate currentStartDate; // Points to the first day of the month or the first day of the week
+    ViewMode currentMode;
 
     int userId;
 
-    QLabel *monthLabel;
+    QLabel *dateRangeLabel;
     QPushButton *prevButton;
     QPushButton *nextButton;
+    QPushButton *addEventButton;
+    QComboBox *viewModeCombo;
+    
     QGridLayout *gridLayout;
     QWidget *gridWidget;
-    QPushButton *addEventButton;
 
-    std::map<int, std::vector<Event>> eventsByDay;
+    std::map<int, std::vector<Event>> eventsByDay; // day index -> events
 
     void setupUi();
     void loadEvents();
     void rebuildGrid();
+    void rebuildMonthGrid();
+    void rebuildWeekGrid();
     void showDayPopup(const QDate &date, const std::vector<Event> &events);
-    void updateMonthLabel();
+    void updateDateLabel();
     bool eventFilter(QObject *obj, QEvent *event) override;
 };
 
