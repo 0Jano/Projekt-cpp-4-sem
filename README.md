@@ -1,135 +1,81 @@
 # SyncCal — współdzielony kalendarz desktopowy
 
-**SyncCal** to aplikacja desktopowa napisana w C++, umożliwiająca współdzielenie kalendarzy w grupie użytkowników.  
+**SyncCal** to aplikacja desktopowa napisana w C++ z wykorzystaniem frameworka Qt 6, umożliwiająca zarządzanie i współdzielenie kalendarzy.  
 Projekt powstał jako realizacja projektu semestralnego z przedmiotu Projekt C++.
 
 ---
 
 ## Cel projektu
 
-Wspólne umawianie terminów w zespołach często jest chaotyczne i nieefektywne.  
-SyncCal rozwiązuje ten problem poprzez:
-
-- możliwość tworzenia kalendarzy osobistych i grupowych  
-- udostępnianie wydarzeń innym użytkownikom  
-- przegląd wydarzeń w różnych widokach  
-- zarządzanie rolami i uprawnieniami  
-
----
-
-## Zakres MVP
-
-W pierwszej wersji aplikacja oferuje:
-
-- rejestrację i logowanie użytkowników  
-- tworzenie kalendarzy (prywatncyh i grupowych)  
-- dodawanie, edycję i usuwanie wydarzeń (CRUD)  
-- udostępnianie wydarzeń i zapraszanie uczestników  
-- widok kalendarza:
-  - miesięczny  
-  - tygodniowy  
-  - lista wydarzeń  
-- role użytkowników (właściciel / uczestnik)
-
----
-
-## Planowane rozszerzenia
-
-- wykrywanie konfliktów terminów  
-- sugestie wolnych okien czasowych  
-- moduł list To‑Do powiązanych z wydarzeniami  
-- eksport / import kalendarza (np. pliki .ics)  
-- testy jednostkowe  
-- integracja CI/CD  
+SyncCal ma na celu uproszczenie zarządzania czasem i wydarzeniami poprzez:
+- tworzenie osobistych i współdzielonych kalendarzy
+- zarządzanie wydarzeniami (dodawanie, edycja, usuwanie)
+- przejrzyste widoki (miesięczny, tygodniowy)
+- integrację z lokalną bazą danych w celu trwałego przechowywania danych
 
 ---
 
 ## Technologie
 
-Projekt wykorzystuje:
+Projekt wykorzystuje nowoczesne standardy i biblioteki:
 
-- C++17 / C++20  
-- Qt 6 — interfejs graficzny  
-- CMake — system budowania  
-- MySQL — lokalna baza danych  
-- nlohmann/json — obsługa JSON  
-- libcurl / cpp-httplib — komunikacja HTTP  
-- spdlog — logowanie  
-
-Testy:
-
-- GoogleTest lub Catch2  
+- **Język:** C++17
+- **Framework:** Qt 6 (Widgets, Sql, Core)
+- **System budowania:** CMake
+- **Baza danych:** SQLite (za pośrednictwem modułu Qt SQL)
 
 ---
 
-## Architektura
+## Architektura projektu
 
-Główne klasy:
+Kod źródłowy jest podzielony na logiczne warstwy:
 
-- User — reprezentuje użytkownika  
-- Event — wydarzenie w kalendarzu  
-- Calendar — zarządzanie wydarzeniami  
-- Database — komunikacja z bazą danych  
-
-Model działania:
-
-Desktop client + współdzielona baza danych
+- `src/models/` — struktury danych (użytkownik, wydarzenie, kalendarz)
+- `src/managers/` — logika biznesowa i operacje na bazie danych (`AuthManager`, `DatabaseManager`, `EventManager`, `CalendarManager`)
+- `src/ui/` — komponenty interfejsu użytkownika i dialogi
+- `tests/` — testy jednostkowe (w trakcie rozwoju)
 
 ---
 
-## Interfejs użytkownika
+## Harmonogram prac
 
-Planowane widoki:
+Aplikacja jest rozwijana zgodnie z poniższym planem (T = tydzień):
 
-- widok miesiąca  
-- widok tygodnia  
-- widok listy wydarzeń
-
-Funkcje UI:
-
-- panel kalendarzy  
-- filtrowanie wydarzeń  
-- formularz dodawania wydarzenia  
-- lista uczestników  
+- [x] **T1:** Analiza wymagań, repozytorium, konfiguracja CMake i podstawowa struktura
+- [x] **T2:** Projekt architektury i diagramów klas (User, Event, Calendar, Database)
+- [x] **T3:** Klasa User oraz system logowania i rejestracji
+- [x] **T4:** Klasa Event i podstawowa obsługa wydarzeń
+- [x] **T5:** Klasa Calendar, operacje CRUD oraz podstawowe widoki w pamięci
+- [x] **T6:** Integracja z Qt SQL i trwałość danych (SQLite)
+- [ ] **T7:** GUI: Widok miesiąca, tygodnia oraz okna dialogowe dodawania wydarzeń (W trakcie)
+- [ ] **T8:** Współdzielenie kalendarzy i zarządzanie rolami (właściciel/uczestnik)
+- [ ] **T9:** Wykrywanie konfliktów, import/eksport .ics oraz testy jednostkowe
+- [ ] **T10:** Testy końcowe, dokumentacja i przygotowanie prezentacji
 
 ---
 
 ## Uruchomienie projektu
 
 ### Wymagania
+- CMake (>= 3.16)
+- Kompilator obsługujący C++17 (np. GCC, MSVC, Clang)
+- Qt 6 (moduły: Widgets, Sql, Core)
 
-- CMake  
-- kompilator C++  
-- Qt 6  
-- MySQL  
-
-### Budowanie
-
-
-
----
-
-## Harmonogram
-
-1. analiza i struktura projektu  
-2. projekt architektury  
-3. system użytkowników  
-4. obsługa wydarzeń  
-5. zarządzanie kalendarzem  
-6. integracja z bazą danych  
-7. implementacja GUI  
-8. udostępnianie i role  
-9. konflikty terminów i testy  
-10. poprawki i stabilizacja  
+### Budowanie i uruchomienie
+```bash
+mkdir build
+cd build
+cmake ..
+make
+./SyncCal
+```
 
 ---
 
 ## Autor
-
-Jan Grabarz
+**Jan Grabarz**
 
 ---
 
 ## Repozytorium
-
-https://github.com/0Jano/Projekt-cpp-4-sem
+[https://github.com/0Jano/Projekt-cpp-4-sem](https://github.com/0Jano/Projekt-cpp-4-sem)
