@@ -355,11 +355,9 @@ void CalendarGridWidget::onViewModeChanged(int index)
 {
     currentMode = static_cast<ViewMode>(viewModeCombo->itemData(index).toInt());
     
-    // Adjust currentStartDate to a sensible start for the mode
     if (currentMode == Month) {
         currentStartDate = QDate(currentStartDate.year(), currentStartDate.month(), 1);
     } else {
-        // Find Monday of the current week
         int daysToMonday = currentStartDate.dayOfWeek() - 1;
         currentStartDate = currentStartDate.addDays(-daysToMonday);
     }

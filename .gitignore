@@ -3,4 +3,5 @@ build/
 *.a
 *.so
 *.out
+*.git*
 GEMINI.md
