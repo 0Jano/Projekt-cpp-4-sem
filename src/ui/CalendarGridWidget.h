@@ -6,7 +6,6 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <QDate>
-#include <QComboBox>
 #include <vector>
 #include <map>
 #include "models/Event.h"
@@ -27,11 +26,11 @@ private slots:
     void onPrevClicked();
     void onNextClicked();
     void onAddEventClicked();
-    void onViewModeChanged(int index);
+    void onViewModeChanged(bool checked);
 
 private:
     int calendarId;
-    QDate currentStartDate; // Points to the first day of the month or the first day of the week
+    QDate currentStartDate;
     ViewMode currentMode;
 
     int userId;
@@ -40,12 +39,12 @@ private:
     QPushButton *prevButton;
     QPushButton *nextButton;
     QPushButton *addEventButton;
-    QComboBox *viewModeCombo;
+    QPushButton *viewModeToggle;
     
     QGridLayout *gridLayout;
     QWidget *gridWidget;
 
-    std::map<QDate, std::vector<Event>> eventsByDay; // date -> events
+    std::map<QDate, std::vector<Event>> eventsByDay;
 
     void setupUi();
     void loadEvents();
@@ -53,6 +52,8 @@ private:
     void rebuildMonthGrid();
     void rebuildWeekGrid();
     void showDayPopup(const QDate &date, const std::vector<Event> &events);
+    void editEvent(const Event &event);
+    void createEventForDate(const QDate &date);
     void updateDateLabel();
     bool eventFilter(QObject *obj, QEvent *event) override;
 };

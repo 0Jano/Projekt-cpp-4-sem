@@ -1,5 +1,6 @@
 #include "ui/CalendarListWidget.h"
 #include "ui/CreateCalendarDialog.h"
+#include "ui/ShareCalendarDialog.h"
 #include "managers/CalendarManager.h"
 
 #include <QVBoxLayout>
@@ -17,16 +18,24 @@ void CalendarListWidget::setupUi()
     titleLabel = new QLabel("Calendars", this);
     listWidget = new QListWidget(this);
     addButton = new QPushButton("+ New Calendar", this);
+    shareButton = new QPushButton("Share", this);
+    shareButton->setEnabled(false);
+
+    QHBoxLayout *buttonLayout = new QHBoxLayout();
+    buttonLayout->addWidget(addButton);
+    buttonLayout->addWidget(shareButton);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(titleLabel);
     mainLayout->addWidget(listWidget);
-    mainLayout->addWidget(addButton);
+    mainLayout->addLayout(buttonLayout);
 
     setFixedWidth(220);
 
     connect(addButton, &QPushButton::clicked, this, &CalendarListWidget::onAddClicked);
+    connect(shareButton, &QPushButton::clicked, this, &CalendarListWidget::onShareClicked);
     connect(listWidget, &QListWidget::itemClicked, this, &CalendarListWidget::onItemClicked);
+    connect(listWidget, &QListWidget::itemSelectionChanged, this, &CalendarListWidget::onSelectionChanged);
 }
 
 void CalendarListWidget::setUserId(int id)
@@ -39,6 +48,7 @@ void CalendarListWidget::refresh()
 {
     listWidget->clear();
     calendars.clear();
+    shareButton->setEnabled(false);
 
     if (userId == -1)
         return;
@@ -67,8 +77,24 @@ void CalendarListWidget::onAddClicked()
     }
 }
 
+void CalendarListWidget::onShareClicked()
+{
+    QListWidgetItem *item = listWidget->currentItem();
+    if (!item)
+        return;
+
+    const int calendarId = item->data(Qt::UserRole).toInt();
+    ShareCalendarDialog dialog(calendarId, userId, this);
+    dialog.exec();
+}
+
 void CalendarListWidget::onItemClicked(QListWidgetItem *item)
 {
     int calendarId = item->data(Qt::UserRole).toInt();
     emit calendarSelected(calendarId);
+}
+
+void CalendarListWidget::onSelectionChanged()
+{
+    shareButton->setEnabled(listWidget->currentItem() != nullptr);
 }

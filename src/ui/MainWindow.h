@@ -20,11 +20,13 @@ private slots:
     void onLoginClicked();
     void onRegisterClicked();
     void onLogoutClicked();
+    void onInvitationsClicked();
     void onCalendarSelected(int calendarId);
 
 private:
     void setupUi();
     void updateStatus();
+    void updateInvitationsButton();
     void showLoggedInView();
     void showLoggedOutView();
 
@@ -33,6 +35,7 @@ private:
     QPushButton *loginButton;
     QPushButton *registerButton;
     QPushButton *logoutButton;
+    QPushButton *invitationsButton;
 
     QWidget *loggedOutView;
     QWidget *loggedInView;

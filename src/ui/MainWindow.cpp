@@ -1,7 +1,9 @@
 #include "ui/MainWindow.h"
 #include "ui/LoginDialog.h"
 #include "ui/RegisterDialog.h"
+#include "ui/InvitationsDialog.h"
 #include "managers/AuthManager.h"
+#include "managers/InvitationManager.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -26,12 +28,16 @@ void MainWindow::setupUi()
     loginButton = new QPushButton("Log in", this);
     registerButton = new QPushButton("Register", this);
     logoutButton = new QPushButton("Log out", this);
+    invitationsButton = new QPushButton("Invitations", this);
+    invitationsButton->setVisible(false);
+    invitationsButton->setEnabled(false);
     logoutButton->setEnabled(false);
 
     QHBoxLayout *topBar = new QHBoxLayout();
     topBar->addWidget(titleLabel);
     topBar->addStretch();
     topBar->addWidget(statusLabel);
+    topBar->addWidget(invitationsButton);
     topBar->addWidget(loginButton);
     topBar->addWidget(registerButton);
     topBar->addWidget(logoutButton);
@@ -61,6 +67,7 @@ void MainWindow::setupUi()
     connect(loginButton, &QPushButton::clicked, this, &MainWindow::onLoginClicked);
     connect(registerButton, &QPushButton::clicked, this, &MainWindow::onRegisterClicked);
     connect(logoutButton, &QPushButton::clicked, this, &MainWindow::onLogoutClicked);
+    connect(invitationsButton, &QPushButton::clicked, this, &MainWindow::onInvitationsClicked);
     connect(calendarListWidget, &CalendarListWidget::calendarSelected, this, &MainWindow::onCalendarSelected);
 }
 
@@ -73,6 +80,7 @@ void MainWindow::onLoginClicked()
         loggedInUserId = authManager.getUserId(dialog.getIdentifier());
         updateStatus();
         showLoggedInView();
+        updateInvitationsButton();
     }
 }
 
@@ -90,6 +98,20 @@ void MainWindow::onLogoutClicked()
     loggedInUserId = -1;
     updateStatus();
     showLoggedOutView();
+    updateInvitationsButton();
+}
+
+void MainWindow::onInvitationsClicked()
+{
+    InvitationsDialog dialog(loggedInUserId, this);
+    connect(&dialog, &InvitationsDialog::invitationsChanged, this, [this]() {
+        calendarListWidget->refresh();
+        updateInvitationsButton();
+    });
+
+    dialog.exec();
+    calendarListWidget->refresh();
+    updateInvitationsButton();
 }
 
 void MainWindow::onCalendarSelected(int calendarId)
@@ -105,6 +127,8 @@ void MainWindow::updateStatus()
         loginButton->setEnabled(false);
         registerButton->setEnabled(false);
         logoutButton->setEnabled(true);
+        invitationsButton->setVisible(true);
+        invitationsButton->setEnabled(true);
     }
     else
     {
@@ -112,7 +136,28 @@ void MainWindow::updateStatus()
         loginButton->setEnabled(true);
         registerButton->setEnabled(true);
         logoutButton->setEnabled(false);
+        invitationsButton->setVisible(false);
+        invitationsButton->setEnabled(false);
     }
+}
+
+void MainWindow::updateInvitationsButton()
+{
+    if (loggedInUserId == -1)
+    {
+        invitationsButton->setText("Invitations");
+        invitationsButton->setVisible(false);
+        invitationsButton->setEnabled(false);
+        return;
+    }
+
+    InvitationManager invitationManager;
+    const int count = invitationManager.getPendingInvitationCountForUser(loggedInUserId);
+    invitationsButton->setText(count > 0
+        ? QString("Invitations (%1)").arg(count)
+        : "Invitations");
+    invitationsButton->setVisible(true);
+    invitationsButton->setEnabled(true);
 }
 
 void MainWindow::showLoggedInView()
@@ -125,5 +170,7 @@ void MainWindow::showLoggedInView()
 void MainWindow::showLoggedOutView()
 {
     calendarListWidget->setUserId(-1);
+    calendarGridWidget->setUserId(-1);
+    calendarGridWidget->setCalendarId(-1);
     stackedWidget->setCurrentWidget(loggedOutView);
 }

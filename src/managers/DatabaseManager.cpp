@@ -29,6 +29,9 @@ bool DatabaseManager::openDatabase()
         return false;
     }
 
+    QSqlQuery pragma(db);
+    pragma.exec("PRAGMA foreign_keys = ON");
+
     return createTables();
 }
 
@@ -87,6 +90,34 @@ bool DatabaseManager::createTables()
         "created_by INTEGER NOT NULL,"
         "FOREIGN KEY(calendar_id) REFERENCES calendars(id),"
         "FOREIGN KEY(created_by) REFERENCES users(id))"
+    ))
+    {
+        qDebug() << query.lastError().text();
+        return false;
+    }
+
+    if (!query.exec(
+        "CREATE TABLE IF NOT EXISTS calendar_invitations ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "calendar_id INTEGER NOT NULL,"
+        "inviter_id INTEGER NOT NULL,"
+        "invitee_id INTEGER NOT NULL,"
+        "role TEXT NOT NULL,"
+        "status TEXT NOT NULL DEFAULT 'pending',"
+        "created_at TEXT NOT NULL,"
+        "FOREIGN KEY(calendar_id) REFERENCES calendars(id),"
+        "FOREIGN KEY(inviter_id) REFERENCES users(id),"
+        "FOREIGN KEY(invitee_id) REFERENCES users(id))"
+    ))
+    {
+        qDebug() << query.lastError().text();
+        return false;
+    }
+
+    if (!query.exec(
+        "CREATE UNIQUE INDEX IF NOT EXISTS idx_unique_pending_invitation "
+        "ON calendar_invitations(calendar_id, invitee_id) "
+        "WHERE status = 'pending'"
     ))
     {
         qDebug() << query.lastError().text();

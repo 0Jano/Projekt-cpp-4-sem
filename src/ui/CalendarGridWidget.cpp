@@ -9,8 +9,7 @@
 #include <QListWidget>
 #include <QScrollArea>
 #include <QMouseEvent>
-#include <QApplication>
-#include <QComboBox>
+#include <QTime>
 
 static const QStringList DAY_NAMES = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
@@ -30,9 +29,10 @@ void CalendarGridWidget::setupUi()
     dateRangeLabel->setAlignment(Qt::AlignCenter);
     dateRangeLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
 
-    viewModeCombo = new QComboBox(this);
-    viewModeCombo->addItem("Month", Month);
-    viewModeCombo->addItem("Week", Week);
+    viewModeToggle = new QPushButton("Month", this);
+    viewModeToggle->setCheckable(true);
+    viewModeToggle->setChecked(true);
+    viewModeToggle->setMaximumWidth(100);
 
     addEventButton = new QPushButton("+ New Event", this);
     addEventButton->setEnabled(false);
@@ -44,7 +44,7 @@ void CalendarGridWidget::setupUi()
     navLayout->addWidget(prevButton);
     navLayout->addWidget(dateRangeLabel, 1);
     navLayout->addWidget(nextButton);
-    navLayout->addWidget(viewModeCombo);
+    navLayout->addWidget(viewModeToggle);
 
     gridWidget = new QWidget(this);
     gridLayout = new QGridLayout(gridWidget);
@@ -58,12 +58,12 @@ void CalendarGridWidget::setupUi()
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addLayout(navLayout);
     mainLayout->addWidget(addEventButton);
-    mainLayout->addWidget(scrollArea);
+    mainLayout->addWidget(scrollArea, 1);
 
     connect(prevButton, &QPushButton::clicked, this, &CalendarGridWidget::onPrevClicked);
     connect(nextButton, &QPushButton::clicked, this, &CalendarGridWidget::onNextClicked);
     connect(addEventButton, &QPushButton::clicked, this, &CalendarGridWidget::onAddEventClicked);
-    connect(viewModeCombo, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CalendarGridWidget::onViewModeChanged);
+    connect(viewModeToggle, &QPushButton::toggled, this, &CalendarGridWidget::onViewModeChanged);
 
     updateDateLabel();
     rebuildGrid();
@@ -127,6 +127,9 @@ void CalendarGridWidget::rebuildGrid()
         delete item;
     }
 
+    gridWidget->setMinimumHeight(120);
+    gridWidget->updateGeometry();
+
     if (currentMode == Month) {
         rebuildMonthGrid();
     } else {
@@ -141,8 +144,10 @@ void CalendarGridWidget::rebuildMonthGrid()
         QLabel *header = new QLabel(DAY_NAMES[col], gridWidget);
         header->setAlignment(Qt::AlignCenter);
         header->setStyleSheet("font-weight: bold; color: gray;");
+        header->setFixedHeight(28);
         gridLayout->addWidget(header, 0, col);
     }
+    gridLayout->setRowStretch(0, 0);
 
     const int daysInMonth = currentStartDate.daysInMonth();
     const int firstDayOfWeek = currentStartDate.dayOfWeek() - 1;
@@ -155,7 +160,8 @@ void CalendarGridWidget::rebuildMonthGrid()
         const QDate date(currentStartDate.year(), currentStartDate.month(), day);
         QFrame *cell = new QFrame(gridWidget);
         cell->setFrameShape(QFrame::StyledPanel);
-        cell->setMinimumSize(80, 70);
+        cell->setMinimumWidth(80);
+        cell->setMinimumHeight(120);
 
         const bool isToday = (QDate::currentDate() == date);
         if (isToday)
@@ -171,6 +177,9 @@ void CalendarGridWidget::rebuildMonthGrid()
         dayLabel->setAlignment(Qt::AlignRight);
         if (isToday)
             dayLabel->setStyleSheet("font-weight: bold;");
+        dayLabel->setCursor(Qt::PointingHandCursor);
+        dayLabel->setProperty("date", date);
+        dayLabel->installEventFilter(this);
         cellLayout->addWidget(dayLabel);
         cellLayout->addStretch();
 
@@ -182,24 +191,15 @@ void CalendarGridWidget::rebuildMonthGrid()
             QLabel *countLabel = new QLabel(countText, cell);
             countLabel->setStyleSheet("color: #1a73e8; font-size: 11px;");
             countLabel->setAlignment(Qt::AlignCenter);
+            countLabel->setCursor(Qt::PointingHandCursor);
+            countLabel->setProperty("date", date);
+            countLabel->installEventFilter(this);
             cellLayout->addWidget(countLabel);
-
-            const std::vector<Event> &dayEvents = it->second;
-
-            cell->setCursor(Qt::PointingHandCursor);
-            cell->setProperty("clickable", true);
-            
-            QPushButton *clickOverlay = new QPushButton(cell);
-            clickOverlay->setFlat(true);
-            clickOverlay->setStyleSheet("QPushButton { background: transparent; border: none; }");
-            clickOverlay->setObjectName("overlay");
-            clickOverlay->setGeometry(0, 0, cell->width(), cell->height());
-            
-            connect(clickOverlay, &QPushButton::clicked, this, [this, date, dayEvents]() {
-                showDayPopup(date, dayEvents);
-            });
-            cell->installEventFilter(this);
         }
+
+        cell->setCursor(Qt::PointingHandCursor);
+        cell->setProperty("date", date);
+        cell->installEventFilter(this);
 
         gridLayout->addWidget(cell, row, col);
 
@@ -213,6 +213,9 @@ void CalendarGridWidget::rebuildMonthGrid()
 
     for (int c = 0; c < 7; ++c)
         gridLayout->setColumnStretch(c, 1);
+
+    for (int r = 1; r <= 6; ++r)
+        gridLayout->setRowStretch(r, 1);
 }
 
 void CalendarGridWidget::rebuildWeekGrid()
@@ -222,12 +225,10 @@ void CalendarGridWidget::rebuildWeekGrid()
         const QDate date = currentStartDate.addDays(col);
         const bool isToday = (QDate::currentDate() == date);
 
-        QVBoxLayout *colLayout = new QVBoxLayout();
-        
         QLabel *header = new QLabel(DAY_NAMES[col], gridWidget);
         header->setAlignment(Qt::AlignCenter);
         header->setStyleSheet(isToday ? "font-weight: bold; color: #1a73e8;" : "font-weight: bold; color: gray;");
-        
+
         QLabel *dayNum = new QLabel(QString::number(date.day()), gridWidget);
         dayNum->setAlignment(Qt::AlignCenter);
         if (isToday)
@@ -240,6 +241,8 @@ void CalendarGridWidget::rebuildWeekGrid()
         hLayout->addWidget(header);
         hLayout->addWidget(dayNum);
         hLayout->setContentsMargins(0, 5, 0, 5);
+        hLayout->setSpacing(0);
+        headerFrame->setMaximumHeight(50);
         
         gridLayout->addWidget(headerFrame, 0, col);
 
@@ -247,6 +250,9 @@ void CalendarGridWidget::rebuildWeekGrid()
         cell->setFrameShape(QFrame::StyledPanel);
         cell->setMinimumSize(100, 300);
         cell->setStyleSheet("QFrame { border: 1px solid #e0e0e0; border-radius: 4px; background-color: white; }");
+        cell->setCursor(Qt::PointingHandCursor);
+        cell->setProperty("date", date);
+        cell->installEventFilter(this);
 
         QVBoxLayout *cellLayout = new QVBoxLayout(cell);
         cellLayout->setContentsMargins(2, 2, 2, 2);
@@ -267,26 +273,41 @@ void CalendarGridWidget::rebuildWeekGrid()
                 cellLayout->addWidget(evBtn);
             }
         }
+        
         cellLayout->addStretch();
+        
         gridLayout->addWidget(cell, 1, col);
     }
 
     for (int c = 0; c < 7; ++c)
         gridLayout->setColumnStretch(c, 1);
+    gridLayout->setRowStretch(0, 0);
     gridLayout->setRowStretch(1, 1);
 }
 
 bool CalendarGridWidget::eventFilter(QObject *obj, QEvent *event)
 {
-    if (event->type() == QEvent::Resize)
+    if (event->type() == QEvent::MouseButtonRelease)
     {
-        QWidget *cell = qobject_cast<QWidget *>(obj);
-        if (cell)
-        {
-            QPushButton *overlay = cell->findChild<QPushButton *>("overlay");
-            if (overlay)
-                overlay->setGeometry(0, 0, cell->width(), cell->height());
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() != Qt::LeftButton)
+            return QWidget::eventFilter(obj, event);
+
+        QWidget *widget = qobject_cast<QWidget *>(obj);
+        if (!widget)
+            return QWidget::eventFilter(obj, event);
+
+        const QDate date = widget->property("date").toDate();
+        if (!date.isValid())
+            return QWidget::eventFilter(obj, event);
+
+        const auto it = eventsByDay.find(date);
+        if (it == eventsByDay.end()) {
+            createEventForDate(date);
+        } else {
+            showDayPopup(date, it->second);
         }
+        return true;
     }
     return QWidget::eventFilter(obj, event);
 }
@@ -295,7 +316,7 @@ void CalendarGridWidget::showDayPopup(const QDate &date, const std::vector<Event
 {
     QDialog popup(this);
     popup.setWindowTitle(date.toString("dddd, MMMM d, yyyy"));
-    popup.setMinimumWidth(320);
+    popup.setMinimumWidth(380);
 
     QListWidget *listWidget = new QListWidget(&popup);
 
@@ -307,24 +328,126 @@ void CalendarGridWidget::showDayPopup(const QDate &date, const std::vector<Event
 
         const QString text = QString("%1\n%2").arg(event.getTitle(), time);
         QListWidgetItem *item = new QListWidgetItem(text, listWidget);
+        item->setData(Qt::UserRole, event.getId());
         item->setToolTip(event.getDescription().isEmpty()
                          ? event.getTitle()
                          : event.getDescription());
     }
 
+    QPushButton *addButton = new QPushButton("+ Add", &popup);
+    QPushButton *editButton = new QPushButton("Edit", &popup);
+    editButton->setEnabled(false);
+    QPushButton *deleteButton = new QPushButton("Delete", &popup);
+    deleteButton->setEnabled(false);
+    QPushButton *closeButton = new QPushButton("Close", &popup);
+
+    connect(listWidget, &QListWidget::itemSelectionChanged, this, [editButton, deleteButton, listWidget]() {
+        bool hasSelection = !listWidget->selectedItems().isEmpty();
+        editButton->setEnabled(hasSelection);
+        deleteButton->setEnabled(hasSelection);
+    });
+
+    connect(addButton, &QPushButton::clicked, this, [this, &popup, date]() {
+        createEventForDate(date);
+        popup.accept();
+    });
+
+    connect(editButton, &QPushButton::clicked, this, [this, &popup, listWidget, date, events]() {
+        QListWidgetItem *selectedItem = listWidget->currentItem();
+        if (!selectedItem) return;
+
+        int eventId = selectedItem->data(Qt::UserRole).toInt();
+        const Event *selectedEvent = nullptr;
+        for (const Event &e : events) {
+            if (e.getId() == eventId) {
+                selectedEvent = &e;
+                break;
+            }
+        }
+        if (!selectedEvent) return;
+
+        editEvent(*selectedEvent);
+        popup.accept();
+    });
+
+    connect(deleteButton, &QPushButton::clicked, this, [this, &popup, listWidget, events]() {
+        QListWidgetItem *selectedItem = listWidget->currentItem();
+        if (!selectedItem) return;
+
+        int eventId = selectedItem->data(Qt::UserRole).toInt();
+        
+        EventManager eventManager;
+        if (eventManager.deleteEvent(eventId)) {
+            refresh();
+            popup.accept();
+        }
+    });
+
+    connect(closeButton, &QPushButton::clicked, &popup, &QDialog::accept);
+
     QVBoxLayout *layout = new QVBoxLayout(&popup);
     layout->addWidget(new QLabel(QString("%1 event(s)").arg(events.size()), &popup));
     layout->addWidget(listWidget);
 
-    QPushButton *closeButton = new QPushButton("Close", &popup);
-    connect(closeButton, &QPushButton::clicked, &popup, &QDialog::accept);
-
     QHBoxLayout *btnLayout = new QHBoxLayout();
+    btnLayout->addWidget(addButton);
+    btnLayout->addWidget(editButton);
+    btnLayout->addWidget(deleteButton);
     btnLayout->addStretch();
     btnLayout->addWidget(closeButton);
     layout->addLayout(btnLayout);
 
     popup.exec();
+}
+
+void CalendarGridWidget::editEvent(const Event &event)
+{
+    CreateEventDialog dialog(this);
+    dialog.setWindowTitle("Edit Event");
+    dialog.setTitle(event.getTitle());
+    dialog.setDescription(event.getDescription());
+    dialog.setLocation(event.getLocation());
+    dialog.setStartDateTime(event.getStartDateTime());
+    dialog.setEndDateTime(event.getEndDateTime());
+
+    if (dialog.exec() == QDialog::Accepted) {
+        EventManager eventManager;
+        Event updatedEvent(event.getId(), event.getCalendarId(), dialog.getTitle(),
+                          dialog.getDescription(), dialog.getLocation(),
+                          dialog.getStartDateTime(), dialog.getEndDateTime(),
+                          event.getCreatedBy());
+        if (eventManager.updateEvent(updatedEvent)) {
+            refresh();
+        }
+    }
+}
+
+void CalendarGridWidget::createEventForDate(const QDate &date)
+{
+    CreateEventDialog dialog(this);
+    const QDateTime start(date, QTime(QTime::currentTime().hour(), 0));
+    dialog.setStartDateTime(start);
+    dialog.setEndDateTime(start.addSecs(3600));
+
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        EventManager eventManager;
+        Event newEvent(
+            -1,
+            calendarId,
+            dialog.getTitle(),
+            dialog.getDescription(),
+            dialog.getLocation(),
+            dialog.getStartDateTime(),
+            dialog.getEndDateTime(),
+            userId
+        );
+
+        if (eventManager.createEvent(newEvent))
+        {
+            refresh();
+        }
+    }
 }
 
 void CalendarGridWidget::onPrevClicked()
@@ -351,15 +474,18 @@ void CalendarGridWidget::onNextClicked()
     rebuildGrid();
 }
 
-void CalendarGridWidget::onViewModeChanged(int index)
+void CalendarGridWidget::onViewModeChanged(bool checked)
 {
-    currentMode = static_cast<ViewMode>(viewModeCombo->itemData(index).toInt());
+    currentMode = checked ? Month : Week;
+    viewModeToggle->setText(currentMode == Month ? "Month" : "Week");
     
     if (currentMode == Month) {
-        currentStartDate = QDate(currentStartDate.year(), currentStartDate.month(), 1);
+        QDate focusDate = currentStartDate.addDays(3);
+        currentStartDate = QDate(focusDate.year(), focusDate.month(), 1);
     } else {
-        int daysToMonday = currentStartDate.dayOfWeek() - 1;
-        currentStartDate = currentStartDate.addDays(-daysToMonday);
+        QDate today = QDate::currentDate();
+        int daysToMonday = today.dayOfWeek() - 1;
+        currentStartDate = today.addDays(-daysToMonday);
     }
 
     updateDateLabel();
@@ -388,25 +514,15 @@ void CalendarGridWidget::updateDateLabel()
 
 void CalendarGridWidget::onAddEventClicked()
 {
-    CreateEventDialog dialog(this);
-    if (dialog.exec() == QDialog::Accepted)
-    {
-        EventManager eventManager;
-        Event newEvent(
-            -1,
-            calendarId,
-            dialog.getTitle(),
-            dialog.getDescription(),
-            dialog.getLocation(),
-            dialog.getStartDateTime(),
-            dialog.getEndDateTime(),
-            userId
-        );
+    const QDate today = QDate::currentDate();
+    QDate date = currentStartDate;
 
-        if (eventManager.createEvent(newEvent))
-        {
-            loadEvents();
-            rebuildGrid();
-        }
+    if (currentMode == Month) {
+        if (today.year() == currentStartDate.year() && today.month() == currentStartDate.month())
+            date = today;
+    } else if (today >= currentStartDate && today <= currentStartDate.addDays(6)) {
+        date = today;
     }
+
+    createEventForDate(date);
 }

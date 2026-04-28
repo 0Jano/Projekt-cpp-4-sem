@@ -21,6 +21,12 @@ public:
     QDateTime getStartDateTime() const;
     QDateTime getEndDateTime() const;
 
+    void setTitle(const QString &title);
+    void setDescription(const QString &description);
+    void setLocation(const QString &location);
+    void setStartDateTime(const QDateTime &dateTime);
+    void setEndDateTime(const QDateTime &dateTime);
+
 private slots:
     void onCreateClicked();
 

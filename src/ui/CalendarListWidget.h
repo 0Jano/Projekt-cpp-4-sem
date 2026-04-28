@@ -23,12 +23,15 @@ signals:
 
 private slots:
     void onAddClicked();
+    void onShareClicked();
     void onItemClicked(QListWidgetItem *item);
+    void onSelectionChanged();
 
 private:
     int userId;
     QListWidget *listWidget;
     QPushButton *addButton;
+    QPushButton *shareButton;
     QLabel *titleLabel;
 
     std::vector<Calendar> calendars;

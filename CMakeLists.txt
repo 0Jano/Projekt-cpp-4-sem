@@ -18,15 +18,19 @@ add_executable(SyncCal
     src/ui/RegisterDialog.cpp
     src/ui/CalendarListWidget.cpp
     src/ui/CreateCalendarDialog.cpp
+    src/ui/ShareCalendarDialog.cpp
     src/ui/CalendarGridWidget.cpp
     src/ui/CreateEventDialog.cpp
+    src/ui/InvitationsDialog.cpp
 
     src/models/User.cpp
     src/models/Calendar.cpp
     src/models/Event.cpp
+    src/models/CalendarInvitation.cpp
 
     src/managers/AuthManager.cpp
     src/managers/CalendarManager.cpp
+    src/managers/InvitationManager.cpp
     src/managers/DatabaseManager.cpp
     src/managers/EventManager.cpp
 )

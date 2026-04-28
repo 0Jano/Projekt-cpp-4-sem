@@ -106,3 +106,28 @@ QDateTime CreateEventDialog::getEndDateTime() const
 {
     return endDateTimeEdit->dateTime();
 }
+
+void CreateEventDialog::setTitle(const QString &title)
+{
+    titleEdit->setText(title);
+}
+
+void CreateEventDialog::setDescription(const QString &description)
+{
+    descriptionEdit->setPlainText(description);
+}
+
+void CreateEventDialog::setLocation(const QString &location)
+{
+    locationEdit->setText(location);
+}
+
+void CreateEventDialog::setStartDateTime(const QDateTime &dateTime)
+{
+    startDateTimeEdit->setDateTime(dateTime);
+}
+
+void CreateEventDialog::setEndDateTime(const QDateTime &dateTime)
+{
+    endDateTimeEdit->setDateTime(dateTime);
+}
