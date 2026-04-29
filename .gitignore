@@ -4,5 +4,7 @@ build/
 *.so
 *.out
 *.git*
-GEMINI.md
+*.env
+.codex
 .github/
+*.db
