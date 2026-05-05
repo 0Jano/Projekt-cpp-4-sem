@@ -91,6 +91,40 @@ bool EventManager::deleteEvent(int eventId)
     return query.exec();
 }
 
+bool EventManager::hasConflict(int calendarId, const QDateTime &start, const QDateTime &end, int ignoredEventId)
+{
+    QSqlDatabase db = DatabaseManager::instance().getDatabase();
+    QSqlQuery query(db);
+
+    QString sql = "SELECT 1 FROM events "
+                  "WHERE calendar_id = :calendar_id "
+                  "AND start_datetime < :new_end "
+                  "AND end_datetime > :new_start";
+
+    if (ignoredEventId != -1)
+    {
+        sql += " AND id != :ignored_event_id";
+    }
+
+    sql += " LIMIT 1";
+
+    query.prepare(sql);
+    query.bindValue(":calendar_id", calendarId);
+    query.bindValue(":new_start", start.toString(Qt::ISODate));
+    query.bindValue(":new_end", end.toString(Qt::ISODate));
+
+    if (ignoredEventId != -1)
+        query.bindValue(":ignored_event_id", ignoredEventId);
+
+    if (!query.exec())
+    {
+        qWarning() << "Failed to check event conflict:" << query.lastError().text();
+        return false;
+    }
+
+    return query.next();
+}
+
 std::vector<Event> EventManager::getEventsForCalendar(int calendarId) const
 {
     std::vector<Event> result;

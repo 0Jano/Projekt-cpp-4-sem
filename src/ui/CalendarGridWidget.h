@@ -10,6 +10,8 @@
 #include <map>
 #include "models/Event.h"
 
+class QListWidget;
+
 class CalendarGridWidget : public QWidget
 {
     Q_OBJECT
@@ -52,6 +54,7 @@ private:
     void rebuildMonthGrid();
     void rebuildWeekGrid();
     void showDayPopup(const QDate &date, const std::vector<Event> &events);
+    void populateDayEventsList(QListWidget *listWidget, QLabel *countLabel, const std::vector<Event> &events);
     void editEvent(const Event &event);
     void createEventForDate(const QDate &date);
     bool canManageEvents() const;

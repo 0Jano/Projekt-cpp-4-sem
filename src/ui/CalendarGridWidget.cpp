@@ -25,6 +25,20 @@ static void showMessageBoxWithoutButtonIcons(QWidget *parent, QMessageBox::Icon 
     messageBox.exec();
 }
 
+static bool confirmSaveConflictingEvent(QWidget *parent)
+{
+    QMessageBox messageBox(
+        QMessageBox::Question,
+        "Event conflict",
+        "This event overlaps with another event in this calendar. Save anyway?",
+        QMessageBox::Yes | QMessageBox::No,
+        parent);
+    messageBox.setDefaultButton(QMessageBox::No);
+    for (QAbstractButton *button : messageBox.buttons())
+        button->setIcon(QIcon());
+    return messageBox.exec() == QMessageBox::Yes;
+}
+
 CalendarGridWidget::CalendarGridWidget(QWidget *parent)
     : QWidget(parent), calendarId(-1), userId(-1), 
       currentStartDate(QDate::currentDate().year(), QDate::currentDate().month(), 1),
@@ -331,21 +345,9 @@ void CalendarGridWidget::showDayPopup(const QDate &date, const std::vector<Event
     popup.setWindowTitle(date.toString("dddd, MMMM d, yyyy"));
     popup.setMinimumWidth(380);
 
+    QLabel *countLabel = new QLabel(&popup);
     QListWidget *listWidget = new QListWidget(&popup);
-
-    for (const Event &event : events)
-    {
-        const QString time = event.getStartDateTime().toString("HH:mm")
-                           + " – "
-                           + event.getEndDateTime().toString("HH:mm");
-
-        const QString text = QString("%1\n%2").arg(event.getTitle(), time);
-        QListWidgetItem *item = new QListWidgetItem(text, listWidget);
-        item->setData(Qt::UserRole, event.getId());
-        item->setToolTip(event.getDescription().isEmpty()
-                         ? event.getTitle()
-                         : event.getDescription());
-    }
+    populateDayEventsList(listWidget, countLabel, events);
 
     QPushButton *addButton = new QPushButton("+ Add", &popup);
     addButton->setEnabled(canManageEvents());
@@ -390,7 +392,7 @@ void CalendarGridWidget::showDayPopup(const QDate &date, const std::vector<Event
         popup.accept();
     });
 
-    connect(deleteButton, &QPushButton::clicked, this, [this, &popup, listWidget, events]() {
+    connect(deleteButton, &QPushButton::clicked, this, [this, listWidget, countLabel, date]() {
         if (!canManageEvents()) {
             showPermissionDenied();
             return;
@@ -404,14 +406,17 @@ void CalendarGridWidget::showDayPopup(const QDate &date, const std::vector<Event
         EventManager eventManager;
         if (eventManager.deleteEvent(eventId)) {
             refresh();
-            popup.accept();
+            const auto it = eventsByDay.find(date);
+            populateDayEventsList(listWidget,
+                                  countLabel,
+                                  it == eventsByDay.end() ? std::vector<Event>() : it->second);
         }
     });
 
     connect(closeButton, &QPushButton::clicked, &popup, &QDialog::accept);
 
     QVBoxLayout *layout = new QVBoxLayout(&popup);
-    layout->addWidget(new QLabel(QString("%1 event(s)").arg(events.size()), &popup));
+    layout->addWidget(countLabel);
     layout->addWidget(listWidget);
 
     QHBoxLayout *btnLayout = new QHBoxLayout();
@@ -423,6 +428,33 @@ void CalendarGridWidget::showDayPopup(const QDate &date, const std::vector<Event
     layout->addLayout(btnLayout);
 
     popup.exec();
+}
+
+void CalendarGridWidget::populateDayEventsList(QListWidget *listWidget, QLabel *countLabel, const std::vector<Event> &events)
+{
+    listWidget->clear();
+    countLabel->setText(QString("%1 event(s)").arg(events.size()));
+
+    if (events.empty())
+    {
+        QListWidgetItem *item = new QListWidgetItem("No events", listWidget);
+        item->setFlags(item->flags() & ~Qt::ItemIsSelectable);
+        return;
+    }
+
+    for (const Event &event : events)
+    {
+        const QString time = event.getStartDateTime().toString("HH:mm")
+                           + " – "
+                           + event.getEndDateTime().toString("HH:mm");
+
+        const QString text = QString("%1\n%2").arg(event.getTitle(), time);
+        QListWidgetItem *item = new QListWidgetItem(text, listWidget);
+        item->setData(Qt::UserRole, event.getId());
+        item->setToolTip(event.getDescription().isEmpty()
+                         ? event.getTitle()
+                         : event.getDescription());
+    }
 }
 
 void CalendarGridWidget::editEvent(const Event &event)
@@ -447,6 +479,14 @@ void CalendarGridWidget::editEvent(const Event &event)
                           dialog.getDescription(), dialog.getLocation(),
                           dialog.getStartDateTime(), dialog.getEndDateTime(),
                           event.getCreatedBy());
+
+        if (eventManager.hasConflict(updatedEvent.getCalendarId(),
+                                     updatedEvent.getStartDateTime(),
+                                     updatedEvent.getEndDateTime(),
+                                     updatedEvent.getId())
+            && !confirmSaveConflictingEvent(this))
+            return;
+
         if (eventManager.updateEvent(updatedEvent)) {
             refresh();
         }
@@ -489,6 +529,12 @@ void CalendarGridWidget::createEventForDate(const QDate &date)
             dialog.getEndDateTime(),
             userId
         );
+
+        if (eventManager.hasConflict(newEvent.getCalendarId(),
+                                     newEvent.getStartDateTime(),
+                                     newEvent.getEndDateTime())
+            && !confirmSaveConflictingEvent(this))
+            return;
 
         if (eventManager.createEvent(newEvent))
         {
