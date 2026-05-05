@@ -23,7 +23,6 @@ void MainWindow::setupUi()
     QWidget *centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
 
-    titleLabel = new QLabel("Welcome to SyncCal", this);
     statusLabel = new QLabel("Not logged in.", this);
     loginButton = new QPushButton("Log in", this);
     registerButton = new QPushButton("Register", this);
@@ -34,7 +33,6 @@ void MainWindow::setupUi()
     logoutButton->setEnabled(false);
 
     QHBoxLayout *topBar = new QHBoxLayout();
-    topBar->addWidget(titleLabel);
     topBar->addStretch();
     topBar->addWidget(statusLabel);
     topBar->addWidget(invitationsButton);

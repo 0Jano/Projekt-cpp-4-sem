@@ -5,6 +5,6 @@ build/
 *.out
 *.git*
 *.env
-.codex
+.*
 .github/
 *.db
