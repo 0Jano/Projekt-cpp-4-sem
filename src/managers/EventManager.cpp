@@ -2,11 +2,25 @@
 #include "managers/DatabaseManager.h"
 
 #include <QSqlQuery>
+#include <QSqlError>
 #include <QVariant>
 #include <QDateTime>
+#include <QDebug>
 
 bool EventManager::createEvent(const Event &event)
 {
+    if (event.getCalendarId() <= 0)
+    {
+        qWarning() << "Cannot create event without a valid calendar id.";
+        return false;
+    }
+
+    if (event.getStartDateTime() >= event.getEndDateTime())
+    {
+        qWarning() << "Cannot create event with invalid date range.";
+        return false;
+    }
+
     QSqlDatabase db = DatabaseManager::instance().getDatabase();
     QSqlQuery query(db);
 
@@ -22,11 +36,23 @@ bool EventManager::createEvent(const Event &event)
     query.bindValue(":end_datetime", event.getEndDateTime().toString(Qt::ISODate));
     query.bindValue(":created_by", event.getCreatedBy());
 
-    return query.exec();
+    if (!query.exec())
+    {
+        qWarning() << "Failed to create event:" << query.lastError().text();
+        return false;
+    }
+
+    return true;
 }
 
 bool EventManager::updateEvent(const Event &event)
 {
+    if (event.getStartDateTime() >= event.getEndDateTime())
+    {
+        qWarning() << "Cannot update event with invalid date range.";
+        return false;
+    }
+
     QSqlDatabase db = DatabaseManager::instance().getDatabase();
     QSqlQuery query(db);
 
@@ -45,7 +71,13 @@ bool EventManager::updateEvent(const Event &event)
     query.bindValue(":end_datetime", event.getEndDateTime().toString(Qt::ISODate));
     query.bindValue(":id", event.getId());
 
-    return query.exec();
+    if (!query.exec())
+    {
+        qWarning() << "Failed to update event:" << query.lastError().text();
+        return false;
+    }
+
+    return true;
 }
 
 bool EventManager::deleteEvent(int eventId)

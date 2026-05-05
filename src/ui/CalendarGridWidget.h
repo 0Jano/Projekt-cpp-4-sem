@@ -54,6 +54,9 @@ private:
     void showDayPopup(const QDate &date, const std::vector<Event> &events);
     void editEvent(const Event &event);
     void createEventForDate(const QDate &date);
+    bool canManageEvents() const;
+    void showPermissionDenied();
+    void updateEventControls();
     void updateDateLabel();
     bool eventFilter(QObject *obj, QEvent *event) override;
 };

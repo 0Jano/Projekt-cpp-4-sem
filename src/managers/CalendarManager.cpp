@@ -4,6 +4,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>
+#include <QDebug>
 
 bool CalendarManager::createCalendar(const QString &name, int ownerId, const QString &type)
 {
@@ -45,6 +46,116 @@ bool CalendarManager::addUserToCalendar(int calendarId, int userId, const QStrin
     query.bindValue(":role", role);
 
     return query.exec();
+}
+
+QString CalendarManager::getUserRoleInCalendar(int calendarId, int userId)
+{
+    QSqlDatabase db = DatabaseManager::instance().getDatabase();
+    QSqlQuery query(db);
+
+    query.prepare("SELECT role FROM calendar_members "
+                  "WHERE calendar_id = :calendar_id AND user_id = :user_id");
+    query.bindValue(":calendar_id", calendarId);
+    query.bindValue(":user_id", userId);
+
+    if (!query.exec())
+    {
+        qWarning() << "Failed to get user role in calendar:" << query.lastError().text();
+        return QString();
+    }
+
+    if (!query.next())
+        return QString();
+
+    return query.value(0).toString();
+}
+
+bool CalendarManager::deleteCalendar(int calendarId, int userId)
+{
+    if (getUserRoleInCalendar(calendarId, userId) != "owner")
+        return false;
+
+    QSqlDatabase db = DatabaseManager::instance().getDatabase();
+    if (!db.transaction())
+    {
+        qWarning() << "Failed to start delete calendar transaction:" << db.lastError().text();
+        return false;
+    }
+
+    auto rollback = [&db]() {
+        if (!db.rollback())
+            qWarning() << "Failed to rollback delete calendar transaction:" << db.lastError().text();
+    };
+
+    QSqlQuery query(db);
+
+    query.prepare("DELETE FROM calendar_invitations WHERE calendar_id = :calendar_id");
+    query.bindValue(":calendar_id", calendarId);
+    if (!query.exec())
+    {
+        qWarning() << "Failed to delete calendar invitations:" << query.lastError().text();
+        rollback();
+        return false;
+    }
+
+    query.prepare("DELETE FROM events WHERE calendar_id = :calendar_id");
+    query.bindValue(":calendar_id", calendarId);
+    if (!query.exec())
+    {
+        qWarning() << "Failed to delete calendar events:" << query.lastError().text();
+        rollback();
+        return false;
+    }
+
+    query.prepare("DELETE FROM calendar_members WHERE calendar_id = :calendar_id");
+    query.bindValue(":calendar_id", calendarId);
+    if (!query.exec())
+    {
+        qWarning() << "Failed to delete calendar members:" << query.lastError().text();
+        rollback();
+        return false;
+    }
+
+    query.prepare("DELETE FROM calendars WHERE id = :calendar_id");
+    query.bindValue(":calendar_id", calendarId);
+    if (!query.exec())
+    {
+        qWarning() << "Failed to delete calendar:" << query.lastError().text();
+        rollback();
+        return false;
+    }
+
+    if (!db.commit())
+    {
+        qWarning() << "Failed to commit delete calendar transaction:" << db.lastError().text();
+        rollback();
+        return false;
+    }
+
+    return true;
+}
+
+bool CalendarManager::leaveCalendar(int calendarId, int userId)
+{
+    const QString role = getUserRoleInCalendar(calendarId, userId);
+    if (role.isEmpty() || role == "owner")
+        return false;
+
+    QSqlDatabase db = DatabaseManager::instance().getDatabase();
+    QSqlQuery query(db);
+
+    query.prepare("DELETE FROM calendar_members "
+                  "WHERE calendar_id = :calendar_id AND user_id = :user_id");
+    query.bindValue(":calendar_id", calendarId);
+    query.bindValue(":user_id", userId);
+
+    if (!query.exec())
+    {
+        qWarning() << "Failed to leave calendar:" << query.lastError().text();
+        return false;
+    }
+
+    return query.numRowsAffected() > 0;
 }
 
 std::vector<Calendar> CalendarManager::getCalendarsForUser(int userId) const

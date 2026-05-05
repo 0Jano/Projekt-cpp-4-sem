@@ -1,5 +1,6 @@
 #include "ui/CalendarGridWidget.h"
 #include "managers/EventManager.h"
+#include "managers/CalendarManager.h"
 #include "ui/CreateEventDialog.h"
 
 #include <QVBoxLayout>
@@ -10,8 +11,19 @@
 #include <QScrollArea>
 #include <QMouseEvent>
 #include <QTime>
+#include <QMessageBox>
+#include <QAbstractButton>
+#include <QIcon>
 
 static const QStringList DAY_NAMES = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+
+static void showMessageBoxWithoutButtonIcons(QWidget *parent, QMessageBox::Icon icon, const QString &title, const QString &text)
+{
+    QMessageBox messageBox(icon, title, text, QMessageBox::Ok, parent);
+    for (QAbstractButton *button : messageBox.buttons())
+        button->setIcon(QIcon());
+    messageBox.exec();
+}
 
 CalendarGridWidget::CalendarGridWidget(QWidget *parent)
     : QWidget(parent), calendarId(-1), userId(-1), 
@@ -72,7 +84,7 @@ void CalendarGridWidget::setupUi()
 void CalendarGridWidget::setCalendarId(int id)
 {
     calendarId = id;
-    addEventButton->setEnabled(calendarId != -1);
+    updateEventControls();
     loadEvents();
     rebuildGrid();
 }
@@ -80,6 +92,7 @@ void CalendarGridWidget::setCalendarId(int id)
 void CalendarGridWidget::setUserId(int id)
 {
     userId = id;
+    updateEventControls();
 }
 
 void CalendarGridWidget::refresh()
@@ -335,19 +348,26 @@ void CalendarGridWidget::showDayPopup(const QDate &date, const std::vector<Event
     }
 
     QPushButton *addButton = new QPushButton("+ Add", &popup);
+    addButton->setEnabled(canManageEvents());
     QPushButton *editButton = new QPushButton("Edit", &popup);
     editButton->setEnabled(false);
     QPushButton *deleteButton = new QPushButton("Delete", &popup);
     deleteButton->setEnabled(false);
     QPushButton *closeButton = new QPushButton("Close", &popup);
 
-    connect(listWidget, &QListWidget::itemSelectionChanged, this, [editButton, deleteButton, listWidget]() {
-        bool hasSelection = !listWidget->selectedItems().isEmpty();
-        editButton->setEnabled(hasSelection);
-        deleteButton->setEnabled(hasSelection);
+    connect(listWidget, &QListWidget::itemSelectionChanged, this, [this, editButton, deleteButton, listWidget]() {
+        const bool hasSelection = !listWidget->selectedItems().isEmpty();
+        const bool canManage = canManageEvents();
+        editButton->setEnabled(hasSelection && canManage);
+        deleteButton->setEnabled(hasSelection && canManage);
     });
 
     connect(addButton, &QPushButton::clicked, this, [this, &popup, date]() {
+        if (!canManageEvents()) {
+            showPermissionDenied();
+            return;
+        }
+
         createEventForDate(date);
         popup.accept();
     });
@@ -371,6 +391,11 @@ void CalendarGridWidget::showDayPopup(const QDate &date, const std::vector<Event
     });
 
     connect(deleteButton, &QPushButton::clicked, this, [this, &popup, listWidget, events]() {
+        if (!canManageEvents()) {
+            showPermissionDenied();
+            return;
+        }
+
         QListWidgetItem *selectedItem = listWidget->currentItem();
         if (!selectedItem) return;
 
@@ -402,6 +427,12 @@ void CalendarGridWidget::showDayPopup(const QDate &date, const std::vector<Event
 
 void CalendarGridWidget::editEvent(const Event &event)
 {
+    if (!canManageEvents())
+    {
+        showPermissionDenied();
+        return;
+    }
+
     CreateEventDialog dialog(this);
     dialog.setWindowTitle("Edit Event");
     dialog.setTitle(event.getTitle());
@@ -419,11 +450,27 @@ void CalendarGridWidget::editEvent(const Event &event)
         if (eventManager.updateEvent(updatedEvent)) {
             refresh();
         }
+        else
+        {
+            showMessageBoxWithoutButtonIcons(this, QMessageBox::Warning, "Event", "The event could not be saved.");
+        }
     }
 }
 
 void CalendarGridWidget::createEventForDate(const QDate &date)
 {
+    if (calendarId <= 0)
+    {
+        showMessageBoxWithoutButtonIcons(this, QMessageBox::Warning, "Event", "Select a calendar before creating an event.");
+        return;
+    }
+
+    if (!canManageEvents())
+    {
+        showPermissionDenied();
+        return;
+    }
+
     CreateEventDialog dialog(this);
     const QDateTime start(date, QTime(QTime::currentTime().hour(), 0));
     dialog.setStartDateTime(start);
@@ -447,7 +494,34 @@ void CalendarGridWidget::createEventForDate(const QDate &date)
         {
             refresh();
         }
+        else
+        {
+            showMessageBoxWithoutButtonIcons(this, QMessageBox::Warning, "Event", "The event could not be saved.");
+        }
     }
+}
+
+bool CalendarGridWidget::canManageEvents() const
+{
+    if (calendarId <= 0 || userId <= 0)
+        return false;
+
+    CalendarManager calendarManager;
+    const QString role = calendarManager.getUserRoleInCalendar(calendarId, userId);
+    return role == "owner" || role == "editor";
+}
+
+void CalendarGridWidget::showPermissionDenied()
+{
+    showMessageBoxWithoutButtonIcons(this,
+                                     QMessageBox::Information,
+                                     "Permission denied",
+                                     "You do not have permission to manage events in this calendar.");
+}
+
+void CalendarGridWidget::updateEventControls()
+{
+    addEventButton->setEnabled(canManageEvents());
 }
 
 void CalendarGridWidget::onPrevClicked()

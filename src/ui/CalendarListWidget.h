@@ -24,6 +24,7 @@ signals:
 private slots:
     void onAddClicked();
     void onShareClicked();
+    void onDeleteLeaveClicked();
     void onItemClicked(QListWidgetItem *item);
     void onSelectionChanged();
 
@@ -32,11 +33,13 @@ private:
     QListWidget *listWidget;
     QPushButton *addButton;
     QPushButton *shareButton;
+    QPushButton *deleteLeaveButton;
     QLabel *titleLabel;
 
     std::vector<Calendar> calendars;
 
     void setupUi();
+    void updateActionButtons();
 };
 
 #endif
