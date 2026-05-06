@@ -26,7 +26,7 @@ void CalendarListWidget::setupUi()
 {
     titleLabel = new QLabel("Calendars", this);
     listWidget = new QListWidget(this);
-    addButton = new QPushButton("+ New Calendar", this);
+    addButton = new QPushButton("+ New", this);
     shareButton = new QPushButton("Share", this);
     shareButton->setEnabled(false);
     deleteLeaveButton = new QPushButton("Delete / Leave", this);
