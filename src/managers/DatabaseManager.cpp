@@ -56,13 +56,13 @@ bool DatabaseManager::createTables()
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
         "name TEXT NOT NULL,"
         "owner_id INTEGER NOT NULL,"
-        "type TEXT NOT NULL,"
         "FOREIGN KEY(owner_id) REFERENCES users(id))"
     ))
     {
         qDebug() << query.lastError().text();
         return false;
     }
+    query.exec("ALTER TABLE calendars DROP COLUMN type");
 
     if (!query.exec(
         "CREATE TABLE IF NOT EXISTS calendar_members ("

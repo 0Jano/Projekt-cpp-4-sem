@@ -17,10 +17,6 @@ void CreateCalendarDialog::setupUi()
     nameEdit = new QLineEdit(this);
     nameEdit->setPlaceholderText("calendar name");
 
-    typeCombo = new QComboBox(this);
-    typeCombo->addItem("personal");
-    typeCombo->addItem("shared");
-
     errorLabel = new QLabel(this);
     errorLabel->setStyleSheet("color: red;");
     errorLabel->setVisible(false);
@@ -30,7 +26,6 @@ void CreateCalendarDialog::setupUi()
 
     QFormLayout *formLayout = new QFormLayout();
     formLayout->addRow("Name:", nameEdit);
-    formLayout->addRow("Type:", typeCombo);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addStretch();
@@ -61,9 +56,4 @@ void CreateCalendarDialog::onCreateClicked()
 QString CreateCalendarDialog::getName() const
 {
     return nameEdit->text().trimmed();
-}
-
-QString CreateCalendarDialog::getType() const
-{
-    return typeCombo->currentText();
 }

@@ -7,18 +7,16 @@ class Calendar
 {
 public:
     Calendar();
-    Calendar(int id, const QString &name, int ownerId, const QString &type);
+    Calendar(int id, const QString &name, int ownerId);
 
     int getId() const;
     QString getName() const;
     int getOwnerId() const;
-    QString getType() const;
 
 private:
     int id;
     QString name;
     int ownerId;
-    QString type;
 };
 
 #endif

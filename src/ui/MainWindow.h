@@ -30,7 +30,6 @@ private:
     void showLoggedInView();
     void showLoggedOutView();
 
-    QLabel *titleLabel;
     QLabel *statusLabel;
     QPushButton *loginButton;
     QPushButton *registerButton;

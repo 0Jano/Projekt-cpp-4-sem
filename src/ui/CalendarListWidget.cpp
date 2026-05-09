@@ -86,7 +86,7 @@ void CalendarListWidget::onAddClicked()
     if (dialog.exec() == QDialog::Accepted)
     {
         CalendarManager calendarManager;
-        calendarManager.createCalendar(dialog.getName(), userId, dialog.getType());
+        calendarManager.createCalendar(dialog.getName(), userId);
         refresh();
     }
 }

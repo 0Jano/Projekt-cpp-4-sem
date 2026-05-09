@@ -5,6 +5,12 @@
 #include <QSqlError>
 #include <QVariant>
 #include <QDebug>
+#include <QCryptographicHash>
+
+static QString hashPassword(const QString &password)
+{
+    return QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256).toHex();
+}
 
 bool AuthManager::registerUser(const User &user)
 {
@@ -15,7 +21,7 @@ bool AuthManager::registerUser(const User &user)
                   "VALUES (:username, :email, :password)");
     query.bindValue(":username", user.getUsername());
     query.bindValue(":email", user.getEmail());
-    query.bindValue(":password", user.getPassword());
+    query.bindValue(":password", hashPassword(user.getPassword()));
 
     if (!query.exec())
     {
@@ -33,7 +39,7 @@ bool AuthManager::loginUser(const QString &identifier, const QString &password) 
 
     query.prepare("SELECT id FROM users WHERE (email = :identifier OR username = :identifier) AND password = :password");
     query.bindValue(":identifier", identifier);
-    query.bindValue(":password", password);
+    query.bindValue(":password", hashPassword(password));
 
     if (!query.exec())
     {

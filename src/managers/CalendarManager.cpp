@@ -6,16 +6,15 @@
 #include <QVariant>
 #include <QDebug>
 
-bool CalendarManager::createCalendar(const QString &name, int ownerId, const QString &type)
+bool CalendarManager::createCalendar(const QString &name, int ownerId)
 {
     QSqlDatabase db = DatabaseManager::instance().getDatabase();
     QSqlQuery query(db);
 
-    query.prepare("INSERT INTO calendars (name, owner_id, type) "
-                  "VALUES (:name, :owner_id, :type)");
+    query.prepare("INSERT INTO calendars (name, owner_id) "
+                  "VALUES (:name, :owner_id)");
     query.bindValue(":name", name);
     query.bindValue(":owner_id", ownerId);
-    query.bindValue(":type", type);
 
     if (!query.exec())
     {
@@ -166,7 +165,7 @@ std::vector<Calendar> CalendarManager::getCalendarsForUser(int userId) const
     QSqlQuery query(db);
 
     query.prepare(
-        "SELECT c.id, c.name, c.owner_id, c.type "
+        "SELECT c.id, c.name, c.owner_id "
         "FROM calendars c "
         "JOIN calendar_members cm ON c.id = cm.calendar_id "
         "WHERE cm.user_id = :user_id"
@@ -183,8 +182,7 @@ std::vector<Calendar> CalendarManager::getCalendarsForUser(int userId) const
         result.push_back(Calendar(
             query.value(0).toInt(),
             query.value(1).toString(),
-            query.value(2).toInt(),
-            query.value(3).toString()
+            query.value(2).toInt()
         ));
     }
 

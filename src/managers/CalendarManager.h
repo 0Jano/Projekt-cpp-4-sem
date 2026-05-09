@@ -8,7 +8,7 @@
 class CalendarManager
 {
 public:
-    bool createCalendar(const QString &name, int ownerId, const QString &type);
+    bool createCalendar(const QString &name, int ownerId);
     bool addUserToCalendar(int calendarId, int userId, const QString &role);
     QString getUserRoleInCalendar(int calendarId, int userId);
     bool deleteCalendar(int calendarId, int userId);

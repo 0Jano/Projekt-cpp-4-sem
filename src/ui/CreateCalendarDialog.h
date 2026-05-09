@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include <QLineEdit>
-#include <QComboBox>
 #include <QPushButton>
 #include <QLabel>
 
@@ -15,14 +14,12 @@ public:
     explicit CreateCalendarDialog(QWidget *parent = nullptr);
 
     QString getName() const;
-    QString getType() const;
 
 private slots:
     void onCreateClicked();
 
 private:
     QLineEdit *nameEdit;
-    QComboBox *typeCombo;
     QPushButton *createButton;
     QPushButton *cancelButton;
     QLabel *errorLabel;

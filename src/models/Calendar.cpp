@@ -2,8 +2,8 @@
 
 Calendar::Calendar() : id(-1), ownerId(-1) {}
 
-Calendar::Calendar(int id, const QString &name, int ownerId, const QString &type)
-    : id(id), name(name), ownerId(ownerId), type(type) {}
+Calendar::Calendar(int id, const QString &name, int ownerId)
+    : id(id), name(name), ownerId(ownerId) {}
 
 int Calendar::getId() const
 {
@@ -18,9 +18,4 @@ QString Calendar::getName() const
 int Calendar::getOwnerId() const
 {
     return ownerId;
-}
-
-QString Calendar::getType() const
-{
-    return type;
 }
