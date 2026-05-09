@@ -11,6 +11,7 @@
 #include "models/Event.h"
 
 class QListWidget;
+class QFrame;
 
 class CalendarGridWidget : public QWidget
 {
@@ -52,6 +53,7 @@ private:
     void loadEvents();
     void rebuildGrid();
     void rebuildMonthGrid();
+    QFrame *makeOverflowCell(const QDate &date);
     void rebuildWeekGrid();
     void showDayPopup(const QDate &date, const std::vector<Event> &events);
     void populateDayEventsList(QListWidget *listWidget, QLabel *countLabel, const std::vector<Event> &events);

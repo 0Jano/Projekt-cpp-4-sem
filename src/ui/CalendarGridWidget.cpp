@@ -164,6 +164,34 @@ void CalendarGridWidget::rebuildGrid()
     }
 }
 
+QFrame *CalendarGridWidget::makeOverflowCell(const QDate &date)
+{
+    QFrame *cell = new QFrame(gridWidget);
+    cell->setFrameShape(QFrame::StyledPanel);
+    cell->setMinimumWidth(80);
+    cell->setMinimumHeight(120);
+    cell->setStyleSheet("QFrame { background-color: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 4px; }");
+
+    QVBoxLayout *cellLayout = new QVBoxLayout(cell);
+    cellLayout->setContentsMargins(4, 4, 4, 4);
+    cellLayout->setSpacing(2);
+
+    QLabel *dayLabel = new QLabel(QString::number(date.day()), cell);
+    dayLabel->setAlignment(Qt::AlignRight);
+    dayLabel->setStyleSheet("color: #bdbdbd;");
+    dayLabel->setCursor(Qt::PointingHandCursor);
+    dayLabel->setProperty("date", date);
+    dayLabel->installEventFilter(this);
+    cellLayout->addWidget(dayLabel);
+    cellLayout->addStretch();
+
+    cell->setCursor(Qt::PointingHandCursor);
+    cell->setProperty("date", date);
+    cell->installEventFilter(this);
+
+    return cell;
+}
+
 void CalendarGridWidget::rebuildMonthGrid()
 {
     for (int col = 0; col < 7; ++col)
@@ -181,6 +209,12 @@ void CalendarGridWidget::rebuildMonthGrid()
 
     int col = firstDayOfWeek;
     int row = 1;
+
+    for (int c = 0; c < firstDayOfWeek; ++c)
+    {
+        const QDate date = currentStartDate.addDays(c - firstDayOfWeek);
+        gridLayout->addWidget(makeOverflowCell(date), row, c);
+    }
 
     for (int day = 1; day <= daysInMonth; ++day)
     {
@@ -235,6 +269,19 @@ void CalendarGridWidget::rebuildMonthGrid()
         {
             col = 0;
             row++;
+        }
+    }
+
+    if (col != 0)
+    {
+        const QDate nextMonthStart = currentStartDate.addMonths(1);
+        int nextDay = 0;
+        while (col < 7)
+        {
+            const QDate date = nextMonthStart.addDays(nextDay);
+            gridLayout->addWidget(makeOverflowCell(date), row, col);
+            ++nextDay;
+            ++col;
         }
     }
 
