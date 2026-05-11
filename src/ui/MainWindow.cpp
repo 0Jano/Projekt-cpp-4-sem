@@ -160,8 +160,8 @@ void MainWindow::updateInvitationsButton()
 
 void MainWindow::showLoggedInView()
 {
-    calendarListWidget->setUserId(loggedInUserId);
     calendarGridWidget->setUserId(loggedInUserId);
+    calendarListWidget->setUserId(loggedInUserId);
     stackedWidget->setCurrentWidget(loggedInView);
 }
 

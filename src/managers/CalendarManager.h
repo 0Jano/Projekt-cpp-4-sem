@@ -13,6 +13,9 @@ public:
     QString getUserRoleInCalendar(int calendarId, int userId);
     bool deleteCalendar(int calendarId, int userId);
     bool leaveCalendar(int calendarId, int userId);
+    bool setFavoriteCalendar(int userId, int calendarId);
+    bool clearFavoriteCalendar(int userId);
+    int getFavoriteCalendarId(int userId);
     std::vector<Calendar> getCalendarsForUser(int userId) const;
 };
 

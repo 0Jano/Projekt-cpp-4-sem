@@ -88,6 +88,16 @@ bool CalendarManager::deleteCalendar(int calendarId, int userId)
 
     QSqlQuery query(db);
 
+    query.prepare("UPDATE users SET favorite_calendar_id = NULL "
+                  "WHERE favorite_calendar_id = :calendar_id");
+    query.bindValue(":calendar_id", calendarId);
+    if (!query.exec())
+    {
+        qWarning() << "Failed to clear favorite calendar:" << query.lastError().text();
+        rollback();
+        return false;
+    }
+
     query.prepare("DELETE FROM calendar_invitations WHERE calendar_id = :calendar_id");
     query.bindValue(":calendar_id", calendarId);
     if (!query.exec())
@@ -141,7 +151,29 @@ bool CalendarManager::leaveCalendar(int calendarId, int userId)
         return false;
 
     QSqlDatabase db = DatabaseManager::instance().getDatabase();
+    if (!db.transaction())
+    {
+        qWarning() << "Failed to start leave calendar transaction:" << db.lastError().text();
+        return false;
+    }
+
+    auto rollback = [&db]() {
+        if (!db.rollback())
+            qWarning() << "Failed to rollback leave calendar transaction:" << db.lastError().text();
+    };
+
     QSqlQuery query(db);
+
+    query.prepare("UPDATE users SET favorite_calendar_id = NULL "
+                  "WHERE id = :user_id AND favorite_calendar_id = :calendar_id");
+    query.bindValue(":user_id", userId);
+    query.bindValue(":calendar_id", calendarId);
+    if (!query.exec())
+    {
+        qWarning() << "Failed to clear favorite calendar:" << query.lastError().text();
+        rollback();
+        return false;
+    }
 
     query.prepare("DELETE FROM calendar_members "
                   "WHERE calendar_id = :calendar_id AND user_id = :user_id");
@@ -151,10 +183,94 @@ bool CalendarManager::leaveCalendar(int calendarId, int userId)
     if (!query.exec())
     {
         qWarning() << "Failed to leave calendar:" << query.lastError().text();
+        rollback();
+        return false;
+    }
+
+    if (query.numRowsAffected() <= 0)
+    {
+        rollback();
+        return false;
+    }
+
+    if (!db.commit())
+    {
+        qWarning() << "Failed to commit leave calendar transaction:" << db.lastError().text();
+        rollback();
+        return false;
+    }
+
+    return true;
+}
+
+bool CalendarManager::setFavoriteCalendar(int userId, int calendarId)
+{
+    if (getUserRoleInCalendar(calendarId, userId).isEmpty())
+        return false;
+
+    QSqlDatabase db = DatabaseManager::instance().getDatabase();
+    QSqlQuery query(db);
+
+    query.prepare("UPDATE users SET favorite_calendar_id = :calendar_id "
+                  "WHERE id = :user_id");
+    query.bindValue(":calendar_id", calendarId);
+    query.bindValue(":user_id", userId);
+
+    if (!query.exec())
+    {
+        qWarning() << "Failed to set favorite calendar:" << query.lastError().text();
         return false;
     }
 
     return query.numRowsAffected() > 0;
+}
+
+bool CalendarManager::clearFavoriteCalendar(int userId)
+{
+    QSqlDatabase db = DatabaseManager::instance().getDatabase();
+    QSqlQuery query(db);
+
+    query.prepare("UPDATE users SET favorite_calendar_id = NULL "
+                  "WHERE id = :user_id");
+    query.bindValue(":user_id", userId);
+
+    if (!query.exec())
+    {
+        qWarning() << "Failed to clear favorite calendar:" << query.lastError().text();
+        return false;
+    }
+
+    return query.numRowsAffected() > 0;
+}
+
+int CalendarManager::getFavoriteCalendarId(int userId)
+{
+    QSqlDatabase db = DatabaseManager::instance().getDatabase();
+    QSqlQuery query(db);
+
+    query.prepare("SELECT favorite_calendar_id FROM users WHERE id = :user_id");
+    query.bindValue(":user_id", userId);
+
+    if (!query.exec())
+    {
+        qWarning() << "Failed to get favorite calendar:" << query.lastError().text();
+        return -1;
+    }
+
+    if (!query.next() || query.value(0).isNull())
+        return -1;
+
+    const int calendarId = query.value(0).toInt();
+    if (!getUserRoleInCalendar(calendarId, userId).isEmpty())
+        return calendarId;
+
+    QSqlQuery clearQuery(db);
+    clearQuery.prepare("UPDATE users SET favorite_calendar_id = NULL WHERE id = :user_id");
+    clearQuery.bindValue(":user_id", userId);
+    if (!clearQuery.exec())
+        qWarning() << "Failed to clear inaccessible favorite calendar:" << clearQuery.lastError().text();
+
+    return -1;
 }
 
 std::vector<Calendar> CalendarManager::getCalendarsForUser(int userId) const

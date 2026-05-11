@@ -44,11 +44,40 @@ bool DatabaseManager::createTables()
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
         "username TEXT NOT NULL,"
         "email TEXT NOT NULL UNIQUE,"
-        "password TEXT NOT NULL)"
+        "password TEXT NOT NULL,"
+        "favorite_calendar_id INTEGER,"
+        "FOREIGN KEY(favorite_calendar_id) REFERENCES calendars(id))"
     ))
     {
         qDebug() << query.lastError().text();
         return false;
+    }
+
+    QSqlQuery tableInfo(db);
+    if (!tableInfo.exec("PRAGMA table_info(users)"))
+    {
+        qDebug() << tableInfo.lastError().text();
+        return false;
+    }
+
+    bool hasFavoriteCalendarColumn = false;
+    while (tableInfo.next())
+    {
+        if (tableInfo.value(1).toString() == "favorite_calendar_id")
+        {
+            hasFavoriteCalendarColumn = true;
+            break;
+        }
+    }
+
+    if (!hasFavoriteCalendarColumn)
+    {
+        QSqlQuery alterQuery(db);
+        if (!alterQuery.exec("ALTER TABLE users ADD COLUMN favorite_calendar_id INTEGER"))
+        {
+            qDebug() << alterQuery.lastError().text();
+            return false;
+        }
     }
 
     if (!query.exec(
