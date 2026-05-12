@@ -356,7 +356,13 @@ void CalendarListWidget::selectInitialCalendar(bool selectFavorite)
 
     selectedCalendarId = -1;
     if (selectFavorite && containsCalendar(favoriteCalendarId))
+    {
         selectCalendar(favoriteCalendarId, true);
+        return;
+    }
+
+    if (selectFavorite && !calendars.empty())
+        selectCalendar(calendars.front().getId(), true);
 }
 
 bool CalendarListWidget::containsCalendar(int calendarId) const

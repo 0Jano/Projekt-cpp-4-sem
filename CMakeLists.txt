@@ -33,6 +33,7 @@ add_executable(SyncCal
     src/managers/InvitationManager.cpp
     src/managers/DatabaseManager.cpp
     src/managers/EventManager.cpp
+    src/managers/IcsManager.cpp
 )
 
 target_include_directories(SyncCal PRIVATE

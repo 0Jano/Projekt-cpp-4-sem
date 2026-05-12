@@ -29,6 +29,8 @@ private slots:
     void onPrevClicked();
     void onNextClicked();
     void onAddEventClicked();
+    void onImportIcsClicked();
+    void onExportIcsClicked();
     void onViewModeChanged(bool checked);
 
 private:
@@ -42,6 +44,8 @@ private:
     QPushButton *prevButton;
     QPushButton *nextButton;
     QPushButton *addEventButton;
+    QPushButton *importIcsButton;
+    QPushButton *exportIcsButton;
     QPushButton *viewModeToggle;
     
     QGridLayout *gridLayout;

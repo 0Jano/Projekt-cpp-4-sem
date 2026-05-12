@@ -1,6 +1,7 @@
 #include "ui/CalendarGridWidget.h"
 #include "managers/EventManager.h"
 #include "managers/CalendarManager.h"
+#include "managers/IcsManager.h"
 #include "ui/CreateEventDialog.h"
 
 #include <QVBoxLayout>
@@ -12,6 +13,7 @@
 #include <QMouseEvent>
 #include <QTime>
 #include <QMessageBox>
+#include <QFileDialog>
 #include <QAbstractButton>
 #include <QIcon>
 
@@ -62,6 +64,10 @@ void CalendarGridWidget::setupUi()
 
     addEventButton = new QPushButton("+ New Event", this);
     addEventButton->setEnabled(false);
+    importIcsButton = new QPushButton("Import .ics", this);
+    importIcsButton->setEnabled(false);
+    exportIcsButton = new QPushButton("Export .ics", this);
+    exportIcsButton->setEnabled(false);
 
     prevButton->setFixedWidth(32);
     nextButton->setFixedWidth(32);
@@ -83,12 +89,20 @@ void CalendarGridWidget::setupUi()
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addLayout(navLayout);
-    mainLayout->addWidget(addEventButton);
+
+    QHBoxLayout *actionsLayout = new QHBoxLayout();
+    actionsLayout->addWidget(addEventButton);
+    actionsLayout->addWidget(importIcsButton);
+    actionsLayout->addWidget(exportIcsButton);
+    actionsLayout->addStretch();
+    mainLayout->addLayout(actionsLayout);
     mainLayout->addWidget(scrollArea, 1);
 
     connect(prevButton, &QPushButton::clicked, this, &CalendarGridWidget::onPrevClicked);
     connect(nextButton, &QPushButton::clicked, this, &CalendarGridWidget::onNextClicked);
     connect(addEventButton, &QPushButton::clicked, this, &CalendarGridWidget::onAddEventClicked);
+    connect(importIcsButton, &QPushButton::clicked, this, &CalendarGridWidget::onImportIcsClicked);
+    connect(exportIcsButton, &QPushButton::clicked, this, &CalendarGridWidget::onExportIcsClicked);
     connect(viewModeToggle, &QPushButton::toggled, this, &CalendarGridWidget::onViewModeChanged);
 
     updateDateLabel();
@@ -614,7 +628,12 @@ void CalendarGridWidget::showPermissionDenied()
 
 void CalendarGridWidget::updateEventControls()
 {
-    addEventButton->setEnabled(canManageEvents());
+    const bool hasCalendar = calendarId > 0;
+    const bool canManage = canManageEvents();
+
+    addEventButton->setEnabled(canManage);
+    importIcsButton->setEnabled(canManage);
+    exportIcsButton->setEnabled(hasCalendar);
 }
 
 void CalendarGridWidget::onPrevClicked()
@@ -692,4 +711,72 @@ void CalendarGridWidget::onAddEventClicked()
     }
 
     createEventForDate(date);
+}
+
+void CalendarGridWidget::onImportIcsClicked()
+{
+    if (calendarId <= 0)
+    {
+        showMessageBoxWithoutButtonIcons(this, QMessageBox::Warning, "Import .ics", "Select a calendar before importing events.");
+        return;
+    }
+
+    if (!canManageEvents())
+    {
+        showPermissionDenied();
+        return;
+    }
+
+    const QString filePath = QFileDialog::getOpenFileName(
+        this,
+        "Import .ics",
+        QString(),
+        "iCalendar files (*.ics);;All files (*)"
+    );
+
+    if (filePath.isEmpty())
+        return;
+
+    IcsManager icsManager;
+    if (icsManager.importEventsFromIcs(calendarId, userId, filePath))
+    {
+        refresh();
+        showMessageBoxWithoutButtonIcons(this, QMessageBox::Information, "Import .ics", "Events imported successfully.");
+    }
+    else
+    {
+        showMessageBoxWithoutButtonIcons(this, QMessageBox::Warning, "Import .ics", "No events could be imported.");
+    }
+}
+
+void CalendarGridWidget::onExportIcsClicked()
+{
+    if (calendarId <= 0)
+    {
+        showMessageBoxWithoutButtonIcons(this, QMessageBox::Warning, "Export .ics", "Select a calendar before exporting events.");
+        return;
+    }
+
+    QString filePath = QFileDialog::getSaveFileName(
+        this,
+        "Export .ics",
+        "calendar.ics",
+        "iCalendar files (*.ics);;All files (*)"
+    );
+
+    if (filePath.isEmpty())
+        return;
+
+    if (!filePath.endsWith(".ics", Qt::CaseInsensitive))
+        filePath += ".ics";
+
+    IcsManager icsManager;
+    if (icsManager.exportCalendarToIcs(calendarId, filePath))
+    {
+        showMessageBoxWithoutButtonIcons(this, QMessageBox::Information, "Export .ics", "Calendar exported successfully.");
+    }
+    else
+    {
+        showMessageBoxWithoutButtonIcons(this, QMessageBox::Warning, "Export .ics", "The calendar could not be exported.");
+    }
 }
