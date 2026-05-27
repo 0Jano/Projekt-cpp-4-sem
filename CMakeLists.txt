@@ -10,19 +10,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-add_executable(SyncCal
-    src/main.cpp
-
-    src/ui/MainWindow.cpp
-    src/ui/LoginDialog.cpp
-    src/ui/RegisterDialog.cpp
-    src/ui/CalendarListWidget.cpp
-    src/ui/CreateCalendarDialog.cpp
-    src/ui/ShareCalendarDialog.cpp
-    src/ui/CalendarGridWidget.cpp
-    src/ui/CreateEventDialog.cpp
-    src/ui/InvitationsDialog.cpp
-
+add_library(SyncalCore
     src/models/User.cpp
     src/models/Calendar.cpp
     src/models/Event.cpp
@@ -36,12 +24,67 @@ add_executable(SyncCal
     src/managers/IcsManager.cpp
 )
 
+target_include_directories(SyncalCore PUBLIC
+    src
+)
+
+target_link_libraries(SyncalCore PUBLIC
+    Qt6::Core
+    Qt6::Sql
+)
+
+add_executable(SyncCal
+    src/main.cpp
+
+    src/ui/MainWindow.cpp
+    src/ui/LoginDialog.cpp
+    src/ui/RegisterDialog.cpp
+    src/ui/CalendarListWidget.cpp
+    src/ui/CreateCalendarDialog.cpp
+    src/ui/ShareCalendarDialog.cpp
+    src/ui/CalendarGridWidget.cpp
+    src/ui/CreateEventDialog.cpp
+    src/ui/InvitationsDialog.cpp
+)
+
 target_include_directories(SyncCal PRIVATE
     src
 )
 
 target_link_libraries(SyncCal PRIVATE
+    SyncalCore
     Qt6::Widgets
-    Qt6::Sql
-    Qt6::Core
 )
+
+# Enable testing and add GoogleTest via FetchContent
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/heads/main.zip
+)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+# Unit test executable
+add_executable(UnitTests
+    tests/main.cpp
+    tests/AuthManagerTest.cpp
+    tests/DatabaseManagerTest.cpp
+    tests/EventManagerTest.cpp
+)
+
+target_include_directories(UnitTests PRIVATE
+    src
+)
+
+target_link_libraries(UnitTests PRIVATE
+    SyncalCore
+    GTest::gtest
+)
+
+include(GoogleTest)
+# Discover tests
+gtest_discover_tests(UnitTests)

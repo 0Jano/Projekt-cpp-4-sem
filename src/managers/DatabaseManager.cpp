@@ -11,7 +11,7 @@ DatabaseManager& DatabaseManager::instance()
     return instance;
 }
 
-bool DatabaseManager::openDatabase()
+bool DatabaseManager::openDatabase(const QString &databaseName)
 {
     if (QSqlDatabase::contains("synccal_connection"))
     {
@@ -20,7 +20,16 @@ bool DatabaseManager::openDatabase()
     else
     {
         db = QSqlDatabase::addDatabase("QSQLITE", "synccal_connection");
-        db.setDatabaseName("synccal.db");
+    }
+
+    if (db.isOpen() && db.databaseName() != databaseName)
+    {
+        db.close();
+    }
+
+    if (!db.isOpen())
+    {
+        db.setDatabaseName(databaseName);
     }
 
     if (!db.open())

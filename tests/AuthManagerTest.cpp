@@ -1,12 +1,16 @@
 #include <gtest/gtest.h>
 #include "managers/AuthManager.h"
+#include "managers/DatabaseManager.h"
 #include "models/User.h"
+
+#include <QSqlQuery>
 
 // Test fixture for AuthManager
 class AuthManagerTest : public ::testing::Test {
 protected:
     void SetUp() override {
-        // Setup code if needed
+        DatabaseManager::instance().openDatabase(":memory:");
+        clearDatabase();
     }
 
     void TearDown() override {
@@ -14,6 +18,17 @@ protected:
     }
 
     AuthManager authManager;
+
+private:
+    void clearDatabase() {
+        QSqlDatabase db = DatabaseManager::instance().getDatabase();
+        QSqlQuery query(db);
+        query.exec("DELETE FROM calendar_invitations");
+        query.exec("DELETE FROM events");
+        query.exec("DELETE FROM calendar_members");
+        query.exec("DELETE FROM calendars");
+        query.exec("DELETE FROM users");
+    }
 };
 
 // Test registering a new user
