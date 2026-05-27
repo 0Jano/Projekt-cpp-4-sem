@@ -12,11 +12,29 @@
 #include <QIcon>
 #include <QMouseEvent>
 #include <QSizePolicy>
+#include <QFrame>
+#include <QColor>
+#include <QFont>
 
 static void setCalendarCardActionButtonSize(QPushButton *button)
 {
-    button->setFixedSize(70, 28);
+    button->setFixedSize(24, 24);
     button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+}
+
+static QString calendarColor(int calendarId)
+{
+    switch (calendarId % 4)
+    {
+    case 1:
+        return "#0F6E56";
+    case 2:
+        return "#993C1D";
+    case 3:
+        return "#3C3489";
+    default:
+        return "#185FA5";
+    }
 }
 
 CalendarCardWidget::CalendarCardWidget(int calendarId,
@@ -27,22 +45,33 @@ CalendarCardWidget::CalendarCardWidget(int calendarId,
                                        QWidget *parent)
     : QWidget(parent), calendarId(calendarId)
 {
+    colorDot = new QLabel(this);
     nameLabel = new QLabel(name, this);
-    shareButton = new QPushButton("Share", this);
-    deleteLeaveButton = new QPushButton(role == "owner" ? "Delete" : "Leave", this);
+    shareButton = new QPushButton("S", this);
+    deleteLeaveButton = new QPushButton(role == "owner" ? "D" : "L", this);
     starButton = new QPushButton(this);
 
+    colorDot->setFixedSize(9, 9);
+    colorDot->setStyleSheet(QString("background: %1; border-radius: 4px;").arg(calendarColor(calendarId)));
     nameLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    nameLabel->setStyleSheet("font-size: 13px; color: #202124;");
     nameLabel->setAttribute(Qt::WA_TransparentForMouseEvents);
     setCalendarCardActionButtonSize(shareButton);
     setCalendarCardActionButtonSize(deleteLeaveButton);
     setCalendarCardActionButtonSize(starButton);
+    shareButton->setToolTip("Share");
+    deleteLeaveButton->setToolTip(role == "owner" ? "Delete" : "Leave");
+    starButton->setToolTip("Favorite");
+    shareButton->setFlat(true);
+    deleteLeaveButton->setFlat(true);
+    starButton->setFlat(true);
     shareButton->setEnabled(role == "owner");
     deleteLeaveButton->setEnabled(!role.isEmpty());
 
     QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setContentsMargins(10, 8, 10, 8);
+    layout->setContentsMargins(8, 5, 6, 5);
     layout->setSpacing(6);
+    layout->addWidget(colorDot);
     layout->addWidget(nameLabel, 1);
     layout->addWidget(shareButton);
     layout->addWidget(deleteLeaveButton);
@@ -75,10 +104,10 @@ void CalendarCardWidget::setSelected(bool selected)
 
 void CalendarCardWidget::setFavorite(bool favorite)
 {
-    starButton->setText(favorite ? "Starred" : "Star");
+    starButton->setText(favorite ? "*" : "☆");
     starButton->setStyleSheet(favorite
-        ? "QPushButton { font-weight: bold; }"
-        : QString());
+        ? "QPushButton { border: none; background: transparent; color: #185FA5; font-weight: bold; padding: 0; }"
+        : "QPushButton { border: none; background: transparent; color: #888888; padding: 0; }");
 }
 
 void CalendarCardWidget::mousePressEvent(QMouseEvent *event)
@@ -90,8 +119,8 @@ void CalendarCardWidget::mousePressEvent(QMouseEvent *event)
 void CalendarCardWidget::updateStyle(bool selected)
 {
     setStyleSheet(selected
-        ? "CalendarCardWidget { background: #e9f2ff; border: 1px solid #7aa7d9; border-radius: 6px; }"
-        : "CalendarCardWidget { background: #ffffff; border: 1px solid #d0d0d0; border-radius: 6px; }");
+        ? "CalendarCardWidget { background: #E6F1FB; border: none; border-radius: 6px; }"
+        : "CalendarCardWidget { background: transparent; border: none; border-radius: 6px; }");
 }
 
 static void clearMessageBoxButtonIcons(QMessageBox *messageBox)
@@ -110,10 +139,15 @@ void CalendarListWidget::setupUi()
 {
     titleLabel = new QLabel("Calendars", this);
     listWidget = new QListWidget(this);
-    addButton = new QPushButton("+ New", this);
-    listWidget->setSpacing(6);
+    addButton = new QPushButton("+ New calendar", this);
+    listWidget->setSpacing(2);
     listWidget->setSelectionMode(QAbstractItemView::SingleSelection);
     listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    listWidget->setFrameShape(QFrame::NoFrame);
+    listWidget->setStyleSheet("QListWidget { border: none; background: transparent; } QListWidget::item { padding: 0; }");
+    titleLabel->setVisible(false);
+    addButton->setFlat(true);
+    addButton->setStyleSheet("QPushButton { border: none; background: transparent; color: #888888; text-align: left; padding: 5px 4px; } QPushButton:hover { background: #F1F3F4; }");
 
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addWidget(addButton);
@@ -124,7 +158,7 @@ void CalendarListWidget::setupUi()
     mainLayout->addWidget(listWidget);
     mainLayout->addLayout(buttonLayout);
 
-    setFixedWidth(360);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     connect(addButton, &QPushButton::clicked, this, &CalendarListWidget::onAddClicked);
     connect(listWidget, &QListWidget::itemClicked, this, &CalendarListWidget::onItemClicked);
@@ -154,12 +188,22 @@ void CalendarListWidget::refresh(bool selectFavorite)
     calendars = calendarManager.getCalendarsForUser(userId);
     favoriteCalendarId = calendarManager.getFavoriteCalendarId(userId);
 
-    for (const Calendar &calendar : calendars)
-    {
+    auto addSectionHeader = [this](const QString &title) {
+        QListWidgetItem *headerItem = new QListWidgetItem(title.toUpper(), listWidget);
+        headerItem->setFlags(Qt::ItemIsEnabled);
+        headerItem->setSizeHint(QSize(0, 28));
+        headerItem->setForeground(QColor("#888888"));
+        QFont font = headerItem->font();
+        font.setPointSize(8);
+        font.setBold(true);
+        headerItem->setFont(font);
+    };
+
+    auto addCalendarItem = [this, &calendarManager](const Calendar &calendar) {
         const QString role = calendarManager.getUserRoleInCalendar(calendar.getId(), userId);
         QListWidgetItem *item = new QListWidgetItem(listWidget);
         item->setData(Qt::UserRole, calendar.getId());
-        item->setSizeHint(QSize(0, 58));
+        item->setSizeHint(QSize(0, 36));
 
         CalendarCardWidget *card = new CalendarCardWidget(
             calendar.getId(),
@@ -178,6 +222,20 @@ void CalendarListWidget::refresh(bool selectFavorite)
         connect(card, &CalendarCardWidget::favoriteRequested, this, &CalendarListWidget::onStarClicked);
 
         listWidget->setItemWidget(item, card);
+    };
+
+    addSectionHeader("My calendars");
+    for (const Calendar &calendar : calendars)
+    {
+        if (calendar.getOwnerId() == userId)
+            addCalendarItem(calendar);
+    }
+
+    addSectionHeader("Shared");
+    for (const Calendar &calendar : calendars)
+    {
+        if (calendar.getOwnerId() != userId)
+            addCalendarItem(calendar);
     }
 
     selectInitialCalendar(selectFavorite);
@@ -319,6 +377,8 @@ void CalendarListWidget::onStarClicked(int calendarId)
 void CalendarListWidget::onItemClicked(QListWidgetItem *item)
 {
     if (!item)
+        return;
+    if (!listWidget->itemWidget(item))
         return;
 
     const int calendarId = item->data(Qt::UserRole).toInt();

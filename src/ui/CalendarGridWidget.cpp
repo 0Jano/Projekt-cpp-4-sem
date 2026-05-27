@@ -16,8 +16,24 @@
 #include <QFileDialog>
 #include <QAbstractButton>
 #include <QIcon>
+#include <QButtonGroup>
 
 static const QStringList DAY_NAMES = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+
+static QString eventChipStyle(int calendarId)
+{
+    switch (calendarId % 4)
+    {
+    case 1:
+        return "QLabel { background: #E1F5EE; color: #0F6E56; border-radius: 3px; padding: 1px 5px; font-size: 11px; }";
+    case 2:
+        return "QLabel { background: #FAECE7; color: #993C1D; border-radius: 3px; padding: 1px 5px; font-size: 11px; }";
+    case 3:
+        return "QLabel { background: #EEEDFE; color: #3C3489; border-radius: 3px; padding: 1px 5px; font-size: 11px; }";
+    default:
+        return "QLabel { background: #E6F1FB; color: #185FA5; border-radius: 3px; padding: 1px 5px; font-size: 11px; }";
+    }
+}
 
 static void showMessageBoxWithoutButtonIcons(QWidget *parent, QMessageBox::Icon icon, const QString &title, const QString &text)
 {
@@ -54,33 +70,61 @@ void CalendarGridWidget::setupUi()
     prevButton = new QPushButton("<", this);
     nextButton = new QPushButton(">", this);
     dateRangeLabel = new QLabel(this);
-    dateRangeLabel->setAlignment(Qt::AlignCenter);
+    dateRangeLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     dateRangeLabel->setStyleSheet("font-size: 16px; font-weight: bold;");
 
-    viewModeToggle = new QPushButton("Month", this);
-    viewModeToggle->setCheckable(true);
-    viewModeToggle->setChecked(true);
-    viewModeToggle->setMaximumWidth(100);
-
-    addEventButton = new QPushButton("+ New Event", this);
-    addEventButton->setEnabled(false);
-    importIcsButton = new QPushButton("Import .ics", this);
+    todayButton = new QPushButton("Today", this);
+    importIcsButton = new QPushButton("^ Import .ics", this);
     importIcsButton->setEnabled(false);
-    exportIcsButton = new QPushButton("Export .ics", this);
+    exportIcsButton = new QPushButton("v Export .ics", this);
     exportIcsButton->setEnabled(false);
+    monthViewButton = new QPushButton("Month", this);
+    weekViewButton = new QPushButton("Week", this);
+    monthViewButton->setCheckable(true);
+    weekViewButton->setCheckable(true);
+    monthViewButton->setChecked(true);
 
-    prevButton->setFixedWidth(32);
-    nextButton->setFixedWidth(32);
+    prevButton->setFixedSize(30, 30);
+    nextButton->setFixedSize(30, 30);
+    const QString navButtonStyle = "QPushButton { padding: 0; border: 1px solid #DADADA; border-radius: 6px; background: white; }";
+    prevButton->setStyleSheet(navButtonStyle);
+    nextButton->setStyleSheet(navButtonStyle);
+    todayButton->setStyleSheet("QPushButton { background: white; border: 1px solid #DADADA; padding: 4px 10px; }");
+
+    QButtonGroup *viewGroup = new QButtonGroup(this);
+    viewGroup->setExclusive(true);
+    viewGroup->addButton(monthViewButton);
+    viewGroup->addButton(weekViewButton);
+
+    QFrame *viewSwitch = new QFrame(this);
+    viewSwitch->setStyleSheet("QFrame { border: 1px solid #DADADA; border-radius: 6px; background: white; }");
+    QHBoxLayout *viewSwitchLayout = new QHBoxLayout(viewSwitch);
+    viewSwitchLayout->setContentsMargins(1, 1, 1, 1);
+    viewSwitchLayout->setSpacing(0);
+    viewSwitchLayout->addWidget(monthViewButton);
+    viewSwitchLayout->addWidget(weekViewButton);
+
+    const QString segmentStyle =
+        "QPushButton { border: none; border-radius: 5px; padding: 4px 10px; background: transparent; }"
+        "QPushButton:checked { background: #E6F1FB; color: #185FA5; font-weight: 600; }";
+    monthViewButton->setStyleSheet(segmentStyle);
+    weekViewButton->setStyleSheet(segmentStyle);
 
     QHBoxLayout *navLayout = new QHBoxLayout();
+    navLayout->setContentsMargins(0, 0, 0, 8);
+    navLayout->setSpacing(8);
     navLayout->addWidget(prevButton);
-    navLayout->addWidget(dateRangeLabel, 1);
     navLayout->addWidget(nextButton);
-    navLayout->addWidget(viewModeToggle);
+    navLayout->addWidget(dateRangeLabel);
+    navLayout->addWidget(todayButton);
+    navLayout->addWidget(importIcsButton);
+    navLayout->addWidget(exportIcsButton);
+    navLayout->addStretch();
+    navLayout->addWidget(viewSwitch);
 
     gridWidget = new QWidget(this);
     gridLayout = new QGridLayout(gridWidget);
-    gridLayout->setSpacing(4);
+    gridLayout->setSpacing(0);
 
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setWidget(gridWidget);
@@ -88,22 +132,17 @@ void CalendarGridWidget::setupUi()
     scrollArea->setFrameShape(QFrame::NoFrame);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins(16, 16, 16, 16);
     mainLayout->addLayout(navLayout);
-
-    QHBoxLayout *actionsLayout = new QHBoxLayout();
-    actionsLayout->addWidget(addEventButton);
-    actionsLayout->addWidget(importIcsButton);
-    actionsLayout->addWidget(exportIcsButton);
-    actionsLayout->addStretch();
-    mainLayout->addLayout(actionsLayout);
     mainLayout->addWidget(scrollArea, 1);
 
     connect(prevButton, &QPushButton::clicked, this, &CalendarGridWidget::onPrevClicked);
     connect(nextButton, &QPushButton::clicked, this, &CalendarGridWidget::onNextClicked);
-    connect(addEventButton, &QPushButton::clicked, this, &CalendarGridWidget::onAddEventClicked);
+    connect(todayButton, &QPushButton::clicked, this, &CalendarGridWidget::onTodayClicked);
     connect(importIcsButton, &QPushButton::clicked, this, &CalendarGridWidget::onImportIcsClicked);
     connect(exportIcsButton, &QPushButton::clicked, this, &CalendarGridWidget::onExportIcsClicked);
-    connect(viewModeToggle, &QPushButton::toggled, this, &CalendarGridWidget::onViewModeChanged);
+    connect(monthViewButton, &QPushButton::toggled, this, &CalendarGridWidget::onViewModeChanged);
+    connect(weekViewButton, &QPushButton::toggled, this, &CalendarGridWidget::onViewModeChanged);
 
     updateDateLabel();
     rebuildGrid();
@@ -184,7 +223,7 @@ QFrame *CalendarGridWidget::makeOverflowCell(const QDate &date)
     cell->setFrameShape(QFrame::StyledPanel);
     cell->setMinimumWidth(80);
     cell->setMinimumHeight(120);
-    cell->setStyleSheet("QFrame { background-color: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 4px; }");
+    cell->setStyleSheet("QFrame { background-color: white; border: 1px solid #EBEBEB; } QFrame:hover { background-color: #F8F9FA; }");
 
     QVBoxLayout *cellLayout = new QVBoxLayout(cell);
     cellLayout->setContentsMargins(4, 4, 4, 4);
@@ -192,7 +231,7 @@ QFrame *CalendarGridWidget::makeOverflowCell(const QDate &date)
 
     QLabel *dayLabel = new QLabel(QString::number(date.day()), cell);
     dayLabel->setAlignment(Qt::AlignRight);
-    dayLabel->setStyleSheet("color: #bdbdbd;");
+    dayLabel->setStyleSheet("font-size: 12px; font-weight: 500; color: #BDBDBD;");
     dayLabel->setCursor(Qt::PointingHandCursor);
     dayLabel->setProperty("date", date);
     dayLabel->installEventFilter(this);
@@ -212,8 +251,10 @@ void CalendarGridWidget::rebuildMonthGrid()
     {
         QLabel *header = new QLabel(DAY_NAMES[col], gridWidget);
         header->setAlignment(Qt::AlignCenter);
-        header->setStyleSheet("font-weight: bold; color: gray;");
-        header->setFixedHeight(28);
+        header->setStyleSheet(col >= 5
+            ? "font-size: 12px; font-weight: 500; color: #E24B4A; border-bottom: 1px solid #E0E0E0;"
+            : "font-size: 12px; font-weight: 500; color: #888888; border-bottom: 1px solid #E0E0E0;");
+        header->setFixedHeight(30);
         gridLayout->addWidget(header, 0, col);
     }
     gridLayout->setRowStretch(0, 0);
@@ -240,9 +281,9 @@ void CalendarGridWidget::rebuildMonthGrid()
 
         const bool isToday = (QDate::currentDate() == date);
         if (isToday)
-            cell->setStyleSheet("QFrame { background-color: #c2e7ff; border: 2px solid #1a73e8; border-radius: 4px; }");
+            cell->setStyleSheet("QFrame { background-color: #EBF4FE; border: 1px solid #EBEBEB; } QFrame:hover { background-color: #E4F0FC; }");
         else
-            cell->setStyleSheet("QFrame { border: 1px solid #e0e0e0; border-radius: 4px; }");
+            cell->setStyleSheet("QFrame { background-color: white; border: 1px solid #EBEBEB; } QFrame:hover { background-color: #F8F9FA; }");
 
         QVBoxLayout *cellLayout = new QVBoxLayout(cell);
         cellLayout->setContentsMargins(4, 4, 4, 4);
@@ -251,7 +292,9 @@ void CalendarGridWidget::rebuildMonthGrid()
         QLabel *dayLabel = new QLabel(QString::number(day), cell);
         dayLabel->setAlignment(Qt::AlignRight);
         if (isToday)
-            dayLabel->setStyleSheet("font-weight: bold;");
+            dayLabel->setStyleSheet("background: #185FA5; color: white; border-radius: 12px; min-width: 24px; min-height: 24px; max-width: 24px; max-height: 24px; font-size: 12px; font-weight: 500;");
+        else
+            dayLabel->setStyleSheet("font-size: 12px; font-weight: 500; color: #202124;");
         dayLabel->setCursor(Qt::PointingHandCursor);
         dayLabel->setProperty("date", date);
         dayLabel->installEventFilter(this);
@@ -261,15 +304,28 @@ void CalendarGridWidget::rebuildMonthGrid()
         const auto it = eventsByDay.find(date);
         if (it != eventsByDay.end())
         {
-            const int count = static_cast<int>(it->second.size());
-            const QString countText = QString("%1 event%2").arg(count).arg(count > 1 ? "s" : "");
-            QLabel *countLabel = new QLabel(countText, cell);
-            countLabel->setStyleSheet("color: #1a73e8; font-size: 11px;");
-            countLabel->setAlignment(Qt::AlignCenter);
-            countLabel->setCursor(Qt::PointingHandCursor);
-            countLabel->setProperty("date", date);
-            countLabel->installEventFilter(this);
-            cellLayout->addWidget(countLabel);
+            const int visibleCount = qMin(3, static_cast<int>(it->second.size()));
+            for (int i = 0; i < visibleCount; ++i)
+            {
+                const Event &event = it->second.at(i);
+                QLabel *chip = new QLabel(event.getStartDateTime().toString("HH:mm") + " " + event.getTitle(), cell);
+                chip->setStyleSheet(eventChipStyle(event.getCalendarId()));
+                chip->setCursor(Qt::PointingHandCursor);
+                chip->setProperty("date", date);
+                chip->installEventFilter(this);
+                cellLayout->addWidget(chip);
+            }
+
+            const int remaining = static_cast<int>(it->second.size()) - visibleCount;
+            if (remaining > 0)
+            {
+                QLabel *moreLabel = new QLabel(QString("+%1 more").arg(remaining), cell);
+                moreLabel->setStyleSheet("QLabel { color: #5F6368; font-size: 11px; padding: 1px 5px; }");
+                moreLabel->setCursor(Qt::PointingHandCursor);
+                moreLabel->setProperty("date", date);
+                moreLabel->installEventFilter(this);
+                cellLayout->addWidget(moreLabel);
+            }
         }
 
         cell->setCursor(Qt::PointingHandCursor);
@@ -315,14 +371,16 @@ void CalendarGridWidget::rebuildWeekGrid()
 
         QLabel *header = new QLabel(DAY_NAMES[col], gridWidget);
         header->setAlignment(Qt::AlignCenter);
-        header->setStyleSheet(isToday ? "font-weight: bold; color: #1a73e8;" : "font-weight: bold; color: gray;");
+        header->setStyleSheet(col >= 5
+            ? "font-size: 12px; font-weight: 500; color: #E24B4A;"
+            : "font-size: 12px; font-weight: 500; color: #888888;");
 
         QLabel *dayNum = new QLabel(QString::number(date.day()), gridWidget);
         dayNum->setAlignment(Qt::AlignCenter);
         if (isToday)
-            dayNum->setStyleSheet("font-weight: bold; background-color: #1a73e8; color: white; border-radius: 12px; min-width: 24px; min-height: 24px;");
+            dayNum->setStyleSheet("background-color: #185FA5; color: white; border-radius: 12px; min-width: 24px; min-height: 24px; max-width: 24px; max-height: 24px; font-size: 12px; font-weight: 500;");
         else
-            dayNum->setStyleSheet("font-size: 14px;");
+            dayNum->setStyleSheet("font-size: 12px; font-weight: 500;");
 
         QFrame *headerFrame = new QFrame(gridWidget);
         QVBoxLayout *hLayout = new QVBoxLayout(headerFrame);
@@ -337,7 +395,9 @@ void CalendarGridWidget::rebuildWeekGrid()
         QFrame *cell = new QFrame(gridWidget);
         cell->setFrameShape(QFrame::StyledPanel);
         cell->setMinimumSize(100, 300);
-        cell->setStyleSheet("QFrame { border: 1px solid #e0e0e0; border-radius: 4px; background-color: white; }");
+        cell->setStyleSheet(isToday
+            ? "QFrame { border: 1px solid #EBEBEB; background-color: #EBF4FE; } QFrame:hover { background-color: #E4F0FC; }"
+            : "QFrame { border: 1px solid #EBEBEB; background-color: white; } QFrame:hover { background-color: #F8F9FA; }");
         cell->setCursor(Qt::PointingHandCursor);
         cell->setProperty("date", date);
         cell->installEventFilter(this);
@@ -352,8 +412,8 @@ void CalendarGridWidget::rebuildWeekGrid()
             for (const Event &ev : it->second)
             {
                 QPushButton *evBtn = new QPushButton(ev.getStartDateTime().toString("HH:mm") + " " + ev.getTitle(), cell);
-                evBtn->setStyleSheet("QPushButton { background-color: #e8f0fe; border: 1px solid #c2e7ff; text-align: left; padding: 2px; font-size: 11px; border-radius: 2px; } "
-                                     "QPushButton:hover { background-color: #d2e3fc; }");
+                evBtn->setStyleSheet(eventChipStyle(ev.getCalendarId()).replace("QLabel", "QPushButton")
+                                     + " QPushButton { text-align: left; border: none; }");
                 
                 connect(evBtn, &QPushButton::clicked, this, [this, date, ev]() {
                     showDayPopup(date, {ev});
@@ -631,7 +691,6 @@ void CalendarGridWidget::updateEventControls()
     const bool hasCalendar = calendarId > 0;
     const bool canManage = canManageEvents();
 
-    addEventButton->setEnabled(canManage);
     importIcsButton->setEnabled(canManage);
     exportIcsButton->setEnabled(hasCalendar);
 }
@@ -662,8 +721,10 @@ void CalendarGridWidget::onNextClicked()
 
 void CalendarGridWidget::onViewModeChanged(bool checked)
 {
-    currentMode = checked ? Month : Week;
-    viewModeToggle->setText(currentMode == Month ? "Month" : "Week");
+    if (!checked)
+        return;
+
+    currentMode = monthViewButton->isChecked() ? Month : Week;
     
     if (currentMode == Month) {
         QDate focusDate = currentStartDate.addDays(3);
@@ -672,6 +733,23 @@ void CalendarGridWidget::onViewModeChanged(bool checked)
         QDate today = QDate::currentDate();
         int daysToMonday = today.dayOfWeek() - 1;
         currentStartDate = today.addDays(-daysToMonday);
+    }
+
+    updateDateLabel();
+    loadEvents();
+    rebuildGrid();
+}
+
+void CalendarGridWidget::onTodayClicked()
+{
+    const QDate today = QDate::currentDate();
+    if (currentMode == Month)
+    {
+        currentStartDate = QDate(today.year(), today.month(), 1);
+    }
+    else
+    {
+        currentStartDate = today.addDays(-(today.dayOfWeek() - 1));
     }
 
     updateDateLabel();

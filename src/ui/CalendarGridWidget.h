@@ -25,10 +25,13 @@ public:
     void refresh();
     void setUserId(int userId);
 
+public slots:
+    void onAddEventClicked();
+
 private slots:
     void onPrevClicked();
     void onNextClicked();
-    void onAddEventClicked();
+    void onTodayClicked();
     void onImportIcsClicked();
     void onExportIcsClicked();
     void onViewModeChanged(bool checked);
@@ -43,10 +46,11 @@ private:
     QLabel *dateRangeLabel;
     QPushButton *prevButton;
     QPushButton *nextButton;
-    QPushButton *addEventButton;
+    QPushButton *todayButton;
     QPushButton *importIcsButton;
     QPushButton *exportIcsButton;
-    QPushButton *viewModeToggle;
+    QPushButton *monthViewButton;
+    QPushButton *weekViewButton;
     
     QGridLayout *gridLayout;
     QWidget *gridWidget;

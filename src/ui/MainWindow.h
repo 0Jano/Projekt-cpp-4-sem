@@ -35,6 +35,11 @@ private:
     QPushButton *registerButton;
     QPushButton *logoutButton;
     QPushButton *invitationsButton;
+    QPushButton *newEventButton;
+    QLabel *userAvatarLabel;
+    QLabel *userNameLabel;
+    QWidget *userPill;
+    QWidget *sidebarWidget;
 
     QWidget *loggedOutView;
     QWidget *loggedInView;

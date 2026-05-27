@@ -38,6 +38,7 @@ protected:
 
 private:
     int calendarId;
+    QLabel *colorDot;
     QLabel *nameLabel;
     QPushButton *shareButton;
     QPushButton *deleteLeaveButton;
