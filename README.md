@@ -49,7 +49,7 @@ Aplikacja jest rozwijana zgodnie z poniższym planem (T = tydzień):
 - [x] **T6:** Integracja z Qt SQL i trwałość danych (SQLite)
 - [x] **T7:** GUI: Widok miesiąca, tygodnia oraz okna dialogowe dodawania wydarzeń
 - [x] **T8:** Współdzielenie kalendarzy i zarządzanie rolami (właściciel/uczestnik)
-- [ ] **T9:** Wykrywanie konfliktów, import/eksport .ics oraz testy jednostkowe (w trakcie rozwijania)
+- [x] **T9:** Wykrywanie konfliktów, import/eksport .ics oraz testy jednostkowe (w trakcie rozwijania)
 - [ ] **T10:** Testy końcowe, dokumentacja i przygotowanie prezentacji
 
 ---
