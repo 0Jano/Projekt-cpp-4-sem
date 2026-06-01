@@ -33,6 +33,7 @@ void MainWindow::setupUi()
     logoText->setStyleSheet("font-size: 15px; font-weight: bold; color: #202124;");
 
     statusLabel = new QLabel(this);
+    statusLabel->setVisible(false);
     loginButton = new QPushButton("Log in", this);
     registerButton = new QPushButton("Register", this);
     logoutButton = new QPushButton("Log out", this);

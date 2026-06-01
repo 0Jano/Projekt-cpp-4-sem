@@ -290,11 +290,24 @@ void CalendarGridWidget::rebuildMonthGrid()
         cellLayout->setSpacing(2);
 
         QLabel *dayLabel = new QLabel(QString::number(day), cell);
-        dayLabel->setAlignment(Qt::AlignRight);
         if (isToday)
-            dayLabel->setStyleSheet("background: #185FA5; color: white; border-radius: 12px; min-width: 24px; min-height: 24px; max-width: 24px; max-height: 24px; font-size: 12px; font-weight: 500;");
+        {
+            dayLabel->setAlignment(Qt::AlignCenter);
+            dayLabel->setFixedSize(26, 26);
+            dayLabel->setStyleSheet(
+                "background: #185FA5;"
+                "color: white;"
+                "border-radius: 13px;"
+                "font-size: 12px;"
+                "font-weight: bold;"
+                "qproperty-alignment: AlignCenter;"
+            );
+        }
         else
+        {
+            dayLabel->setAlignment(Qt::AlignRight | Qt::AlignTop);
             dayLabel->setStyleSheet("font-size: 12px; font-weight: 500; color: #202124;");
+        }
         dayLabel->setCursor(Qt::PointingHandCursor);
         dayLabel->setProperty("date", date);
         dayLabel->installEventFilter(this);
