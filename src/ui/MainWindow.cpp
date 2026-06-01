@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), loggedInUserId(-1)
 {
     setupUi();
-    setWindowTitle("SyncCal");
+    setWindowTitle("SynCal");
     resize(900, 600);
 }
 
@@ -29,7 +29,7 @@ void MainWindow::setupUi()
     logoIcon->setFixedSize(26, 26);
     logoIcon->setAlignment(Qt::AlignCenter);
     logoIcon->setStyleSheet("background: #E6F1FB; color: #185FA5; border-radius: 6px; font-weight: bold;");
-    QLabel *logoText = new QLabel("SyncCal", this);
+    QLabel *logoText = new QLabel("SynCal", this);
     logoText->setStyleSheet("font-size: 15px; font-weight: bold; color: #202124;");
 
     statusLabel = new QLabel(this);
@@ -47,15 +47,13 @@ void MainWindow::setupUi()
     userAvatarLabel->setFixedSize(26, 26);
     userAvatarLabel->setAlignment(Qt::AlignCenter);
     userAvatarLabel->setStyleSheet("background: #185FA5; color: white; border-radius: 13px; font-weight: bold;");
-    userNameLabel = new QLabel(this);
 
     userPill = new QWidget(this);
     userPill->setStyleSheet("QWidget { background: white; border: 1px solid #E0E0E0; border-radius: 16px; } QLabel { border: none; background: transparent; }");
     QHBoxLayout *userPillLayout = new QHBoxLayout(userPill);
-    userPillLayout->setContentsMargins(4, 3, 10, 3);
-    userPillLayout->setSpacing(6);
+    userPillLayout->setContentsMargins(4, 3, 4, 3);
+    userPillLayout->setSpacing(0);
     userPillLayout->addWidget(userAvatarLabel);
-    userPillLayout->addWidget(userNameLabel);
     userPill->setVisible(false);
 
     QHBoxLayout *topBar = new QHBoxLayout();
@@ -71,7 +69,7 @@ void MainWindow::setupUi()
     loggedOutView = new QWidget(this);
     QVBoxLayout *loggedOutLayout = new QVBoxLayout(loggedOutView);
     loggedOutLayout->addStretch();
-    QLabel *loggedOutTitle = new QLabel("SyncCal", loggedOutView);
+    QLabel *loggedOutTitle = new QLabel("SynCal", loggedOutView);
     loggedOutTitle->setAlignment(Qt::AlignCenter);
     loggedOutTitle->setStyleSheet("font-size: 32px; font-weight: bold; color: #202124;");
     QLabel *loggedOutSubtitle = new QLabel("Manage your calendars", loggedOutView);
@@ -184,7 +182,6 @@ void MainWindow::updateStatus()
         const QString displayName = statusLabel->text().isEmpty()
             ? QString("ID %1").arg(loggedInUserId)
             : statusLabel->text();
-        userNameLabel->setText(displayName);
         userAvatarLabel->setText(displayName.left(1).toUpper());
         loginButton->setEnabled(false);
         registerButton->setEnabled(false);

@@ -3,124 +3,19 @@
 #include "ui/ShareCalendarDialog.h"
 #include "managers/CalendarManager.h"
 
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QListWidgetItem>
-#include <QMessageBox>
 #include <QAbstractButton>
-#include <QAbstractItemView>
-#include <QIcon>
-#include <QMouseEvent>
-#include <QSizePolicy>
+#include <QEvent>
 #include <QFrame>
-#include <QColor>
-#include <QFont>
-
-static void setCalendarCardActionButtonSize(QPushButton *button)
-{
-    button->setFixedSize(24, 24);
-    button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-}
+#include <QHBoxLayout>
+#include <QIcon>
+#include <QMessageBox>
+#include <QSizePolicy>
+#include <QStringList>
 
 static QString calendarColor(int calendarId)
 {
-    switch (calendarId % 4)
-    {
-    case 1:
-        return "#0F6E56";
-    case 2:
-        return "#993C1D";
-    case 3:
-        return "#3C3489";
-    default:
-        return "#185FA5";
-    }
-}
-
-CalendarCardWidget::CalendarCardWidget(int calendarId,
-                                       const QString &name,
-                                       const QString &role,
-                                       bool selected,
-                                       bool favorite,
-                                       QWidget *parent)
-    : QWidget(parent), calendarId(calendarId)
-{
-    colorDot = new QLabel(this);
-    nameLabel = new QLabel(name, this);
-    shareButton = new QPushButton("S", this);
-    deleteLeaveButton = new QPushButton(role == "owner" ? "D" : "L", this);
-    starButton = new QPushButton(this);
-
-    colorDot->setFixedSize(9, 9);
-    colorDot->setStyleSheet(QString("background: %1; border-radius: 4px;").arg(calendarColor(calendarId)));
-    nameLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    nameLabel->setStyleSheet("font-size: 13px; color: #202124;");
-    nameLabel->setAttribute(Qt::WA_TransparentForMouseEvents);
-    setCalendarCardActionButtonSize(shareButton);
-    setCalendarCardActionButtonSize(deleteLeaveButton);
-    setCalendarCardActionButtonSize(starButton);
-    shareButton->setToolTip("Share");
-    deleteLeaveButton->setToolTip(role == "owner" ? "Delete" : "Leave");
-    starButton->setToolTip("Favorite");
-    shareButton->setFlat(true);
-    deleteLeaveButton->setFlat(true);
-    starButton->setFlat(true);
-    shareButton->setEnabled(role == "owner");
-    deleteLeaveButton->setEnabled(!role.isEmpty());
-
-    QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setContentsMargins(8, 5, 6, 5);
-    layout->setSpacing(6);
-    layout->addWidget(colorDot);
-    layout->addWidget(nameLabel, 1);
-    layout->addWidget(shareButton);
-    layout->addWidget(deleteLeaveButton);
-    layout->addWidget(starButton);
-
-    setCursor(Qt::PointingHandCursor);
-    setFavorite(favorite);
-    updateStyle(selected);
-
-    connect(shareButton, &QPushButton::clicked, this, [this]() {
-        emit shareRequested(this->calendarId);
-    });
-    connect(deleteLeaveButton, &QPushButton::clicked, this, [this]() {
-        emit deleteLeaveRequested(this->calendarId);
-    });
-    connect(starButton, &QPushButton::clicked, this, [this]() {
-        emit favoriteRequested(this->calendarId);
-    });
-}
-
-int CalendarCardWidget::getCalendarId() const
-{
-    return calendarId;
-}
-
-void CalendarCardWidget::setSelected(bool selected)
-{
-    updateStyle(selected);
-}
-
-void CalendarCardWidget::setFavorite(bool favorite)
-{
-    starButton->setText(favorite ? "*" : "☆");
-    starButton->setStyleSheet(favorite
-        ? "QPushButton { border: none; background: transparent; color: #185FA5; font-weight: bold; padding: 0; }"
-        : "QPushButton { border: none; background: transparent; color: #888888; padding: 0; }");
-}
-
-void CalendarCardWidget::mousePressEvent(QMouseEvent *event)
-{
-    emit selected(calendarId);
-    event->accept();
-}
-
-void CalendarCardWidget::updateStyle(bool selected)
-{
-    setStyleSheet(selected
-        ? "CalendarCardWidget { background: #E6F1FB; border: none; border-radius: 6px; }"
-        : "CalendarCardWidget { background: transparent; border: none; border-radius: 6px; }");
+    const QStringList colors = {"#185FA5", "#1D9E75", "#D85A30", "#7F77DD"};
+    return colors[calendarId % colors.size()];
 }
 
 static void clearMessageBoxButtonIcons(QMessageBox *messageBox)
@@ -137,44 +32,252 @@ CalendarListWidget::CalendarListWidget(QWidget *parent)
 
 void CalendarListWidget::setupUi()
 {
-    titleLabel = new QLabel("Calendars", this);
-    listWidget = new QListWidget(this);
-    addButton = new QPushButton("+ New calendar", this);
-    listWidget->setSpacing(2);
-    listWidget->setSelectionMode(QAbstractItemView::SingleSelection);
-    listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    listWidget->setFrameShape(QFrame::NoFrame);
-    listWidget->setStyleSheet("QListWidget { border: none; background: transparent; } QListWidget::item { padding: 0; }");
-    titleLabel->setVisible(false);
-    addButton->setFlat(true);
-    addButton->setStyleSheet("QPushButton { border: none; background: transparent; color: #888888; text-align: left; padding: 5px 4px; } QPushButton:hover { background: #F1F3F4; }");
+    QWidget *scrollContent = new QWidget(this);
+    scrollContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
-    QHBoxLayout *buttonLayout = new QHBoxLayout();
-    buttonLayout->addWidget(addButton);
-    buttonLayout->addStretch();
+    QVBoxLayout *scrollLayout = new QVBoxLayout(scrollContent);
+    scrollLayout->setContentsMargins(8, 8, 8, 8);
+    scrollLayout->setSpacing(0);
+
+    myCalendarsHeader = new QLabel("MY CALENDARS", scrollContent);
+    myCalendarsHeader->setStyleSheet(
+        "font-size: 11px; font-weight: 600; color: #888888; padding: 4px 4px 6px 4px;"
+    );
+    scrollLayout->addWidget(myCalendarsHeader);
+
+    myCalendarsLayout = new QVBoxLayout();
+    myCalendarsLayout->setSpacing(4);
+    myCalendarsLayout->setContentsMargins(0, 0, 0, 0);
+    scrollLayout->addLayout(myCalendarsLayout);
+
+    sharedCalendarsHeader = new QLabel("SHARED", scrollContent);
+    sharedCalendarsHeader->setStyleSheet(
+        "font-size: 11px; font-weight: 600; color: #888888; padding: 12px 4px 6px 4px;"
+    );
+    scrollLayout->addWidget(sharedCalendarsHeader);
+
+    sharedCalendarsLayout = new QVBoxLayout();
+    sharedCalendarsLayout->setSpacing(4);
+    sharedCalendarsLayout->setContentsMargins(0, 0, 0, 0);
+    scrollLayout->addLayout(sharedCalendarsLayout);
+    scrollLayout->addStretch();
+
+    QScrollArea *scrollArea = new QScrollArea(this);
+    scrollArea->setWidget(scrollContent);
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setFrameShape(QFrame::NoFrame);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setStyleSheet("QScrollArea { background: transparent; }");
+
+    addButton = new QPushButton("+ Nowy kalendarz", this);
+    addButton->setStyleSheet(
+        "QPushButton {"
+        "  font-size: 12px; color: #185FA5; background: transparent;"
+        "  border: none; padding: 6px 4px; text-align: left;"
+        "}"
+        "QPushButton:hover { color: #0C447C; }"
+    );
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->addWidget(titleLabel);
-    mainLayout->addWidget(listWidget);
-    mainLayout->addLayout(buttonLayout);
-
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    mainLayout->setContentsMargins(0, 0, 0, 8);
+    mainLayout->setSpacing(0);
+    mainLayout->addWidget(scrollArea, 1);
+    mainLayout->addWidget(addButton);
 
     connect(addButton, &QPushButton::clicked, this, &CalendarListWidget::onAddClicked);
-    connect(listWidget, &QListWidget::itemClicked, this, &CalendarListWidget::onItemClicked);
 }
 
-void CalendarListWidget::setUserId(int id)
+void CalendarListWidget::clearLayout(QVBoxLayout *layout)
 {
-    userId = id;
-    selectedCalendarId = -1;
-    favoriteCalendarId = -1;
-    refresh();
+    while (QLayoutItem *item = layout->takeAt(0))
+    {
+        if (QWidget *widget = item->widget())
+            delete widget;
+
+        delete item;
+    }
 }
 
-void CalendarListWidget::refresh(bool selectFavorite)
+QWidget* CalendarListWidget::createCalendarCard(const Calendar &calendar)
 {
-    listWidget->clear();
+    CalendarManager calendarManager;
+    const int calId = calendar.getId();
+    const QString role = calendarManager.getUserRoleInCalendar(calId, userId);
+    const bool isOwner = role == "owner";
+
+    QFrame *card = new QFrame(this);
+    card->setFrameShape(QFrame::NoFrame);
+    card->setProperty("calendarId", calId);
+    card->setCursor(Qt::PointingHandCursor);
+    card->installEventFilter(this);
+
+    QLabel *dot = new QLabel(card);
+    dot->setFixedSize(10, 10);
+    dot->setAttribute(Qt::WA_TransparentForMouseEvents);
+    dot->setStyleSheet(QString("background: %1; border-radius: 5px; border: none;").arg(calendarColor(calId)));
+
+    QLabel *nameLabel = new QLabel(calendar.getName(), card);
+    nameLabel->setWordWrap(true);
+    nameLabel->setAttribute(Qt::WA_TransparentForMouseEvents);
+    nameLabel->setStyleSheet("font-size: 13px; color: #202124; border: none; background: transparent;");
+    nameLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+    QHBoxLayout *nameRow = new QHBoxLayout();
+    nameRow->setSpacing(8);
+    nameRow->setContentsMargins(0, 0, 0, 0);
+    nameRow->addWidget(dot);
+    nameRow->addWidget(nameLabel, 1);
+
+    auto makeIconButton = [](const QString &icon,
+                             const QString &tooltip,
+                             const QString &textColor,
+                             const QString &hoverBg,
+                             QWidget *parent) {
+        QPushButton *button = new QPushButton(icon, parent);
+        button->setFixedSize(28, 28);
+        button->setToolTip(tooltip);
+        button->setStyleSheet(QString(
+            "QPushButton {"
+            "  font-size: 15px; padding: 0;"
+            "  border: 1px solid #DADADA; border-radius: 5px;"
+            "  background: white; color: %1;"
+            "}"
+            "QPushButton:hover { background: %2; border-color: %1; }"
+            "QPushButton:disabled { color: #B0B0B0; background: #F7F7F7; }"
+        ).arg(textColor, hoverBg));
+        return button;
+    };
+
+    QPushButton *shareButton = makeIconButton("↗", "Udostępnij", "#185FA5", "#E6F1FB", card);
+    QPushButton *deleteLeaveButton = makeIconButton("✕", isOwner ? "Usuń" : "Opuść", "#993C1D", "#FAECE7", card);
+    shareButton->setEnabled(isOwner);
+    deleteLeaveButton->setEnabled(!role.isEmpty());
+
+    QPushButton *favoriteButton = new QPushButton("★", card);
+    favoriteButton->setCheckable(true);
+    favoriteButton->setChecked(calId == favoriteCalendarId);
+    favoriteButton->setFixedSize(28, 28);
+    favoriteButton->setToolTip("Dodaj do ulubionych");
+    favoriteButton->setStyleSheet(
+        "QPushButton {"
+        "  font-size: 14px; padding: 0;"
+        "  border: 1px solid #DADADA; border-radius: 5px;"
+        "  background: white; color: #BDBDBD;"
+        "}"
+        "QPushButton:hover { color: #F0A500; border-color: #F0A500; }"
+        "QPushButton:checked { color: #F0A500; background: #FFF8E7; border-color: #F0A500; }"
+    );
+
+    QHBoxLayout *buttonRow = new QHBoxLayout();
+    buttonRow->setSpacing(6);
+    buttonRow->setContentsMargins(0, 0, 0, 0);
+    buttonRow->addWidget(shareButton);
+    buttonRow->addWidget(deleteLeaveButton);
+    buttonRow->addWidget(favoriteButton);
+    buttonRow->addStretch();
+
+    QVBoxLayout *cardLayout = new QVBoxLayout(card);
+    cardLayout->setContentsMargins(10, 8, 10, 8);
+    cardLayout->setSpacing(6);
+    cardLayout->addLayout(nameRow);
+    cardLayout->addLayout(buttonRow);
+
+    const bool selected = calId == selectedCalendarId;
+    card->setStyleSheet(selected
+        ? "QFrame { background: #E6F1FB; border-radius: 8px; border: 1px solid #DDE3F0; }"
+          "QFrame:hover { background: #E6F1FB; }"
+        : "QFrame { background: #F0F4FF; border-radius: 8px; border: 1px solid #DDE3F0; }"
+          "QFrame:hover { background: #E6EEFA; }");
+
+    connect(shareButton, &QPushButton::clicked, this, [this, calId]() {
+        CalendarManager calendarManager;
+        if (calendarManager.getUserRoleInCalendar(calId, userId) != "owner")
+            return;
+
+        ShareCalendarDialog dialog(calId, userId, this);
+        dialog.exec();
+    });
+
+    connect(deleteLeaveButton, &QPushButton::clicked, this, [this, calId, calendarName = calendar.getName()]() {
+        CalendarManager calendarManager;
+        const QString role = calendarManager.getUserRoleInCalendar(calId, userId);
+        if (role.isEmpty())
+            return;
+
+        const bool isOwner = role == "owner";
+        QMessageBox messageBox(
+            QMessageBox::Question,
+            isOwner ? "Delete calendar" : "Leave calendar",
+            isOwner
+                ? QString("Delete calendar \"%1\" and all its events?").arg(calendarName)
+                : QString("Leave calendar \"%1\"?").arg(calendarName),
+            QMessageBox::Yes | QMessageBox::No,
+            this
+        );
+        messageBox.setDefaultButton(QMessageBox::No);
+        clearMessageBoxButtonIcons(&messageBox);
+
+        const QMessageBox::StandardButton answer = static_cast<QMessageBox::StandardButton>(messageBox.exec());
+        if (answer != QMessageBox::Yes)
+            return;
+
+        const bool success = isOwner
+            ? calendarManager.deleteCalendar(calId, userId)
+            : calendarManager.leaveCalendar(calId, userId);
+
+        if (!success)
+        {
+            QMessageBox warningBox(
+                QMessageBox::Warning,
+                "Calendar",
+                "The calendar operation failed.",
+                QMessageBox::Ok,
+                this
+            );
+            clearMessageBoxButtonIcons(&warningBox);
+            warningBox.exec();
+            return;
+        }
+
+        const bool removedSelectedCalendar = selectedCalendarId == calId;
+        if (removedSelectedCalendar)
+            selectedCalendarId = -1;
+
+        refresh();
+        if (removedSelectedCalendar)
+            emit calendarSelected(-1);
+    });
+
+    connect(favoriteButton, &QPushButton::clicked, this, [this, calId]() {
+        CalendarManager calendarManager;
+
+        if (calId == calendarManager.getFavoriteCalendarId(userId))
+        {
+            if (!calendarManager.clearFavoriteCalendar(userId))
+                return;
+
+            favoriteCalendarId = -1;
+            refresh();
+            selectCalendar(calId, true);
+            return;
+        }
+
+        if (!calendarManager.setFavoriteCalendar(userId, calId))
+            return;
+
+        favoriteCalendarId = calId;
+        selectedCalendarId = calId;
+        refresh();
+        selectCalendar(calId, true);
+    });
+
+    return card;
+}
+
+void CalendarListWidget::refresh()
+{
+    clearLayout(myCalendarsLayout);
+    clearLayout(sharedCalendarsLayout);
     calendars.clear();
     favoriteCalendarId = -1;
 
@@ -188,57 +291,24 @@ void CalendarListWidget::refresh(bool selectFavorite)
     calendars = calendarManager.getCalendarsForUser(userId);
     favoriteCalendarId = calendarManager.getFavoriteCalendarId(userId);
 
-    auto addSectionHeader = [this](const QString &title) {
-        QListWidgetItem *headerItem = new QListWidgetItem(title.toUpper(), listWidget);
-        headerItem->setFlags(Qt::ItemIsEnabled);
-        headerItem->setSizeHint(QSize(0, 28));
-        headerItem->setForeground(QColor("#888888"));
-        QFont font = headerItem->font();
-        font.setPointSize(8);
-        font.setBold(true);
-        headerItem->setFont(font);
-    };
-
-    auto addCalendarItem = [this, &calendarManager](const Calendar &calendar) {
-        const QString role = calendarManager.getUserRoleInCalendar(calendar.getId(), userId);
-        QListWidgetItem *item = new QListWidgetItem(listWidget);
-        item->setData(Qt::UserRole, calendar.getId());
-        item->setSizeHint(QSize(0, 36));
-
-        CalendarCardWidget *card = new CalendarCardWidget(
-            calendar.getId(),
-            calendar.getName(),
-            role,
-            calendar.getId() == selectedCalendarId,
-            calendar.getId() == favoriteCalendarId,
-            listWidget
-        );
-
-        connect(card, &CalendarCardWidget::selected, this, [this](int calendarId) {
-            selectCalendar(calendarId, true);
-        });
-        connect(card, &CalendarCardWidget::shareRequested, this, &CalendarListWidget::onShareClicked);
-        connect(card, &CalendarCardWidget::deleteLeaveRequested, this, &CalendarListWidget::onDeleteLeaveClicked);
-        connect(card, &CalendarCardWidget::favoriteRequested, this, &CalendarListWidget::onStarClicked);
-
-        listWidget->setItemWidget(item, card);
-    };
-
-    addSectionHeader("My calendars");
     for (const Calendar &calendar : calendars)
     {
+        QWidget *card = createCalendarCard(calendar);
         if (calendar.getOwnerId() == userId)
-            addCalendarItem(calendar);
+            myCalendarsLayout->addWidget(card);
+        else
+            sharedCalendarsLayout->addWidget(card);
     }
 
-    addSectionHeader("Shared");
-    for (const Calendar &calendar : calendars)
-    {
-        if (calendar.getOwnerId() != userId)
-            addCalendarItem(calendar);
-    }
+    selectInitialCalendar();
+}
 
-    selectInitialCalendar(selectFavorite);
+void CalendarListWidget::setUserId(int id)
+{
+    userId = id;
+    selectedCalendarId = -1;
+    favoriteCalendarId = -1;
+    refresh();
 }
 
 void CalendarListWidget::onAddClicked()
@@ -255,190 +325,57 @@ void CalendarListWidget::onAddClicked()
     }
 }
 
-void CalendarListWidget::onShareClicked(int calendarId)
+bool CalendarListWidget::eventFilter(QObject *obj, QEvent *event)
 {
-    if (userId == -1)
-        return;
-
-    CalendarManager calendarManager;
-    if (calendarManager.getUserRoleInCalendar(calendarId, userId) != "owner")
-        return;
-
-    ShareCalendarDialog dialog(calendarId, userId, this);
-    dialog.exec();
-}
-
-void CalendarListWidget::onDeleteLeaveClicked(int calendarId)
-{
-    if (userId == -1)
-        return;
-
-    const Calendar calendar = findCalendar(calendarId);
-    if (calendar.getId() == -1)
-        return;
-
-    const QString calendarName = calendar.getName();
-
-    CalendarManager calendarManager;
-    const QString role = calendarManager.getUserRoleInCalendar(calendarId, userId);
-    if (role.isEmpty())
-        return;
-
-    bool success = false;
-    if (role == "owner")
+    if (event->type() == QEvent::MouseButtonRelease)
     {
-        QMessageBox messageBox(
-            QMessageBox::Question,
-            "Delete calendar",
-            QString("Delete calendar \"%1\" and all its events?").arg(calendarName),
-            QMessageBox::Yes | QMessageBox::No,
-            this
-        );
-        messageBox.setDefaultButton(QMessageBox::No);
-        clearMessageBoxButtonIcons(&messageBox);
-
-        const QMessageBox::StandardButton answer = static_cast<QMessageBox::StandardButton>(messageBox.exec());
-
-        if (answer != QMessageBox::Yes)
-            return;
-
-        success = calendarManager.deleteCalendar(calendarId, userId);
-    }
-    else
-    {
-        QMessageBox messageBox(
-            QMessageBox::Question,
-            "Leave calendar",
-            QString("Leave calendar \"%1\"?").arg(calendarName),
-            QMessageBox::Yes | QMessageBox::No,
-            this
-        );
-        messageBox.setDefaultButton(QMessageBox::No);
-        clearMessageBoxButtonIcons(&messageBox);
-
-        const QMessageBox::StandardButton answer = static_cast<QMessageBox::StandardButton>(messageBox.exec());
-
-        if (answer != QMessageBox::Yes)
-            return;
-
-        success = calendarManager.leaveCalendar(calendarId, userId);
+        QWidget *widget = qobject_cast<QWidget *>(obj);
+        if (widget)
+        {
+            const QVariant calendarId = widget->property("calendarId");
+            if (calendarId.isValid())
+            {
+                selectCalendar(calendarId.toInt(), true);
+                return true;
+            }
+        }
     }
 
-    if (!success)
-    {
-        QMessageBox messageBox(
-            QMessageBox::Warning,
-            "Calendar",
-            "The calendar operation failed.",
-            QMessageBox::Ok,
-            this
-        );
-        clearMessageBoxButtonIcons(&messageBox);
-        messageBox.exec();
-        return;
-    }
-
-    const bool removedSelectedCalendar = selectedCalendarId == calendarId;
-    if (removedSelectedCalendar)
-        selectedCalendarId = -1;
-
-    refresh(!removedSelectedCalendar);
-    if (removedSelectedCalendar)
-        emit calendarSelected(-1);
-}
-
-void CalendarListWidget::onStarClicked(int calendarId)
-{
-    if (userId == -1)
-        return;
-
-    CalendarManager calendarManager;
-
-    if (calendarId == calendarManager.getFavoriteCalendarId(userId))
-    {
-        if (!calendarManager.clearFavoriteCalendar(userId))
-            return;
-
-        favoriteCalendarId = -1;
-        refresh(false);
-        selectCalendar(calendarId, true);
-        return;
-    }
-
-    if (!calendarManager.setFavoriteCalendar(userId, calendarId))
-        return;
-
-    favoriteCalendarId = calendarId;
-    selectedCalendarId = calendarId;
-    refresh();
-    selectCalendar(calendarId, true);
-}
-
-void CalendarListWidget::onItemClicked(QListWidgetItem *item)
-{
-    if (!item)
-        return;
-    if (!listWidget->itemWidget(item))
-        return;
-
-    const int calendarId = item->data(Qt::UserRole).toInt();
-    selectCalendar(calendarId, true);
+    return QWidget::eventFilter(obj, event);
 }
 
 void CalendarListWidget::selectCalendar(int calendarId, bool emitSelection)
 {
     selectedCalendarId = calendarId;
-
-    for (int i = 0; i < listWidget->count(); ++i)
-    {
-        QListWidgetItem *item = listWidget->item(i);
-        CalendarCardWidget *card = qobject_cast<CalendarCardWidget *>(listWidget->itemWidget(item));
-        if (!card)
-            continue;
-
-        const bool selected = card->getCalendarId() == calendarId;
-        card->setSelected(selected);
-        if (selected && listWidget->currentItem() != item)
-            listWidget->setCurrentItem(item);
-    }
+    refresh();
 
     if (emitSelection)
         emit calendarSelected(calendarId);
 }
 
-void CalendarListWidget::selectInitialCalendar(bool selectFavorite)
+void CalendarListWidget::selectInitialCalendar()
 {
-    if (containsCalendar(selectedCalendarId))
+    for (const Calendar &calendar : calendars)
     {
-        selectCalendar(selectedCalendarId, false);
-        return;
+        if (calendar.getId() == selectedCalendarId)
+            return;
     }
 
     selectedCalendarId = -1;
-    if (selectFavorite && containsCalendar(favoriteCalendarId))
+
+    for (const Calendar &calendar : calendars)
     {
-        selectCalendar(favoriteCalendarId, true);
-        return;
+        if (calendar.getId() == favoriteCalendarId)
+        {
+            selectedCalendarId = favoriteCalendarId;
+            emit calendarSelected(selectedCalendarId);
+            return;
+        }
     }
 
-    if (selectFavorite && !calendars.empty())
-        selectCalendar(calendars.front().getId(), true);
-}
-
-bool CalendarListWidget::containsCalendar(int calendarId) const
-{
-    for (const Calendar &calendar : calendars)
-        if (calendar.getId() == calendarId)
-            return true;
-
-    return false;
-}
-
-Calendar CalendarListWidget::findCalendar(int calendarId) const
-{
-    for (const Calendar &calendar : calendars)
-        if (calendar.getId() == calendarId)
-            return calendar;
-
-    return Calendar();
+    if (!calendars.empty())
+    {
+        selectedCalendarId = calendars.front().getId();
+        emit calendarSelected(selectedCalendarId);
+    }
 }

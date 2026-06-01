@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(SyncCal)
+project(SynCal)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -33,7 +33,7 @@ target_link_libraries(SyncalCore PUBLIC
     Qt6::Sql
 )
 
-add_executable(SyncCal
+add_executable(SynCal
     src/main.cpp
 
     src/ui/MainWindow.cpp
@@ -47,11 +47,11 @@ add_executable(SyncCal
     src/ui/InvitationsDialog.cpp
 )
 
-target_include_directories(SyncCal PRIVATE
+target_include_directories(SynCal PRIVATE
     src
 )
 
-target_link_libraries(SyncCal PRIVATE
+target_link_libraries(SynCal PRIVATE
     SyncalCore
     Qt6::Widgets
 )

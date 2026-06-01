@@ -1,13 +1,13 @@
-# SyncCal — współdzielony kalendarz desktopowy
+# SynCal — współdzielony kalendarz desktopowy
 
-**SyncCal** to aplikacja desktopowa napisana w C++ z wykorzystaniem frameworka Qt 6, umożliwiająca zarządzanie i współdzielenie kalendarzy.  
+**SynCal** to aplikacja desktopowa napisana w C++ z wykorzystaniem frameworka Qt 6, umożliwiająca zarządzanie i współdzielenie kalendarzy.  
 Projekt powstał jako realizacja projektu semestralnego z przedmiotu Projekt C++.
 
 ---
 
 ## Cel projektu
 
-SyncCal ma na celu uproszczenie zarządzania czasem i wydarzeniami poprzez:
+SynCal ma na celu uproszczenie zarządzania czasem i wydarzeniami poprzez:
 - tworzenie osobistych i współdzielonych kalendarzy
 - zarządzanie wydarzeniami (dodawanie, edycja, usuwanie)
 - przejrzyste widoki (miesięczny, tygodniowy)
@@ -67,7 +67,7 @@ mkdir build
 cd build
 cmake ..
 make
-./SyncCal
+./SynCal
 ```
 
 ---

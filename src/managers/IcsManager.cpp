@@ -149,7 +149,7 @@ bool IcsManager::exportCalendarToIcs(int calendarId, const QString &filePath) co
     QTextStream out(&file);
     out << "BEGIN:VCALENDAR\r\n";
     out << "VERSION:2.0\r\n";
-    out << "PRODID:-//SyncCal//SyncCal Qt//EN\r\n";
+    out << "PRODID:-//SynCal//SynCal Qt//EN\r\n";
     out << "CALSCALE:GREGORIAN\r\n";
 
     for (const Event &event : events)
