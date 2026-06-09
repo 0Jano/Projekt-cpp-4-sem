@@ -69,13 +69,13 @@ void CalendarListWidget::setupUi()
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setStyleSheet("QScrollArea { background: transparent; }");
 
-    addButton = new QPushButton("+ Nowy kalendarz", this);
+    addButton = new QPushButton("+ New Calendar", this);
     addButton->setStyleSheet(
         "QPushButton {"
         "  font-size: 12px; color: #185FA5; background: transparent;"
-        "  border: none; padding: 6px 4px; text-align: left;"
+        "  border: 1px solid #185FA5; padding: 6px 4px; text-align: left;"
         "}"
-        "QPushButton:hover { color: #0C447C; }"
+        "QPushButton:hover { color: #0C447C; border-color: #0C447C; }"
     );
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
