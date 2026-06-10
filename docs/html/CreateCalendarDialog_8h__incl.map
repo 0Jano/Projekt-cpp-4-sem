@@ -1,0 +1,11 @@
+<map id="src/ui/CreateCalendarDialog.h" name="src/ui/CreateCalendarDialog.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="96,5,311,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,79,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,36,85,77,83,72,173,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="103,81,186,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,32,166,71,163,67,190,35"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="211,81,316,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,31,246,69,240,68,213,36"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="340,81,406,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="234,31,331,74,326,75,233,36"/>
+</map>

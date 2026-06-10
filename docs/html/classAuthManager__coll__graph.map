@@ -1,0 +1,3 @@
+<map id="AuthManager" name="AuthManager">
+<area shape="rect" id="Node000001" title="Handles user registration and authentication against the SQLite database." alt="" coords="5,5,122,122"/>
+</map>

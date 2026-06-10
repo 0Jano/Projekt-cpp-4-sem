@@ -1,0 +1,18 @@
+<map id="src/models/User.h" name="src/models/User.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="814,5,952,33"/>
+<area shape="rect" id="Node000002" href="$AuthManager_8h.html" title=" " alt="" coords="536,81,748,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="828,37,685,83,684,78,823,39"/>
+<area shape="rect" id="Node000006" href="$RegisterDialog_8cpp.html" title=" " alt="" coords="889,157,1072,184"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="889,46,898,78,912,107,935,134,962,157,957,155,932,138,907,110,893,79,886,51"/>
+<area shape="rect" id="Node000008" href="$User_8cpp.html" title=" " alt="" coords="921,81,1074,109"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="917,39,980,81,975,80,916,44"/>
+<area shape="rect" id="Node000003" href="$AuthManager_8cpp.html" title=" " alt="" coords="5,157,233,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="533,114,214,159,213,153,532,109"/>
+<area shape="rect" id="Node000004" href="$LoginDialog_8cpp.html" title=" " alt="" coords="257,157,421,184"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="575,113,394,159,393,153,570,113"/>
+<area shape="rect" id="Node000005" href="$MainWindow_8cpp.html" title=" " alt="" coords="446,157,616,184"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="612,117,552,159,550,154,607,118"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="718,110,922,156,917,156,717,115"/>
+<area shape="rect" id="Node000007" href="$ShareCalendarDialog_8cpp.html" title=" " alt="" coords="640,157,864,184"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="675,115,735,157,730,156,673,120"/>
+</map>

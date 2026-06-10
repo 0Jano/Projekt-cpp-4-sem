@@ -1,0 +1,38 @@
+\doxysection{Share\+Calendar\+Dialog.\+h}
+\hypertarget{ShareCalendarDialog_8h_source}{}\label{ShareCalendarDialog_8h_source}\index{src/ui/ShareCalendarDialog.h@{src/ui/ShareCalendarDialog.h}}
+\doxymbox{\hyperlink{ShareCalendarDialog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SHARECALENDARDIALOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SHARECALENDARDIALOG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QLineEdit>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QComboBox>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classShareCalendarDialog_a1c769e5c816e7618207664b68e3d8234}{ShareCalendarDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classShareCalendarDialog_a1c769e5c816e7618207664b68e3d8234}{ShareCalendarDialog}}(\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classShareCalendarDialog_ac5505576da6862ed84fd46b9edc04a28}{calendarId}},\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classShareCalendarDialog_a77bf23e697a719e023ebb298e86f7193}{currentUserId}},\ QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classShareCalendarDialog_a695c5142b5fde2863fedd294fe106972}{onShareClicked}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classShareCalendarDialog_ac5505576da6862ed84fd46b9edc04a28}{calendarId}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classShareCalendarDialog_a77bf23e697a719e023ebb298e86f7193}{currentUserId}};}
+\DoxyCodeLine{00023\ \ \ \ \ QLineEdit\ *\doxymbox{\hyperlink{classShareCalendarDialog_ae5f8e8be1065420ec32f627f0196925b}{identifierEdit}};}
+\DoxyCodeLine{00024\ \ \ \ \ QComboBox\ *\doxymbox{\hyperlink{classShareCalendarDialog_aee75fb27e8857aa1620429eb25ac042c}{roleCombo}};}
+\DoxyCodeLine{00025\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classShareCalendarDialog_a37e2051ca187ec78765d45115bc43e58}{shareButton}};}
+\DoxyCodeLine{00026\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classShareCalendarDialog_ada29ba44501a879b8f6051697551229d}{cancelButton}};}
+\DoxyCodeLine{00027\ \ \ \ \ QLabel\ *\doxymbox{\hyperlink{classShareCalendarDialog_acd6b3e74cedbca33377d9299e2a34628}{errorLabel}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classShareCalendarDialog_a054bb93054e7aad6065f94c38c5cf2a0}{setupUi}}();}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

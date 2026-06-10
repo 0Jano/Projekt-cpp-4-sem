@@ -1,0 +1,11 @@
+<map id="src/managers/InvitationManager.h" name="src/managers/InvitationManager.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="370,5,614,33"/>
+<area shape="rect" id="Node000002" href="$InvitationManager_8cpp.html" title=" " alt="" coords="5,81,265,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,39,200,83,199,78,412,34"/>
+<area shape="rect" id="Node000003" href="$InvitationsDialog_8cpp.html" title=" " alt="" coords="289,81,488,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="464,41,408,83,406,78,459,43"/>
+<area shape="rect" id="Node000004" href="$MainWindow_8cpp.html" title=" " alt="" coords="511,81,682,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="524,40,581,81,575,80,522,45"/>
+<area shape="rect" id="Node000005" href="$ShareCalendarDialog_8cpp.html" title=" " alt="" coords="706,81,930,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="566,34,762,80,756,80,565,40"/>
+</map>

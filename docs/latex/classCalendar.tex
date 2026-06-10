@@ -1,0 +1,158 @@
+\doxysection{Calendar Class Reference}
+\hypertarget{classCalendar}{}\label{classCalendar}\index{Calendar@{Calendar}}
+
+
+Represents a calendar owned by a user.  
+
+
+
+
+{\ttfamily \+\#include $<$Calendar.\+h$>$}
+
+
+
+Collaboration diagram for Calendar:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classCalendar__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classCalendar_a423ef27351bfa2309c6e2173bff61756}{Calendar}} ()
+\begin{DoxyCompactList}\small\item\em Constructs an empty calendar model. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classCalendar_ae1c768355f0b5dec1125a473501fc8ce}{Calendar}} (int \doxymbox{\hyperlink{classCalendar_a19dd8b0e28422bbc6ad58e2a802a7735}{id}}, const QString \&\doxymbox{\hyperlink{classCalendar_a01382f2be91cae1fd51eee10d9d645b5}{name}}, int \doxymbox{\hyperlink{classCalendar_a81ef938336b40d8ba8564fd8f6b10f15}{owner\+Id}})
+\begin{DoxyCompactList}\small\item\em Constructs a calendar model with database fields. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendar_ab9ca0514274c3ed0f36f1c2d6dbd270e}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the calendar ID. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendar_abfbef56fef6bf14f1047c3269a91f6c1}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Returns the calendar name. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendar_a7314189d91487f799b68d641d88aa363}{get\+Owner\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the owner user ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{classCalendar_a19dd8b0e28422bbc6ad58e2a802a7735}{id}}
+\begin{DoxyCompactList}\small\item\em Database identifier of the calendar. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendar_a01382f2be91cae1fd51eee10d9d645b5}{name}}
+\begin{DoxyCompactList}\small\item\em Display name of the calendar. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendar_a81ef938336b40d8ba8564fd8f6b10f15}{owner\+Id}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classUser}{User} ID of the calendar owner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a calendar owned by a user. 
+
+Stores the database identifier, display name, and owner ID for a calendar. \doxylink{classCalendar}{Calendar} membership and permissions are handled by manager classes. 
+
+\label{doc-constructors}
+\Hypertarget{classCalendar_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalendar_a423ef27351bfa2309c6e2173bff61756}\index{Calendar@{Calendar}!Calendar@{Calendar}}
+\index{Calendar@{Calendar}!Calendar@{Calendar}}
+\doxysubsubsection{\texorpdfstring{Calendar()}{Calendar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classCalendar_a423ef27351bfa2309c6e2173bff61756} 
+Calendar::\+\+Calendar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an empty calendar model. 
+
+\Hypertarget{classCalendar_ae1c768355f0b5dec1125a473501fc8ce}\index{Calendar@{Calendar}!Calendar@{Calendar}}
+\index{Calendar@{Calendar}!Calendar@{Calendar}}
+\doxysubsubsection{\texorpdfstring{Calendar()}{Calendar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classCalendar_ae1c768355f0b5dec1125a473501fc8ce} 
+Calendar::\+\+Calendar (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{const QString \&}]{name}{, }\item[{int}]{owner\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a calendar model with database fields. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{classCalendar_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalendar_ab9ca0514274c3ed0f36f1c2d6dbd270e}\index{Calendar@{Calendar}!getId@{getId}}
+\index{getId@{getId}!Calendar@{Calendar}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily \label{classCalendar_ab9ca0514274c3ed0f36f1c2d6dbd270e} 
+int Calendar::\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the calendar ID. 
+
+\begin{DoxyReturn}{Returns}
+Database identifier of the calendar. 
+\end{DoxyReturn}
+\Hypertarget{classCalendar_abfbef56fef6bf14f1047c3269a91f6c1}\index{Calendar@{Calendar}!getName@{getName}}
+\index{getName@{getName}!Calendar@{Calendar}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{classCalendar_abfbef56fef6bf14f1047c3269a91f6c1} 
+QString Calendar::\+get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the calendar name. 
+
+\begin{DoxyReturn}{Returns}
+Display name of the calendar. 
+\end{DoxyReturn}
+\Hypertarget{classCalendar_a7314189d91487f799b68d641d88aa363}\index{Calendar@{Calendar}!getOwnerId@{getOwnerId}}
+\index{getOwnerId@{getOwnerId}!Calendar@{Calendar}}
+\doxysubsubsection{\texorpdfstring{getOwnerId()}{getOwnerId()}}
+{\footnotesize\ttfamily \label{classCalendar_a7314189d91487f799b68d641d88aa363} 
+int Calendar::\+get\+Owner\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the owner user ID. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classUser}{User} ID of the calendar owner. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{classCalendar_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCalendar_a19dd8b0e28422bbc6ad58e2a802a7735}\index{Calendar@{Calendar}!id@{id}}
+\index{id@{id}!Calendar@{Calendar}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classCalendar_a19dd8b0e28422bbc6ad58e2a802a7735} 
+int Calendar::\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Database identifier of the calendar. 
+
+\Hypertarget{classCalendar_a01382f2be91cae1fd51eee10d9d645b5}\index{Calendar@{Calendar}!name@{name}}
+\index{name@{name}!Calendar@{Calendar}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \label{classCalendar_a01382f2be91cae1fd51eee10d9d645b5} 
+QString Calendar::\+name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Display name of the calendar. 
+
+\Hypertarget{classCalendar_a81ef938336b40d8ba8564fd8f6b10f15}\index{Calendar@{Calendar}!ownerId@{ownerId}}
+\index{ownerId@{ownerId}!Calendar@{Calendar}}
+\doxysubsubsection{\texorpdfstring{ownerId}{ownerId}}
+{\footnotesize\ttfamily \label{classCalendar_a81ef938336b40d8ba8564fd8f6b10f15} 
+int Calendar::\+owner\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{classUser}{User} ID of the calendar owner. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+models/\+\doxymbox{\hyperlink{Calendar_8h}{Calendar.\+h}}\item 
+src/\+models/\+\doxymbox{\hyperlink{Calendar_8cpp}{Calendar.\+cpp}}\end{DoxyCompactItemize}

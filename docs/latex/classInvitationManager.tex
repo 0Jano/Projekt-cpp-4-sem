@@ -1,0 +1,186 @@
+\doxysection{Invitation\+Manager Class Reference}
+\hypertarget{classInvitationManager}{}\label{classInvitationManager}\index{InvitationManager@{InvitationManager}}
+
+
+Manages calendar invitations for shared calendars.  
+
+
+
+
+{\ttfamily \+\#include $<$Invitation\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Invitation\+Manager:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classInvitationManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classInvitationManager_aec74619343575960463b8a35bd262a94}{create\+Invitation}} (int calendar\+Id, int inviter\+Id, int invitee\+Id, const QString \&role)
+\begin{DoxyCompactList}\small\item\em Creates a pending calendar invitation. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{classCalendarInvitation}{Calendar\+Invitation}} $>$ \doxymbox{\hyperlink{classInvitationManager_a769362031c1403128255eb4e07cb8af7}{get\+Pending\+Invitations\+For\+User}} (int user\+Id) const
+\begin{DoxyCompactList}\small\item\em Returns pending invitations for a user. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classInvitationManager_acae3d8a42c41d3f65d8fe67a9a2bbd52}{accept\+Invitation}} (int invitation\+Id)
+\begin{DoxyCompactList}\small\item\em Accepts a pending invitation. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classInvitationManager_a8e7c14eaa34e318e626a60d7189831aa}{decline\+Invitation}} (int invitation\+Id)
+\begin{DoxyCompactList}\small\item\em Declines a pending invitation. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classInvitationManager_a58b6c32a9b00f4c664624aff02201160}{get\+Pending\+Invitation\+Count\+For\+User}} (int user\+Id) const
+\begin{DoxyCompactList}\small\item\em Counts pending invitations for badge display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages calendar invitations for shared calendars. 
+
+Creates pending invitations, queries invite lists and badge counts, and records accept or decline decisions. Accepting an invitation also adds the invitee to calendar membership. 
+
+\label{doc-func-members}
+\Hypertarget{classInvitationManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classInvitationManager_acae3d8a42c41d3f65d8fe67a9a2bbd52}\index{InvitationManager@{InvitationManager}!acceptInvitation@{acceptInvitation}}
+\index{acceptInvitation@{acceptInvitation}!InvitationManager@{InvitationManager}}
+\doxysubsubsection{\texorpdfstring{acceptInvitation()}{acceptInvitation()}}
+{\footnotesize\ttfamily \label{classInvitationManager_acae3d8a42c41d3f65d8fe67a9a2bbd52} 
+bool Invitation\+Manager::\+accept\+Invitation (\begin{DoxyParamCaption}\item[{int}]{invitation\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Accepts a pending invitation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em invitation\+Id} & ID of the invitation to accept. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the invitee was added to the calendar and the invitation was marked accepted. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationManager_acae3d8a42c41d3f65d8fe67a9a2bbd52_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInvitationManager_aec74619343575960463b8a35bd262a94}\index{InvitationManager@{InvitationManager}!createInvitation@{createInvitation}}
+\index{createInvitation@{createInvitation}!InvitationManager@{InvitationManager}}
+\doxysubsubsection{\texorpdfstring{createInvitation()}{createInvitation()}}
+{\footnotesize\ttfamily \label{classInvitationManager_aec74619343575960463b8a35bd262a94} 
+bool Invitation\+Manager::\+create\+Invitation (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{, }\item[{int}]{inviter\+Id}{, }\item[{int}]{invitee\+Id}{, }\item[{const QString \&}]{role}{}\end{DoxyParamCaption})}
+
+
+
+Creates a pending calendar invitation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Id} & ID of the calendar being shared. \\
+\hline
+{\em inviter\+Id} & \doxylink{classUser}{User} ID of the sender. \\
+\hline
+{\em invitee\+Id} & \doxylink{classUser}{User} ID of the recipient. \\
+\hline
+{\em role} & Role offered to the invitee. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the invitation was created; false if membership or a pending invite already exists. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationManager_aec74619343575960463b8a35bd262a94_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInvitationManager_a8e7c14eaa34e318e626a60d7189831aa}\index{InvitationManager@{InvitationManager}!declineInvitation@{declineInvitation}}
+\index{declineInvitation@{declineInvitation}!InvitationManager@{InvitationManager}}
+\doxysubsubsection{\texorpdfstring{declineInvitation()}{declineInvitation()}}
+{\footnotesize\ttfamily \label{classInvitationManager_a8e7c14eaa34e318e626a60d7189831aa} 
+bool Invitation\+Manager::\+decline\+Invitation (\begin{DoxyParamCaption}\item[{int}]{invitation\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Declines a pending invitation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em invitation\+Id} & ID of the invitation to decline. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the invitation was marked declined. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationManager_a8e7c14eaa34e318e626a60d7189831aa_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInvitationManager_a58b6c32a9b00f4c664624aff02201160}\index{InvitationManager@{InvitationManager}!getPendingInvitationCountForUser@{getPendingInvitationCountForUser}}
+\index{getPendingInvitationCountForUser@{getPendingInvitationCountForUser}!InvitationManager@{InvitationManager}}
+\doxysubsubsection{\texorpdfstring{getPendingInvitationCountForUser()}{getPendingInvitationCountForUser()}}
+{\footnotesize\ttfamily \label{classInvitationManager_a58b6c32a9b00f4c664624aff02201160} 
+int Invitation\+Manager::\+get\+Pending\+Invitation\+Count\+For\+User (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption}) const}
+
+
+
+Counts pending invitations for badge display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & ID of the user whose pending invitations should be counted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of pending invitations for the user. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationManager_a58b6c32a9b00f4c664624aff02201160_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInvitationManager_a769362031c1403128255eb4e07cb8af7}\index{InvitationManager@{InvitationManager}!getPendingInvitationsForUser@{getPendingInvitationsForUser}}
+\index{getPendingInvitationsForUser@{getPendingInvitationsForUser}!InvitationManager@{InvitationManager}}
+\doxysubsubsection{\texorpdfstring{getPendingInvitationsForUser()}{getPendingInvitationsForUser()}}
+{\footnotesize\ttfamily \label{classInvitationManager_a769362031c1403128255eb4e07cb8af7} 
+std::\+vector$<$ \doxymbox{\hyperlink{classCalendarInvitation}{Calendar\+Invitation}} $>$ Invitation\+Manager::\+get\+Pending\+Invitations\+For\+User (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns pending invitations for a user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & ID of the user whose pending invitations should be loaded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of pending invitations for the user. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationManager_a769362031c1403128255eb4e07cb8af7_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+managers/\+\doxymbox{\hyperlink{InvitationManager_8h}{Invitation\+Manager.\+h}}\item 
+src/\+managers/\+\doxymbox{\hyperlink{InvitationManager_8cpp}{Invitation\+Manager.\+cpp}}\end{DoxyCompactItemize}

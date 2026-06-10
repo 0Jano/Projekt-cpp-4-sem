@@ -1,0 +1,17 @@
+<map id="src/ui/InvitationsDialog.h" name="src/ui/InvitationsDialog.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="242,5,426,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,79,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="280,36,95,83,93,78,281,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="102,81,203,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="299,35,200,77,198,72,304,32"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="227,81,332,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="326,32,300,70,296,66,322,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="356,81,422,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="345,31,372,69,367,68,343,36"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="446,81,508,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="360,31,441,74,435,74,359,36"/>
+<area shape="rect" id="Node000007" href="$CalendarInvitation_8h.html" title=" " alt="" coords="531,81,737,109"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="388,31,568,76,563,77,388,36"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="599,157,669,184"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="636,107,636,143,632,139,632,111"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="DatabaseManager::openDatabase" name="DatabaseManager::openDatabase">
+<area shape="rect" id="Node000001" title="Opens the SQLite database and initializes schema objects." alt="" coords="5,5,248,33"/>
+<area shape="rect" id="Node000002" href="$classDatabaseManager.html#a90600e6de3ad5fd99a81409054626dfa" title="Creates all tables and indexes if they do not exist." alt="" coords="296,5,526,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,17,283,19,278,19,248,22"/>
+</map>

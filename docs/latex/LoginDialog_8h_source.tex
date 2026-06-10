@@ -1,0 +1,38 @@
+\doxysection{Login\+Dialog.\+h}
+\hypertarget{LoginDialog_8h_source}{}\label{LoginDialog_8h_source}\index{src/ui/LoginDialog.h@{src/ui/LoginDialog.h}}
+\doxymbox{\hyperlink{LoginDialog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOGINDIALOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOGINDIALOG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QLineEdit>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classLoginDialog_a7456f32deb63b8d3fb66b76f1e97977e}{LoginDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classLoginDialog_a7456f32deb63b8d3fb66b76f1e97977e}{LoginDialog}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ QString\ \doxymbox{\hyperlink{classLoginDialog_afb78024d752c38be79c469adce615c81}{getIdentifier}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ QString\ \doxymbox{\hyperlink{classLoginDialog_a21954db956d1372f199b0023d95c271a}{getPassword}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classLoginDialog_ab6a51c7e011badcce449cd19c9ac2fb9}{onLoginClicked}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ QLineEdit\ *\doxymbox{\hyperlink{classLoginDialog_a631225261b9153bae6c6dba8eb26cd0a}{emailEdit}};}
+\DoxyCodeLine{00024\ \ \ \ \ QLineEdit\ *\doxymbox{\hyperlink{classLoginDialog_acb5b53e5809ed0c2956943ec8e6a123c}{passwordEdit}};}
+\DoxyCodeLine{00025\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classLoginDialog_afc48a1efda2a5f29f47ff6072e22ca67}{loginButton}};}
+\DoxyCodeLine{00026\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classLoginDialog_a45cd8a0a84b32aea17286117ab808c77}{cancelButton}};}
+\DoxyCodeLine{00027\ \ \ \ \ QLabel\ *\doxymbox{\hyperlink{classLoginDialog_a7a34cf3448db647983447fde476ee220}{errorLabel}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classLoginDialog_ab678645c5b2705c9834f34c0abb939c8}{setupUi}}();}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

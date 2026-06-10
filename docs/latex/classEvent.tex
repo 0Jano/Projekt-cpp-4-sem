@@ -1,0 +1,293 @@
+\doxysection{Event Class Reference}
+\hypertarget{classEvent}{}\label{classEvent}\index{Event@{Event}}
+
+
+Represents a single calendar event with a time range.  
+
+
+
+
+{\ttfamily \+\#include $<$Event.\+h$>$}
+
+
+
+Collaboration diagram for Event:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classEvent__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classEvent_a5a40dd4708297f7031e29b39e039ae10}{Event}} ()
+\begin{DoxyCompactList}\small\item\em Constructs an empty event model. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classEvent_ab739e65d6165a2734303ae65b3e78797}{Event}} (int \doxymbox{\hyperlink{classEvent_a08ba599a781bea8b678251fdb7290890}{id}}, int \doxymbox{\hyperlink{classEvent_aed32d3c2b73827b3db16573de2ad1472}{calendar\+Id}}, const QString \&\doxymbox{\hyperlink{classEvent_adaf3afcf619c5f01fc7ec455bf1d1e76}{title}}, const QString \&\doxymbox{\hyperlink{classEvent_aeccdcf5893474a314f5a6aaf0f828249}{description}}, const QString \&\doxymbox{\hyperlink{classEvent_ac0dfeaef205a76c5ff2313ad90ab7da1}{location}}, const QDate\+Time \&\doxymbox{\hyperlink{classEvent_a9ffecc76a00badf251484724914e4d36}{start\+Date\+Time}}, const QDate\+Time \&\doxymbox{\hyperlink{classEvent_a0dd5425a88ec7a703efaf7ae3ca95f6a}{end\+Date\+Time}}, int \doxymbox{\hyperlink{classEvent_a6f7c4fcf66a862e66cc32bb7ede6e119}{created\+By}})
+\begin{DoxyCompactList}\small\item\em Constructs an event model with all persisted fields. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classEvent_a4f739685eb3d97465ae9ce4e1898f447}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the event ID. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classEvent_a3a54da793e92b1b78ce6a3d166c4b948}{get\+Calendar\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the calendar ID. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classEvent_a6f749b39efd056b54ebf35470b95a4e7}{get\+Title}} () const
+\begin{DoxyCompactList}\small\item\em Returns the event title. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classEvent_a465db87d6ca9c578db843e9568133429}{get\+Description}} () const
+\begin{DoxyCompactList}\small\item\em Returns the event description. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classEvent_a524612c15098e19730be3ab5fe9aaf09}{get\+Location}} () const
+\begin{DoxyCompactList}\small\item\em Returns the event location. \end{DoxyCompactList}\item 
+QDate\+Time \doxymbox{\hyperlink{classEvent_a8b22f9274fb6ea8fd205dc64be43472d}{get\+Start\+Date\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Returns the event start date and time. \end{DoxyCompactList}\item 
+QDate\+Time \doxymbox{\hyperlink{classEvent_a3ea15fe799cf30995efeedc3f3f70b17}{get\+End\+Date\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Returns the event end date and time. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classEvent_aaa8f85b2904745ca96672197b44556d7}{get\+Created\+By}} () const
+\begin{DoxyCompactList}\small\item\em Returns the creator user ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{classEvent_a08ba599a781bea8b678251fdb7290890}{id}}
+\begin{DoxyCompactList}\small\item\em Database identifier of the event. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classEvent_aed32d3c2b73827b3db16573de2ad1472}{calendar\+Id}}
+\begin{DoxyCompactList}\small\item\em ID of the calendar containing the event. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classEvent_adaf3afcf619c5f01fc7ec455bf1d1e76}{title}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classEvent}{Event} title. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classEvent_aeccdcf5893474a314f5a6aaf0f828249}{description}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classEvent}{Event} description. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classEvent_ac0dfeaef205a76c5ff2313ad90ab7da1}{location}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classEvent}{Event} location. \end{DoxyCompactList}\item 
+QDate\+Time \doxymbox{\hyperlink{classEvent_a9ffecc76a00badf251484724914e4d36}{start\+Date\+Time}}
+\begin{DoxyCompactList}\small\item\em Start date and time of the event. \end{DoxyCompactList}\item 
+QDate\+Time \doxymbox{\hyperlink{classEvent_a0dd5425a88ec7a703efaf7ae3ca95f6a}{end\+Date\+Time}}
+\begin{DoxyCompactList}\small\item\em End date and time of the event. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classEvent_a6f7c4fcf66a862e66cc32bb7ede6e119}{created\+By}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classUser}{User} ID of the event creator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single calendar event with a time range. 
+
+Stores event metadata, location, start and end datetimes, and the user who created the event. The model is used by \doxylink{classEventManager}{Event\+Manager} for database create, update, and query operations. 
+
+\label{doc-constructors}
+\Hypertarget{classEvent_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classEvent_a5a40dd4708297f7031e29b39e039ae10}\index{Event@{Event}!Event@{Event}}
+\index{Event@{Event}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classEvent_a5a40dd4708297f7031e29b39e039ae10} 
+Event::\+\+Event (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an empty event model. 
+
+\Hypertarget{classEvent_ab739e65d6165a2734303ae65b3e78797}\index{Event@{Event}!Event@{Event}}
+\index{Event@{Event}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classEvent_ab739e65d6165a2734303ae65b3e78797} 
+Event::\+\+Event (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{int}]{calendar\+Id}{, }\item[{const QString \&}]{title}{, }\item[{const QString \&}]{description}{, }\item[{const QString \&}]{location}{, }\item[{const QDate\+Time \&}]{start\+Date\+Time}{, }\item[{const QDate\+Time \&}]{end\+Date\+Time}{, }\item[{int}]{created\+By}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an event model with all persisted fields. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{classEvent_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEvent_a3a54da793e92b1b78ce6a3d166c4b948}\index{Event@{Event}!getCalendarId@{getCalendarId}}
+\index{getCalendarId@{getCalendarId}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{getCalendarId()}{getCalendarId()}}
+{\footnotesize\ttfamily \label{classEvent_a3a54da793e92b1b78ce6a3d166c4b948} 
+int Event::\+get\+Calendar\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the calendar ID. 
+
+\begin{DoxyReturn}{Returns}
+ID of the calendar containing the event. 
+\end{DoxyReturn}
+\Hypertarget{classEvent_aaa8f85b2904745ca96672197b44556d7}\index{Event@{Event}!getCreatedBy@{getCreatedBy}}
+\index{getCreatedBy@{getCreatedBy}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{getCreatedBy()}{getCreatedBy()}}
+{\footnotesize\ttfamily \label{classEvent_aaa8f85b2904745ca96672197b44556d7} 
+int Event::\+get\+Created\+By (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the creator user ID. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classUser}{User} ID of the event creator. 
+\end{DoxyReturn}
+\Hypertarget{classEvent_a465db87d6ca9c578db843e9568133429}\index{Event@{Event}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily \label{classEvent_a465db87d6ca9c578db843e9568133429} 
+QString Event::\+get\+Description (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the event description. 
+
+\begin{DoxyReturn}{Returns}
+Description stored for the event. 
+\end{DoxyReturn}
+\Hypertarget{classEvent_a3ea15fe799cf30995efeedc3f3f70b17}\index{Event@{Event}!getEndDateTime@{getEndDateTime}}
+\index{getEndDateTime@{getEndDateTime}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{getEndDateTime()}{getEndDateTime()}}
+{\footnotesize\ttfamily \label{classEvent_a3ea15fe799cf30995efeedc3f3f70b17} 
+QDate\+Time Event::\+get\+End\+Date\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the event end date and time. 
+
+\begin{DoxyReturn}{Returns}
+End date and time of the event. 
+\end{DoxyReturn}
+\Hypertarget{classEvent_a4f739685eb3d97465ae9ce4e1898f447}\index{Event@{Event}!getId@{getId}}
+\index{getId@{getId}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily \label{classEvent_a4f739685eb3d97465ae9ce4e1898f447} 
+int Event::\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the event ID. 
+
+\begin{DoxyReturn}{Returns}
+Database identifier of the event. 
+\end{DoxyReturn}
+\Hypertarget{classEvent_a524612c15098e19730be3ab5fe9aaf09}\index{Event@{Event}!getLocation@{getLocation}}
+\index{getLocation@{getLocation}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{getLocation()}{getLocation()}}
+{\footnotesize\ttfamily \label{classEvent_a524612c15098e19730be3ab5fe9aaf09} 
+QString Event::\+get\+Location (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the event location. 
+
+\begin{DoxyReturn}{Returns}
+Location stored for the event. 
+\end{DoxyReturn}
+\Hypertarget{classEvent_a8b22f9274fb6ea8fd205dc64be43472d}\index{Event@{Event}!getStartDateTime@{getStartDateTime}}
+\index{getStartDateTime@{getStartDateTime}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{getStartDateTime()}{getStartDateTime()}}
+{\footnotesize\ttfamily \label{classEvent_a8b22f9274fb6ea8fd205dc64be43472d} 
+QDate\+Time Event::\+get\+Start\+Date\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the event start date and time. 
+
+\begin{DoxyReturn}{Returns}
+Start date and time of the event. 
+\end{DoxyReturn}
+\Hypertarget{classEvent_a6f749b39efd056b54ebf35470b95a4e7}\index{Event@{Event}!getTitle@{getTitle}}
+\index{getTitle@{getTitle}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
+{\footnotesize\ttfamily \label{classEvent_a6f749b39efd056b54ebf35470b95a4e7} 
+QString Event::\+get\+Title (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the event title. 
+
+\begin{DoxyReturn}{Returns}
+Title stored for the event. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{classEvent_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classEvent_aed32d3c2b73827b3db16573de2ad1472}\index{Event@{Event}!calendarId@{calendarId}}
+\index{calendarId@{calendarId}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{calendarId}{calendarId}}
+{\footnotesize\ttfamily \label{classEvent_aed32d3c2b73827b3db16573de2ad1472} 
+int Event::\+calendar\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ID of the calendar containing the event. 
+
+\Hypertarget{classEvent_a6f7c4fcf66a862e66cc32bb7ede6e119}\index{Event@{Event}!createdBy@{createdBy}}
+\index{createdBy@{createdBy}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{createdBy}{createdBy}}
+{\footnotesize\ttfamily \label{classEvent_a6f7c4fcf66a862e66cc32bb7ede6e119} 
+int Event::\+created\+By\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{classUser}{User} ID of the event creator. 
+
+\Hypertarget{classEvent_aeccdcf5893474a314f5a6aaf0f828249}\index{Event@{Event}!description@{description}}
+\index{description@{description}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{description}{description}}
+{\footnotesize\ttfamily \label{classEvent_aeccdcf5893474a314f5a6aaf0f828249} 
+QString Event::\+description\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{classEvent}{Event} description. 
+
+\Hypertarget{classEvent_a0dd5425a88ec7a703efaf7ae3ca95f6a}\index{Event@{Event}!endDateTime@{endDateTime}}
+\index{endDateTime@{endDateTime}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{endDateTime}{endDateTime}}
+{\footnotesize\ttfamily \label{classEvent_a0dd5425a88ec7a703efaf7ae3ca95f6a} 
+QDate\+Time Event::\+end\+Date\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+End date and time of the event. 
+
+\Hypertarget{classEvent_a08ba599a781bea8b678251fdb7290890}\index{Event@{Event}!id@{id}}
+\index{id@{id}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classEvent_a08ba599a781bea8b678251fdb7290890} 
+int Event::\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Database identifier of the event. 
+
+\Hypertarget{classEvent_ac0dfeaef205a76c5ff2313ad90ab7da1}\index{Event@{Event}!location@{location}}
+\index{location@{location}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{location}{location}}
+{\footnotesize\ttfamily \label{classEvent_ac0dfeaef205a76c5ff2313ad90ab7da1} 
+QString Event::\+location\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{classEvent}{Event} location. 
+
+\Hypertarget{classEvent_a9ffecc76a00badf251484724914e4d36}\index{Event@{Event}!startDateTime@{startDateTime}}
+\index{startDateTime@{startDateTime}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{startDateTime}{startDateTime}}
+{\footnotesize\ttfamily \label{classEvent_a9ffecc76a00badf251484724914e4d36} 
+QDate\+Time Event::\+start\+Date\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Start date and time of the event. 
+
+\Hypertarget{classEvent_adaf3afcf619c5f01fc7ec455bf1d1e76}\index{Event@{Event}!title@{title}}
+\index{title@{title}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily \label{classEvent_adaf3afcf619c5f01fc7ec455bf1d1e76} 
+QString Event::\+title\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{classEvent}{Event} title. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+models/\+\doxymbox{\hyperlink{Event_8h}{Event.\+h}}\item 
+src/\+models/\+\doxymbox{\hyperlink{Event_8cpp}{Event.\+cpp}}\end{DoxyCompactItemize}

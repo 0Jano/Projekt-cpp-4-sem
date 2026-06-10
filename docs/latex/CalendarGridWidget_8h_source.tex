@@ -1,0 +1,83 @@
+\doxysection{Calendar\+Grid\+Widget.\+h}
+\hypertarget{CalendarGridWidget_8h_source}{}\label{CalendarGridWidget_8h_source}\index{src/ui/CalendarGridWidget.h@{src/ui/CalendarGridWidget.h}}
+\doxymbox{\hyperlink{CalendarGridWidget_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CALENDARGRIDWIDGET\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CALENDARGRIDWIDGET\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QGridLayout>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QDate>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{Event_8h}{models/Event.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }QListWidget;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }QFrame;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalendarGridWidget_a41c504c69ca063030216f837907d0204}{CalendarGridWidget}}\ :\ \textcolor{keyword}{public}\ QWidget}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102}{ViewMode}}\ \{\ \doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102adcf409ae690e6e4a20e8d0b2be622447}{Month}},\ \doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102af6adf573fd090d2ab01920520dc21e87}{Week}}\ \};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classCalendarGridWidget_a41c504c69ca063030216f837907d0204}{CalendarGridWidget}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_aabaa2e3ba814d4feaf4c2588d12785d3}{setCalendarId}}(\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarGridWidget_ad5c78c218f1f6791e0e07f1989b9be94}{calendarId}});}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a0c24f94b577e6361754622170d329328}{refresh}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_ab75cd279b0d2761d27d26a6df792e7cf}{setUserId}}(\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarGridWidget_a1b57acd9e9fb6da6fa188dc66b0e88a6}{userId}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_ad11609122931565b210766093812c886}{onAddEventClicked}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a21bb1901451199cf7c023fa94d9f4b90}{onPrevClicked}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a7ff482f6860285cfcb81a2b5ce75dfba}{onNextClicked}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a315b6038c43dc648173ee8f54da6f835}{onTodayClicked}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a318bab82b64d0c5b9535f48db72c06c2}{onImportIcsClicked}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a6de9becc0a8891076709241656f9efbe}{onExportIcsClicked}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a5ded97b5469e9cc69a55081f4b1b8506}{onViewModeChanged}}(\textcolor{keywordtype}{bool}\ checked);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarGridWidget_ad5c78c218f1f6791e0e07f1989b9be94}{calendarId}};}
+\DoxyCodeLine{00041\ \ \ \ \ QDate\ \doxymbox{\hyperlink{classCalendarGridWidget_adf538a4ce4876b6340b9eb4183128f18}{currentStartDate}};}
+\DoxyCodeLine{00042\ \ \ \ \ \doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102}{ViewMode}}\ \doxymbox{\hyperlink{classCalendarGridWidget_ab61950bb0820df208da0702b73fac08c}{currentMode}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarGridWidget_a1b57acd9e9fb6da6fa188dc66b0e88a6}{userId}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ QLabel\ *\doxymbox{\hyperlink{classCalendarGridWidget_aa0b406f0305899f30530eadb70cfd9be}{dateRangeLabel}};}
+\DoxyCodeLine{00047\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classCalendarGridWidget_abaece649983b1587e39106ea8c755f98}{prevButton}};}
+\DoxyCodeLine{00048\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classCalendarGridWidget_af5f611898991e6e4cbbeeef1c4e666af}{nextButton}};}
+\DoxyCodeLine{00049\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classCalendarGridWidget_a38f41e8dfb6c1642ab89fc39410de819}{todayButton}};}
+\DoxyCodeLine{00050\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classCalendarGridWidget_a6cb28abf019b054d2083d3e36d8eca61}{importIcsButton}};}
+\DoxyCodeLine{00051\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classCalendarGridWidget_a6506d7a9b8a57694c996de9f41ba1a11}{exportIcsButton}};}
+\DoxyCodeLine{00052\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classCalendarGridWidget_a4d58331470fa86a96de5c808c557e71f}{monthViewButton}};}
+\DoxyCodeLine{00053\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classCalendarGridWidget_ae3c7ad5779429b29a2f1cdeb315780cb}{weekViewButton}};}
+\DoxyCodeLine{00054\ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ QGridLayout\ *\doxymbox{\hyperlink{classCalendarGridWidget_aec39a02f00382490e26fd8d9fad34628}{gridLayout}};}
+\DoxyCodeLine{00056\ \ \ \ \ QWidget\ *\doxymbox{\hyperlink{classCalendarGridWidget_a04e04c46be26b9814ea2aea9818f9fab}{gridWidget}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::map<QDate,\ std::vector<Event>>\ \doxymbox{\hyperlink{classCalendarGridWidget_ac1cbb1e586138ce17b7381a74e993ee3}{eventsByDay}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_acf57c494ff40d3f5062a864fbfcda54f}{setupUi}}();}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a28a99334b7ca415df50a21c0a59f916a}{loadEvents}}();}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_ac47947429f6ad36c38acd3ce8d5e7d54}{rebuildGrid}}();}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a0f861f22504c5ae46d6fe466f4844976}{rebuildMonthGrid}}();}
+\DoxyCodeLine{00064\ \ \ \ \ QFrame\ *\doxymbox{\hyperlink{classCalendarGridWidget_a749d1a9b2403b23c8d93a89105d919be}{makeOverflowCell}}(\textcolor{keyword}{const}\ QDate\ \&date);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_af6fa4aaf888bb615bab5884fd580d5ce}{rebuildWeekGrid}}();}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_aab10e5092f26ab922dc830be77c35f93}{showDayPopup}}(\textcolor{keyword}{const}\ QDate\ \&date,\ \textcolor{keyword}{const}\ std::vector<Event>\ \&events);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_add9bc1950b4ad81d0b268f61d5a3eef1}{populateDayEventsList}}(QListWidget\ *listWidget,\ QLabel\ *countLabel,\ \textcolor{keyword}{const}\ std::vector<Event>\ \&events);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a3ca05c430667cc09a09d60362593db75}{editEvent}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classEvent}{Event}}\ \&event);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a99f9ed228bc7a0f1f989d93c24940548}{createEventForDate}}(\textcolor{keyword}{const}\ QDate\ \&date);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classCalendarGridWidget_a0b9f839d3a7cd2d73f650fc9b5c828bb}{canManageEvents}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_ac1b79f951f8ea34d485434dbd299e778}{showPermissionDenied}}();}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_a93a83f5858ce64419bb3e02160d9d61e}{updateEventControls}}();}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalendarGridWidget_ae74d103e337a24d6ee16cdcfb98b505c}{updateDateLabel}}();}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classCalendarGridWidget_a32afbd8bb5f5adedd01693383c84c0e3}{eventFilter}}(QObject\ *obj,\ QEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,18 @@
+<map id="ShareCalendarDialog::setupUi" name="ShareCalendarDialog::setupUi">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,36,164,81"/>
+<area shape="rect" id="Node000002" href="$classShareCalendarDialog.html#a695c5142b5fde2863fedd294fe106972" title=" " alt="" coords="212,36,370,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,56,199,58,194,59,164,61"/>
+<area shape="rect" id="Node000003" href="$classInvitationManager.html#aec74619343575960463b8a35bd262a94" title="Creates a pending calendar invitation." alt="" coords="434,5,582,50"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="370,45,421,40,415,41,371,50"/>
+<area shape="rect" id="Node000007" href="$classAuthManager.html#a01a515357f880c930884f57be9eb7913" title="Resolves an email address or username to a numeric user ID." alt="" coords="418,74,597,102"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="370,66,405,73,400,74,370,72"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="645,6,877,34"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="582,23,633,24,627,24,582,28"/>
+<area shape="rect" id="Node000005" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="659,82,863,110"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="583,45,694,77,689,77,582,50"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="718,80,711,73,716,63,733,57,761,55,791,58,808,67,803,66,789,63,761,60,734,62,720,67,716,73,723,82"/>
+<area shape="rect" id="Node000006" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="925,73,1135,118"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="863,93,912,96,906,96,863,98"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="560,71,597,60,645,44,675,38,681,37,646,49,598,65,561,76"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="598,88,647,92,642,92,598,93"/>
+</map>

@@ -1,0 +1,306 @@
+\doxysection{Calendar\+Manager Class Reference}
+\hypertarget{classCalendarManager}{}\label{classCalendarManager}\index{CalendarManager@{CalendarManager}}
+
+
+Handles CRUD operations for calendars and calendar membership.  
+
+
+
+
+{\ttfamily \+\#include $<$Calendar\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Calendar\+Manager:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classCalendarManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classCalendarManager_a14692d43b99548bcb862895bfac43035}{create\+Calendar}} (const QString \&name, int owner\+Id)
+\begin{DoxyCompactList}\small\item\em Creates a calendar owned by a user. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classCalendarManager_a4d9525a41498f52ba74d70a58993df81}{add\+User\+To\+Calendar}} (int calendar\+Id, int user\+Id, const QString \&role)
+\begin{DoxyCompactList}\small\item\em Adds a user to a calendar with the given role. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarManager_a8b511624f033d20ae4d0341ca5851b7f}{get\+User\+Role\+In\+Calendar}} (int calendar\+Id, int user\+Id)
+\begin{DoxyCompactList}\small\item\em Returns a user\textquotesingle{}s role in a calendar. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classCalendarManager_a0286f75aa80cc7285427fd27bda5b385}{delete\+Calendar}} (int calendar\+Id, int user\+Id)
+\begin{DoxyCompactList}\small\item\em Deletes a calendar when requested by an authorized user. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classCalendarManager_ac32be63e1e77ffd765820b68a8b42953}{leave\+Calendar}} (int calendar\+Id, int user\+Id)
+\begin{DoxyCompactList}\small\item\em Removes a user from a calendar membership. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classCalendarManager_adba397657ecf3f2391b700ed25717158}{set\+Favorite\+Calendar}} (int user\+Id, int calendar\+Id)
+\begin{DoxyCompactList}\small\item\em Marks a calendar as a user\textquotesingle{}s favorite calendar. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classCalendarManager_a0fe499fe47b05f4f724f94e7a5082867}{clear\+Favorite\+Calendar}} (int user\+Id)
+\begin{DoxyCompactList}\small\item\em Clears a user\textquotesingle{}s favorite calendar selection. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendarManager_ae4070bab45f48ed544e7e1fbfe20bd7b}{get\+Favorite\+Calendar\+Id}} (int user\+Id)
+\begin{DoxyCompactList}\small\item\em Returns a user\textquotesingle{}s favorite calendar ID. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{classCalendar}{Calendar}} $>$ \doxymbox{\hyperlink{classCalendarManager_a8558320ced717c5dca5a52c82774e7d6}{get\+Calendars\+For\+User}} (int user\+Id) const
+\begin{DoxyCompactList}\small\item\em Returns all calendars where the user is a member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles CRUD operations for calendars and calendar membership. 
+
+Creates calendars, manages membership rows and roles, and queries calendars visible to a user. Database operations are kept in this manager instead of UI classes. 
+
+\label{doc-func-members}
+\Hypertarget{classCalendarManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalendarManager_a4d9525a41498f52ba74d70a58993df81}\index{CalendarManager@{CalendarManager}!addUserToCalendar@{addUserToCalendar}}
+\index{addUserToCalendar@{addUserToCalendar}!CalendarManager@{CalendarManager}}
+\doxysubsubsection{\texorpdfstring{addUserToCalendar()}{addUserToCalendar()}}
+{\footnotesize\ttfamily \label{classCalendarManager_a4d9525a41498f52ba74d70a58993df81} 
+bool Calendar\+Manager::\+add\+User\+To\+Calendar (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{, }\item[{int}]{user\+Id}{, }\item[{const QString \&}]{role}{}\end{DoxyParamCaption})}
+
+
+
+Adds a user to a calendar with the given role. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Id} & ID of the calendar to join. \\
+\hline
+{\em user\+Id} & ID of the user to add. \\
+\hline
+{\em role} & Role assigned to the user in the calendar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the insert completed or the duplicate membership was ignored. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarManager_a4d9525a41498f52ba74d70a58993df81_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarManager_a0fe499fe47b05f4f724f94e7a5082867}\index{CalendarManager@{CalendarManager}!clearFavoriteCalendar@{clearFavoriteCalendar}}
+\index{clearFavoriteCalendar@{clearFavoriteCalendar}!CalendarManager@{CalendarManager}}
+\doxysubsubsection{\texorpdfstring{clearFavoriteCalendar()}{clearFavoriteCalendar()}}
+{\footnotesize\ttfamily \label{classCalendarManager_a0fe499fe47b05f4f724f94e7a5082867} 
+bool Calendar\+Manager::\+clear\+Favorite\+Calendar (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Clears a user\textquotesingle{}s favorite calendar selection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & ID of the user whose favorite calendar should be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the favorite calendar was cleared successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarManager_a0fe499fe47b05f4f724f94e7a5082867_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarManager_a14692d43b99548bcb862895bfac43035}\index{CalendarManager@{CalendarManager}!createCalendar@{createCalendar}}
+\index{createCalendar@{createCalendar}!CalendarManager@{CalendarManager}}
+\doxysubsubsection{\texorpdfstring{createCalendar()}{createCalendar()}}
+{\footnotesize\ttfamily \label{classCalendarManager_a14692d43b99548bcb862895bfac43035} 
+bool Calendar\+Manager::\+create\+Calendar (\begin{DoxyParamCaption}\item[{const QString \&}]{name}{, }\item[{int}]{owner\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Creates a calendar owned by a user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name of the calendar. \\
+\hline
+{\em owner\+Id} & \doxylink{classUser}{User} ID of the calendar owner. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the calendar and owner membership were created successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarManager_a14692d43b99548bcb862895bfac43035_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarManager_a0286f75aa80cc7285427fd27bda5b385}\index{CalendarManager@{CalendarManager}!deleteCalendar@{deleteCalendar}}
+\index{deleteCalendar@{deleteCalendar}!CalendarManager@{CalendarManager}}
+\doxysubsubsection{\texorpdfstring{deleteCalendar()}{deleteCalendar()}}
+{\footnotesize\ttfamily \label{classCalendarManager_a0286f75aa80cc7285427fd27bda5b385} 
+bool Calendar\+Manager::\+delete\+Calendar (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{, }\item[{int}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Deletes a calendar when requested by an authorized user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Id} & ID of the calendar to delete. \\
+\hline
+{\em user\+Id} & ID of the user requesting deletion. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the calendar was deleted successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarManager_a0286f75aa80cc7285427fd27bda5b385_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarManager_a8558320ced717c5dca5a52c82774e7d6}\index{CalendarManager@{CalendarManager}!getCalendarsForUser@{getCalendarsForUser}}
+\index{getCalendarsForUser@{getCalendarsForUser}!CalendarManager@{CalendarManager}}
+\doxysubsubsection{\texorpdfstring{getCalendarsForUser()}{getCalendarsForUser()}}
+{\footnotesize\ttfamily \label{classCalendarManager_a8558320ced717c5dca5a52c82774e7d6} 
+std::\+vector$<$ \doxymbox{\hyperlink{classCalendar}{Calendar}} $>$ Calendar\+Manager::\+get\+Calendars\+For\+User (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns all calendars where the user is a member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & ID of the user whose calendars should be loaded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of calendars visible to the user for any membership role. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarManager_a8558320ced717c5dca5a52c82774e7d6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarManager_ae4070bab45f48ed544e7e1fbfe20bd7b}\index{CalendarManager@{CalendarManager}!getFavoriteCalendarId@{getFavoriteCalendarId}}
+\index{getFavoriteCalendarId@{getFavoriteCalendarId}!CalendarManager@{CalendarManager}}
+\doxysubsubsection{\texorpdfstring{getFavoriteCalendarId()}{getFavoriteCalendarId()}}
+{\footnotesize\ttfamily \label{classCalendarManager_ae4070bab45f48ed544e7e1fbfe20bd7b} 
+int Calendar\+Manager::\+get\+Favorite\+Calendar\+Id (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Returns a user\textquotesingle{}s favorite calendar ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & ID of the user whose favorite calendar should be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Favorite calendar ID if set, or -\/1 if no favorite exists. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarManager_ae4070bab45f48ed544e7e1fbfe20bd7b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarManager_a8b511624f033d20ae4d0341ca5851b7f}\index{CalendarManager@{CalendarManager}!getUserRoleInCalendar@{getUserRoleInCalendar}}
+\index{getUserRoleInCalendar@{getUserRoleInCalendar}!CalendarManager@{CalendarManager}}
+\doxysubsubsection{\texorpdfstring{getUserRoleInCalendar()}{getUserRoleInCalendar()}}
+{\footnotesize\ttfamily \label{classCalendarManager_a8b511624f033d20ae4d0341ca5851b7f} 
+QString Calendar\+Manager::\+get\+User\+Role\+In\+Calendar (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{, }\item[{int}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Returns a user\textquotesingle{}s role in a calendar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Id} & ID of the calendar to inspect. \\
+\hline
+{\em user\+Id} & ID of the user whose role should be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Role string if a membership exists, or an empty string otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarManager_a8b511624f033d20ae4d0341ca5851b7f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarManager_ac32be63e1e77ffd765820b68a8b42953}\index{CalendarManager@{CalendarManager}!leaveCalendar@{leaveCalendar}}
+\index{leaveCalendar@{leaveCalendar}!CalendarManager@{CalendarManager}}
+\doxysubsubsection{\texorpdfstring{leaveCalendar()}{leaveCalendar()}}
+{\footnotesize\ttfamily \label{classCalendarManager_ac32be63e1e77ffd765820b68a8b42953} 
+bool Calendar\+Manager::\+leave\+Calendar (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{, }\item[{int}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Removes a user from a calendar membership. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Id} & ID of the calendar to leave. \\
+\hline
+{\em user\+Id} & ID of the user leaving the calendar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the membership was removed successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarManager_ac32be63e1e77ffd765820b68a8b42953_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarManager_adba397657ecf3f2391b700ed25717158}\index{CalendarManager@{CalendarManager}!setFavoriteCalendar@{setFavoriteCalendar}}
+\index{setFavoriteCalendar@{setFavoriteCalendar}!CalendarManager@{CalendarManager}}
+\doxysubsubsection{\texorpdfstring{setFavoriteCalendar()}{setFavoriteCalendar()}}
+{\footnotesize\ttfamily \label{classCalendarManager_adba397657ecf3f2391b700ed25717158} 
+bool Calendar\+Manager::\+set\+Favorite\+Calendar (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{, }\item[{int}]{calendar\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Marks a calendar as a user\textquotesingle{}s favorite calendar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & ID of the user whose favorite calendar should be set. \\
+\hline
+{\em calendar\+Id} & ID of the calendar to mark as favorite. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the favorite calendar was saved successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarManager_adba397657ecf3f2391b700ed25717158_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+managers/\+\doxymbox{\hyperlink{CalendarManager_8h}{Calendar\+Manager.\+h}}\item 
+src/\+managers/\+\doxymbox{\hyperlink{CalendarManager_8cpp}{Calendar\+Manager.\+cpp}}\end{DoxyCompactItemize}

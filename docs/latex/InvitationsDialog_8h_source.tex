@@ -1,0 +1,45 @@
+\doxysection{Invitations\+Dialog.\+h}
+\hypertarget{InvitationsDialog_8h_source}{}\label{InvitationsDialog_8h_source}\index{src/ui/InvitationsDialog.h@{src/ui/InvitationsDialog.h}}
+\doxymbox{\hyperlink{InvitationsDialog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INVITATIONSDIALOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INVITATIONSDIALOG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QListWidget>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{CalendarInvitation_8h}{models/CalendarInvitation.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classInvitationsDialog_a34dcc51aeaae7a15203378182e3e9c4e}{InvitationsDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classInvitationsDialog_a34dcc51aeaae7a15203378182e3e9c4e}{InvitationsDialog}}(\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classInvitationsDialog_a7b3956e5400e2912365a115381e77cc8}{userId}},\ QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ signals:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classInvitationsDialog_a284f72e9bf1e94d60945f64037262464}{invitationsChanged}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classInvitationsDialog_abe4fe646161f9fefd4fb5f2e517b4114}{onAcceptClicked}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classInvitationsDialog_a58800872626716b039b39e78e179c28f}{onDeclineClicked}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classInvitationsDialog_ae0cd1ecdb96d23ceebf4731d104bbc17}{onSelectionChanged}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classInvitationsDialog_a7b3956e5400e2912365a115381e77cc8}{userId}};}
+\DoxyCodeLine{00028\ \ \ \ \ QListWidget\ *\doxymbox{\hyperlink{classInvitationsDialog_a669bc5ab532c523bffddafe8f9c90b83}{listWidget}};}
+\DoxyCodeLine{00029\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classInvitationsDialog_a3c45eafd7280af99b907775576574492}{acceptButton}};}
+\DoxyCodeLine{00030\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classInvitationsDialog_afe87084214db60435452f45cb2dc445e}{declineButton}};}
+\DoxyCodeLine{00031\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classInvitationsDialog_ac6dfcd2c6e4ac761213112c36d9facfa}{closeButton}};}
+\DoxyCodeLine{00032\ \ \ \ \ QLabel\ *\doxymbox{\hyperlink{classInvitationsDialog_a574244c11d8b1b470354a4badb8a8fd3}{emptyLabel}};}
+\DoxyCodeLine{00033\ \ \ \ \ std::vector<CalendarInvitation>\ \doxymbox{\hyperlink{classInvitationsDialog_a3dd4a00e43b46f06ac529d68134b5d85}{invitations}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classInvitationsDialog_a197fcaf7d0c786f9fa199f4a77a9d0d6}{setupUi}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classInvitationsDialog_a36396c561b738885afef29a9d1c7016e}{loadInvitations}}();}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

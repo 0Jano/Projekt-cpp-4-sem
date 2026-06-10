@@ -1,0 +1,9 @@
+<map id="src/managers/EventManager.h" name="src/managers/EventManager.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="262,5,482,33"/>
+<area shape="rect" id="Node000002" href="$EventManager_8cpp.html" title=" " alt="" coords="5,81,240,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="315,38,168,83,166,78,310,37"/>
+<area shape="rect" id="Node000003" href="$IcsManager_8cpp.html" title=" " alt="" coords="264,81,480,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="374,47,374,82,370,79,370,51"/>
+<area shape="rect" id="Node000004" href="$CalendarGridWidget_8cpp.html" title=" " alt="" coords="504,81,722,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="430,35,573,80,567,81,429,41"/>
+</map>

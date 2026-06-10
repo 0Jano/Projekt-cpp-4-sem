@@ -1,0 +1,20 @@
+<map id="InvitationsDialog::onAcceptClicked" name="InvitationsDialog::onAcceptClicked">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,72,146,117"/>
+<area shape="rect" id="Node000002" href="$classInvitationManager.html#acae3d8a42c41d3f65d8fe67a9a2bbd52" title="Accepts a pending invitation." alt="" coords="422,5,570,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,69,193,57,303,40,408,32,403,34,304,45,194,62,147,74"/>
+<area shape="rect" id="Node000006" href="$classInvitationsDialog.html#a284f72e9bf1e94d60945f64037262464" title=" " alt="" coords="194,141,341,186"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="140,115,192,135,187,136,139,120"/>
+<area shape="rect" id="Node000007" href="$classInvitationsDialog.html#a36396c561b738885afef29a9d1c7016e" title=" " alt="" coords="197,72,338,117"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="146,92,184,93,179,95,147,97"/>
+<area shape="rect" id="Node000003" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="650,10,882,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="570,24,638,25,632,26,571,29"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="664,86,868,114"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="571,45,699,81,693,81,570,50"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="720,84,713,77,719,67,737,61,766,59,797,62,816,71,811,70,796,67,766,64,738,66,722,71,718,77,725,86"/>
+<area shape="rect" id="Node000005" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="930,77,1140,122"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="868,97,917,100,911,100,868,102"/>
+<area shape="rect" id="Node000008" href="$classInvitationManager.html#a769362031c1403128255eb4e07cb8af7" title="Returns pending invitations for a user." alt="" coords="389,75,602,119"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="337,92,376,95,371,96,338,98"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="568,71,650,48,682,42,687,41,651,53,570,77"/>
+<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="603,95,652,98,646,99,603,101"/>
+</map>

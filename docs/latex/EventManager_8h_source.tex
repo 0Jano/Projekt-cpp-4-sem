@@ -1,0 +1,28 @@
+\doxysection{Event\+Manager.\+h}
+\hypertarget{EventManager_8h_source}{}\label{EventManager_8h_source}\index{src/managers/EventManager.h@{src/managers/EventManager.h}}
+\doxymbox{\hyperlink{EventManager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ EVENTMANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ EVENTMANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QDateTime>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{Event_8h}{models/Event.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEventManager}{EventManager}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classEventManager_a3f0bb65968223d7927ea3860f514e7c4}{createEvent}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classEvent}{Event}}\ \&event);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classEventManager_a9d4532adf630023856f38cb1f1db3f1f}{updateEvent}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classEvent}{Event}}\ \&event);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classEventManager_a0ba805dc0631822bcee68f0be4232e96}{deleteEvent}}(\textcolor{keywordtype}{int}\ eventId);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<Event>\ \doxymbox{\hyperlink{classEventManager_a177fbe1ec5d854f958d1b339fd72589b}{getEventsForCalendar}}(\textcolor{keywordtype}{int}\ calendarId)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classEventManager_a3121ab98d9a7460150d8441a0a73e4a3}{hasConflict}}(\textcolor{keywordtype}{int}\ calendarId,\ \textcolor{keyword}{const}\ QDateTime\ \&start,\ \textcolor{keyword}{const}\ QDateTime\ \&end,\ \textcolor{keywordtype}{int}\ ignoredEventId\ =\ -\/1);}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

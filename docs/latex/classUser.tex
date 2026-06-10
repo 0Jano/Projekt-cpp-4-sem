@@ -1,0 +1,158 @@
+\doxysection{User Class Reference}
+\hypertarget{classUser}{}\label{classUser}\index{User@{User}}
+
+
+Represents a registered user of the application.  
+
+
+
+
+{\ttfamily \+\#include $<$User.\+h$>$}
+
+
+
+Collaboration diagram for User:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classUser__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classUser_a4a0137053e591fbb79d9057dd7d2283d}{User}} ()
+\begin{DoxyCompactList}\small\item\em Constructs an empty user model. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classUser_af1d0c46d92e243c96d62ed7cde1322c0}{User}} (const QString \&\doxymbox{\hyperlink{classUser_ae4202de2b7974e92a55b913d20b03833}{username}}, const QString \&\doxymbox{\hyperlink{classUser_a5b7a66a134d017ae18c2d1464f34eb67}{email}}, const QString \&\doxymbox{\hyperlink{classUser_ac887622f22a898c097d156ad964be846}{password}})
+\begin{DoxyCompactList}\small\item\em Constructs a user model with account credentials. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classUser_a1c9ee5527f563fb644e0ad6bbab79f41}{get\+Username}} () const
+\begin{DoxyCompactList}\small\item\em Returns the user\textquotesingle{}s username. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classUser_a080b4119344d333a59d14bd5d0667797}{get\+Email}} () const
+\begin{DoxyCompactList}\small\item\em Returns the user\textquotesingle{}s email address. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classUser_a0479f7f168b8ec592ecc1ea9f95d0868}{get\+Password}} () const
+\begin{DoxyCompactList}\small\item\em Returns the user\textquotesingle{}s password value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QString \doxymbox{\hyperlink{classUser_ae4202de2b7974e92a55b913d20b03833}{username}}
+\begin{DoxyCompactList}\small\item\em Username used for display and login. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classUser_a5b7a66a134d017ae18c2d1464f34eb67}{email}}
+\begin{DoxyCompactList}\small\item\em Email address associated with the user. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classUser_ac887622f22a898c097d156ad964be846}{password}}
+\begin{DoxyCompactList}\small\item\em Password value used by authentication. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a registered user of the application. 
+
+Stores the username, email address, and password value used by the authentication layer. The class is a lightweight data model passed between UI and manager code. 
+
+\label{doc-constructors}
+\Hypertarget{classUser_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classUser_a4a0137053e591fbb79d9057dd7d2283d}\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classUser_a4a0137053e591fbb79d9057dd7d2283d} 
+User::\+\+User (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an empty user model. 
+
+\Hypertarget{classUser_af1d0c46d92e243c96d62ed7cde1322c0}\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classUser_af1d0c46d92e243c96d62ed7cde1322c0} 
+User::\+\+User (\begin{DoxyParamCaption}\item[{const QString \&}]{username}{, }\item[{const QString \&}]{email}{, }\item[{const QString \&}]{password}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a user model with account credentials. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{classUser_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classUser_a080b4119344d333a59d14bd5d0667797}\index{User@{User}!getEmail@{getEmail}}
+\index{getEmail@{getEmail}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
+{\footnotesize\ttfamily \label{classUser_a080b4119344d333a59d14bd5d0667797} 
+QString User::\+get\+Email (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the user\textquotesingle{}s email address. 
+
+\begin{DoxyReturn}{Returns}
+Email address stored in this model. 
+\end{DoxyReturn}
+\Hypertarget{classUser_a0479f7f168b8ec592ecc1ea9f95d0868}\index{User@{User}!getPassword@{getPassword}}
+\index{getPassword@{getPassword}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getPassword()}{getPassword()}}
+{\footnotesize\ttfamily \label{classUser_a0479f7f168b8ec592ecc1ea9f95d0868} 
+QString User::\+get\+Password (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the user\textquotesingle{}s password value. 
+
+\begin{DoxyReturn}{Returns}
+Password value stored in this model. 
+\end{DoxyReturn}
+\Hypertarget{classUser_a1c9ee5527f563fb644e0ad6bbab79f41}\index{User@{User}!getUsername@{getUsername}}
+\index{getUsername@{getUsername}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getUsername()}{getUsername()}}
+{\footnotesize\ttfamily \label{classUser_a1c9ee5527f563fb644e0ad6bbab79f41} 
+QString User::\+get\+Username (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the user\textquotesingle{}s username. 
+
+\begin{DoxyReturn}{Returns}
+Username stored in this model. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{classUser_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classUser_a5b7a66a134d017ae18c2d1464f34eb67}\index{User@{User}!email@{email}}
+\index{email@{email}!User@{User}}
+\doxysubsubsection{\texorpdfstring{email}{email}}
+{\footnotesize\ttfamily \label{classUser_a5b7a66a134d017ae18c2d1464f34eb67} 
+QString User::\+email\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Email address associated with the user. 
+
+\Hypertarget{classUser_ac887622f22a898c097d156ad964be846}\index{User@{User}!password@{password}}
+\index{password@{password}!User@{User}}
+\doxysubsubsection{\texorpdfstring{password}{password}}
+{\footnotesize\ttfamily \label{classUser_ac887622f22a898c097d156ad964be846} 
+QString User::\+password\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Password value used by authentication. 
+
+\Hypertarget{classUser_ae4202de2b7974e92a55b913d20b03833}\index{User@{User}!username@{username}}
+\index{username@{username}!User@{User}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily \label{classUser_ae4202de2b7974e92a55b913d20b03833} 
+QString User::\+username\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Username used for display and login. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+models/\+\doxymbox{\hyperlink{User_8h}{User.\+h}}\item 
+src/\+models/\+\doxymbox{\hyperlink{User_8cpp}{User.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,16 @@
+<map id="AuthManager::registerUser" name="AuthManager::registerUser">
+<area shape="rect" id="Node000001" title="Registers a new user in the database." alt="" coords="5,109,202,137"/>
+<area shape="rect" id="Node000002" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="250,5,481,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,107,180,75,249,43,277,36,273,39,251,48,183,80,129,111"/>
+<area shape="rect" id="Node000003" href="$classUser.html#a080b4119344d333a59d14bd5d0667797" title="Returns the user&#39;s email address." alt="" coords="307,57,424,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,106,293,84,289,87,178,111"/>
+<area shape="rect" id="Node000004" href="$classUser.html#a0479f7f168b8ec592ecc1ea9f95d0868" title="Returns the user&#39;s password value." alt="" coords="294,109,436,137"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="202,121,281,122,276,124,203,126"/>
+<area shape="rect" id="Node000005" href="$classUser.html#a1c9ee5527f563fb644e0ad6bbab79f41" title="Returns the user&#39;s username." alt="" coords="292,161,439,189"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="177,135,280,157,275,159,177,140"/>
+<area shape="rect" id="Node000006" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="264,237,467,265"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="131,135,251,198,319,231,313,231,248,203,130,140"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="321,236,314,228,319,219,337,213,365,211,396,213,414,222,409,222,395,218,365,216,338,218,323,223,319,228,326,238"/>
+<area shape="rect" id="Node000007" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="529,229,739,274"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="467,249,516,251,511,251,467,254"/>
+</map>

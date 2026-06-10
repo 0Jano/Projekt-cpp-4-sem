@@ -1,0 +1,598 @@
+\doxysection{Calendar\+Grid\+Widget Class Reference}
+\hypertarget{classCalendarGridWidget}{}\label{classCalendarGridWidget}\index{CalendarGridWidget@{CalendarGridWidget}}
+
+
+{\ttfamily \+\#include $<$Calendar\+Grid\+Widget.\+h$>$}
+
+
+
+Inheritance diagram for Calendar\+Grid\+Widget:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classCalendarGridWidget__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Calendar\+Grid\+Widget:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classCalendarGridWidget__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102}{View\+Mode}} \{ \doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102adcf409ae690e6e4a20e8d0b2be622447}{Month}}
+, \doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102af6adf573fd090d2ab01920520dc21e87}{Week}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_ad11609122931565b210766093812c886}{on\+Add\+Event\+Clicked}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classCalendarGridWidget_a41c504c69ca063030216f837907d0204}{Calendar\+Grid\+Widget}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_aabaa2e3ba814d4feaf4c2588d12785d3}{set\+Calendar\+Id}} (int \doxymbox{\hyperlink{classCalendarGridWidget_ad5c78c218f1f6791e0e07f1989b9be94}{calendar\+Id}})
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a0c24f94b577e6361754622170d329328}{refresh}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_ab75cd279b0d2761d27d26a6df792e7cf}{set\+User\+Id}} (int \doxymbox{\hyperlink{classCalendarGridWidget_a1b57acd9e9fb6da6fa188dc66b0e88a6}{user\+Id}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a21bb1901451199cf7c023fa94d9f4b90}{on\+Prev\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a7ff482f6860285cfcb81a2b5ce75dfba}{on\+Next\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a315b6038c43dc648173ee8f54da6f835}{on\+Today\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a318bab82b64d0c5b9535f48db72c06c2}{on\+Import\+Ics\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a6de9becc0a8891076709241656f9efbe}{on\+Export\+Ics\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a5ded97b5469e9cc69a55081f4b1b8506}{on\+View\+Mode\+Changed}} (bool checked)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_acf57c494ff40d3f5062a864fbfcda54f}{setup\+Ui}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a28a99334b7ca415df50a21c0a59f916a}{load\+Events}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_ac47947429f6ad36c38acd3ce8d5e7d54}{rebuild\+Grid}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a0f861f22504c5ae46d6fe466f4844976}{rebuild\+Month\+Grid}} ()
+\item 
+QFrame \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_a749d1a9b2403b23c8d93a89105d919be}{make\+Overflow\+Cell}} (const QDate \&date)
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_af6fa4aaf888bb615bab5884fd580d5ce}{rebuild\+Week\+Grid}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_aab10e5092f26ab922dc830be77c35f93}{show\+Day\+Popup}} (const QDate \&date, const std::\+vector$<$ \doxymbox{\hyperlink{classEvent}{Event}} $>$ \&events)
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_add9bc1950b4ad81d0b268f61d5a3eef1}{populate\+Day\+Events\+List}} (QList\+Widget \texorpdfstring{$\ast$}{*}list\+Widget, QLabel \texorpdfstring{$\ast$}{*}count\+Label, const std::\+vector$<$ \doxymbox{\hyperlink{classEvent}{Event}} $>$ \&events)
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a3ca05c430667cc09a09d60362593db75}{edit\+Event}} (const \doxymbox{\hyperlink{classEvent}{Event}} \&event)
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a99f9ed228bc7a0f1f989d93c24940548}{create\+Event\+For\+Date}} (const QDate \&date)
+\item 
+bool \doxymbox{\hyperlink{classCalendarGridWidget_a0b9f839d3a7cd2d73f650fc9b5c828bb}{can\+Manage\+Events}} () const
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_ac1b79f951f8ea34d485434dbd299e778}{show\+Permission\+Denied}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_a93a83f5858ce64419bb3e02160d9d61e}{update\+Event\+Controls}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarGridWidget_ae74d103e337a24d6ee16cdcfb98b505c}{update\+Date\+Label}} ()
+\item 
+bool \doxymbox{\hyperlink{classCalendarGridWidget_a32afbd8bb5f5adedd01693383c84c0e3}{event\+Filter}} (QObject \texorpdfstring{$\ast$}{*}obj, QEvent \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{classCalendarGridWidget_ad5c78c218f1f6791e0e07f1989b9be94}{calendar\+Id}}
+\item 
+QDate \doxymbox{\hyperlink{classCalendarGridWidget_adf538a4ce4876b6340b9eb4183128f18}{current\+Start\+Date}}
+\item 
+\doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102}{View\+Mode}} \doxymbox{\hyperlink{classCalendarGridWidget_ab61950bb0820df208da0702b73fac08c}{current\+Mode}}
+\item 
+int \doxymbox{\hyperlink{classCalendarGridWidget_a1b57acd9e9fb6da6fa188dc66b0e88a6}{user\+Id}}
+\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_aa0b406f0305899f30530eadb70cfd9be}{date\+Range\+Label}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_abaece649983b1587e39106ea8c755f98}{prev\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_af5f611898991e6e4cbbeeef1c4e666af}{next\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_a38f41e8dfb6c1642ab89fc39410de819}{today\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_a6cb28abf019b054d2083d3e36d8eca61}{import\+Ics\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_a6506d7a9b8a57694c996de9f41ba1a11}{export\+Ics\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_a4d58331470fa86a96de5c808c557e71f}{month\+View\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_ae3c7ad5779429b29a2f1cdeb315780cb}{week\+View\+Button}}
+\item 
+QGrid\+Layout \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_aec39a02f00382490e26fd8d9fad34628}{grid\+Layout}}
+\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarGridWidget_a04e04c46be26b9814ea2aea9818f9fab}{grid\+Widget}}
+\item 
+std::\+map$<$ QDate, std::\+vector$<$ \doxymbox{\hyperlink{classEvent}{Event}} $>$ $>$ \doxymbox{\hyperlink{classCalendarGridWidget_ac1cbb1e586138ce17b7381a74e993ee3}{events\+By\+Day}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{classCalendarGridWidget_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102}\index{CalendarGridWidget@{CalendarGridWidget}!ViewMode@{ViewMode}}
+\index{ViewMode@{ViewMode}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{ViewMode}{ViewMode}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102} 
+enum \doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102}{Calendar\+Grid\+Widget::\+\+View\+Mode}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Month@{Month}!CalendarGridWidget@{CalendarGridWidget}}
+\index{CalendarGridWidget@{CalendarGridWidget}!Month@{Month}}
+}\Hypertarget{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102adcf409ae690e6e4a20e8d0b2be622447}\label{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102adcf409ae690e6e4a20e8d0b2be622447} 
+Month&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Week@{Week}!CalendarGridWidget@{CalendarGridWidget}}
+\index{CalendarGridWidget@{CalendarGridWidget}!Week@{Week}}
+}\Hypertarget{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102af6adf573fd090d2ab01920520dc21e87}\label{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102af6adf573fd090d2ab01920520dc21e87} 
+Week&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-constructors}
+\Hypertarget{classCalendarGridWidget_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalendarGridWidget_a41c504c69ca063030216f837907d0204}\index{CalendarGridWidget@{CalendarGridWidget}!CalendarGridWidget@{CalendarGridWidget}}
+\index{CalendarGridWidget@{CalendarGridWidget}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{CalendarGridWidget()}{CalendarGridWidget()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a41c504c69ca063030216f837907d0204} 
+Calendar\+Grid\+Widget::\+\+Calendar\+Grid\+Widget (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a41c504c69ca063030216f837907d0204_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{classCalendarGridWidget_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalendarGridWidget_a0b9f839d3a7cd2d73f650fc9b5c828bb}\index{CalendarGridWidget@{CalendarGridWidget}!canManageEvents@{canManageEvents}}
+\index{canManageEvents@{canManageEvents}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{canManageEvents()}{canManageEvents()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a0b9f839d3a7cd2d73f650fc9b5c828bb} 
+bool Calendar\+Grid\+Widget::\+can\+Manage\+Events (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a0b9f839d3a7cd2d73f650fc9b5c828bb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a99f9ed228bc7a0f1f989d93c24940548}\index{CalendarGridWidget@{CalendarGridWidget}!createEventForDate@{createEventForDate}}
+\index{createEventForDate@{createEventForDate}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{createEventForDate()}{createEventForDate()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a99f9ed228bc7a0f1f989d93c24940548} 
+void Calendar\+Grid\+Widget::\+create\+Event\+For\+Date (\begin{DoxyParamCaption}\item[{const QDate \&}]{date}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a99f9ed228bc7a0f1f989d93c24940548_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a3ca05c430667cc09a09d60362593db75}\index{CalendarGridWidget@{CalendarGridWidget}!editEvent@{editEvent}}
+\index{editEvent@{editEvent}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{editEvent()}{editEvent()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a3ca05c430667cc09a09d60362593db75} 
+void Calendar\+Grid\+Widget::\+edit\+Event (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classEvent}{Event}} \&}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a3ca05c430667cc09a09d60362593db75_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a32afbd8bb5f5adedd01693383c84c0e3}\index{CalendarGridWidget@{CalendarGridWidget}!eventFilter@{eventFilter}}
+\index{eventFilter@{eventFilter}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{eventFilter()}{eventFilter()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a32afbd8bb5f5adedd01693383c84c0e3} 
+bool Calendar\+Grid\+Widget::\+event\+Filter (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{obj}{, }\item[{QEvent \texorpdfstring{$\ast$}{*}}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a32afbd8bb5f5adedd01693383c84c0e3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a28a99334b7ca415df50a21c0a59f916a}\index{CalendarGridWidget@{CalendarGridWidget}!loadEvents@{loadEvents}}
+\index{loadEvents@{loadEvents}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{loadEvents()}{loadEvents()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a28a99334b7ca415df50a21c0a59f916a} 
+void Calendar\+Grid\+Widget::\+load\+Events (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a28a99334b7ca415df50a21c0a59f916a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a749d1a9b2403b23c8d93a89105d919be}\index{CalendarGridWidget@{CalendarGridWidget}!makeOverflowCell@{makeOverflowCell}}
+\index{makeOverflowCell@{makeOverflowCell}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{makeOverflowCell()}{makeOverflowCell()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a749d1a9b2403b23c8d93a89105d919be} 
+QFrame \texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+make\+Overflow\+Cell (\begin{DoxyParamCaption}\item[{const QDate \&}]{date}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_ad11609122931565b210766093812c886}\index{CalendarGridWidget@{CalendarGridWidget}!onAddEventClicked@{onAddEventClicked}}
+\index{onAddEventClicked@{onAddEventClicked}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{onAddEventClicked}{onAddEventClicked}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_ad11609122931565b210766093812c886} 
+void Calendar\+Grid\+Widget::\+on\+Add\+Event\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_ad11609122931565b210766093812c886_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a6de9becc0a8891076709241656f9efbe}\index{CalendarGridWidget@{CalendarGridWidget}!onExportIcsClicked@{onExportIcsClicked}}
+\index{onExportIcsClicked@{onExportIcsClicked}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{onExportIcsClicked}{onExportIcsClicked}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a6de9becc0a8891076709241656f9efbe} 
+void Calendar\+Grid\+Widget::\+on\+Export\+Ics\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a6de9becc0a8891076709241656f9efbe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a318bab82b64d0c5b9535f48db72c06c2}\index{CalendarGridWidget@{CalendarGridWidget}!onImportIcsClicked@{onImportIcsClicked}}
+\index{onImportIcsClicked@{onImportIcsClicked}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{onImportIcsClicked}{onImportIcsClicked}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a318bab82b64d0c5b9535f48db72c06c2} 
+void Calendar\+Grid\+Widget::\+on\+Import\+Ics\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a318bab82b64d0c5b9535f48db72c06c2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a7ff482f6860285cfcb81a2b5ce75dfba}\index{CalendarGridWidget@{CalendarGridWidget}!onNextClicked@{onNextClicked}}
+\index{onNextClicked@{onNextClicked}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{onNextClicked}{onNextClicked}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a7ff482f6860285cfcb81a2b5ce75dfba} 
+void Calendar\+Grid\+Widget::\+on\+Next\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a7ff482f6860285cfcb81a2b5ce75dfba_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a21bb1901451199cf7c023fa94d9f4b90}\index{CalendarGridWidget@{CalendarGridWidget}!onPrevClicked@{onPrevClicked}}
+\index{onPrevClicked@{onPrevClicked}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{onPrevClicked}{onPrevClicked}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a21bb1901451199cf7c023fa94d9f4b90} 
+void Calendar\+Grid\+Widget::\+on\+Prev\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a21bb1901451199cf7c023fa94d9f4b90_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a315b6038c43dc648173ee8f54da6f835}\index{CalendarGridWidget@{CalendarGridWidget}!onTodayClicked@{onTodayClicked}}
+\index{onTodayClicked@{onTodayClicked}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{onTodayClicked}{onTodayClicked}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a315b6038c43dc648173ee8f54da6f835} 
+void Calendar\+Grid\+Widget::\+on\+Today\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a315b6038c43dc648173ee8f54da6f835_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a5ded97b5469e9cc69a55081f4b1b8506}\index{CalendarGridWidget@{CalendarGridWidget}!onViewModeChanged@{onViewModeChanged}}
+\index{onViewModeChanged@{onViewModeChanged}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{onViewModeChanged}{onViewModeChanged}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a5ded97b5469e9cc69a55081f4b1b8506} 
+void Calendar\+Grid\+Widget::\+on\+View\+Mode\+Changed (\begin{DoxyParamCaption}\item[{bool}]{checked}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a5ded97b5469e9cc69a55081f4b1b8506_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_add9bc1950b4ad81d0b268f61d5a3eef1}\index{CalendarGridWidget@{CalendarGridWidget}!populateDayEventsList@{populateDayEventsList}}
+\index{populateDayEventsList@{populateDayEventsList}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{populateDayEventsList()}{populateDayEventsList()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_add9bc1950b4ad81d0b268f61d5a3eef1} 
+void Calendar\+Grid\+Widget::\+populate\+Day\+Events\+List (\begin{DoxyParamCaption}\item[{QList\+Widget \texorpdfstring{$\ast$}{*}}]{list\+Widget}{, }\item[{QLabel \texorpdfstring{$\ast$}{*}}]{count\+Label}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{classEvent}{Event}} $>$ \&}]{events}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_ac47947429f6ad36c38acd3ce8d5e7d54}\index{CalendarGridWidget@{CalendarGridWidget}!rebuildGrid@{rebuildGrid}}
+\index{rebuildGrid@{rebuildGrid}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{rebuildGrid()}{rebuildGrid()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_ac47947429f6ad36c38acd3ce8d5e7d54} 
+void Calendar\+Grid\+Widget::\+rebuild\+Grid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_ac47947429f6ad36c38acd3ce8d5e7d54_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a0f861f22504c5ae46d6fe466f4844976}\index{CalendarGridWidget@{CalendarGridWidget}!rebuildMonthGrid@{rebuildMonthGrid}}
+\index{rebuildMonthGrid@{rebuildMonthGrid}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{rebuildMonthGrid()}{rebuildMonthGrid()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a0f861f22504c5ae46d6fe466f4844976} 
+void Calendar\+Grid\+Widget::\+rebuild\+Month\+Grid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{classCalendarGridWidget_a0f861f22504c5ae46d6fe466f4844976_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_af6fa4aaf888bb615bab5884fd580d5ce}\index{CalendarGridWidget@{CalendarGridWidget}!rebuildWeekGrid@{rebuildWeekGrid}}
+\index{rebuildWeekGrid@{rebuildWeekGrid}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{rebuildWeekGrid()}{rebuildWeekGrid()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_af6fa4aaf888bb615bab5884fd580d5ce} 
+void Calendar\+Grid\+Widget::\+rebuild\+Week\+Grid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_af6fa4aaf888bb615bab5884fd580d5ce_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_a0c24f94b577e6361754622170d329328}\index{CalendarGridWidget@{CalendarGridWidget}!refresh@{refresh}}
+\index{refresh@{refresh}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a0c24f94b577e6361754622170d329328} 
+void Calendar\+Grid\+Widget::\+refresh (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a0c24f94b577e6361754622170d329328_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_aabaa2e3ba814d4feaf4c2588d12785d3}\index{CalendarGridWidget@{CalendarGridWidget}!setCalendarId@{setCalendarId}}
+\index{setCalendarId@{setCalendarId}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{setCalendarId()}{setCalendarId()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_aabaa2e3ba814d4feaf4c2588d12785d3} 
+void Calendar\+Grid\+Widget::\+set\+Calendar\+Id (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_aabaa2e3ba814d4feaf4c2588d12785d3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_acf57c494ff40d3f5062a864fbfcda54f}\index{CalendarGridWidget@{CalendarGridWidget}!setupUi@{setupUi}}
+\index{setupUi@{setupUi}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{setupUi()}{setupUi()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_acf57c494ff40d3f5062a864fbfcda54f} 
+void Calendar\+Grid\+Widget::\+setup\+Ui (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_acf57c494ff40d3f5062a864fbfcda54f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_ab75cd279b0d2761d27d26a6df792e7cf}\index{CalendarGridWidget@{CalendarGridWidget}!setUserId@{setUserId}}
+\index{setUserId@{setUserId}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{setUserId()}{setUserId()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_ab75cd279b0d2761d27d26a6df792e7cf} 
+void Calendar\+Grid\+Widget::\+set\+User\+Id (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_ab75cd279b0d2761d27d26a6df792e7cf_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_aab10e5092f26ab922dc830be77c35f93}\index{CalendarGridWidget@{CalendarGridWidget}!showDayPopup@{showDayPopup}}
+\index{showDayPopup@{showDayPopup}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{showDayPopup()}{showDayPopup()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_aab10e5092f26ab922dc830be77c35f93} 
+void Calendar\+Grid\+Widget::\+show\+Day\+Popup (\begin{DoxyParamCaption}\item[{const QDate \&}]{date}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{classEvent}{Event}} $>$ \&}]{events}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_aab10e5092f26ab922dc830be77c35f93_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarGridWidget_ac1b79f951f8ea34d485434dbd299e778}\index{CalendarGridWidget@{CalendarGridWidget}!showPermissionDenied@{showPermissionDenied}}
+\index{showPermissionDenied@{showPermissionDenied}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{showPermissionDenied()}{showPermissionDenied()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_ac1b79f951f8ea34d485434dbd299e778} 
+void Calendar\+Grid\+Widget::\+show\+Permission\+Denied (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_ae74d103e337a24d6ee16cdcfb98b505c}\index{CalendarGridWidget@{CalendarGridWidget}!updateDateLabel@{updateDateLabel}}
+\index{updateDateLabel@{updateDateLabel}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{updateDateLabel()}{updateDateLabel()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_ae74d103e337a24d6ee16cdcfb98b505c} 
+void Calendar\+Grid\+Widget::\+update\+Date\+Label (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_a93a83f5858ce64419bb3e02160d9d61e}\index{CalendarGridWidget@{CalendarGridWidget}!updateEventControls@{updateEventControls}}
+\index{updateEventControls@{updateEventControls}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{updateEventControls()}{updateEventControls()}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a93a83f5858ce64419bb3e02160d9d61e} 
+void Calendar\+Grid\+Widget::\+update\+Event\+Controls (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarGridWidget_a93a83f5858ce64419bb3e02160d9d61e_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classCalendarGridWidget_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCalendarGridWidget_ad5c78c218f1f6791e0e07f1989b9be94}\index{CalendarGridWidget@{CalendarGridWidget}!calendarId@{calendarId}}
+\index{calendarId@{calendarId}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{calendarId}{calendarId}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_ad5c78c218f1f6791e0e07f1989b9be94} 
+int Calendar\+Grid\+Widget::\+calendar\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_ab61950bb0820df208da0702b73fac08c}\index{CalendarGridWidget@{CalendarGridWidget}!currentMode@{currentMode}}
+\index{currentMode@{currentMode}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{currentMode}{currentMode}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_ab61950bb0820df208da0702b73fac08c} 
+\doxymbox{\hyperlink{classCalendarGridWidget_a66fba0ca5ef3b5e31bb6c75310b39102}{View\+Mode}} Calendar\+Grid\+Widget::\+current\+Mode\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_adf538a4ce4876b6340b9eb4183128f18}\index{CalendarGridWidget@{CalendarGridWidget}!currentStartDate@{currentStartDate}}
+\index{currentStartDate@{currentStartDate}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{currentStartDate}{currentStartDate}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_adf538a4ce4876b6340b9eb4183128f18} 
+QDate Calendar\+Grid\+Widget::\+current\+Start\+Date\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_aa0b406f0305899f30530eadb70cfd9be}\index{CalendarGridWidget@{CalendarGridWidget}!dateRangeLabel@{dateRangeLabel}}
+\index{dateRangeLabel@{dateRangeLabel}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{dateRangeLabel}{dateRangeLabel}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_aa0b406f0305899f30530eadb70cfd9be} 
+QLabel\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+date\+Range\+Label\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_ac1cbb1e586138ce17b7381a74e993ee3}\index{CalendarGridWidget@{CalendarGridWidget}!eventsByDay@{eventsByDay}}
+\index{eventsByDay@{eventsByDay}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{eventsByDay}{eventsByDay}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_ac1cbb1e586138ce17b7381a74e993ee3} 
+std::\+map$<$QDate, std::\+vector$<$\doxymbox{\hyperlink{classEvent}{Event}}$>$ $>$ Calendar\+Grid\+Widget::\+events\+By\+Day\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_a6506d7a9b8a57694c996de9f41ba1a11}\index{CalendarGridWidget@{CalendarGridWidget}!exportIcsButton@{exportIcsButton}}
+\index{exportIcsButton@{exportIcsButton}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{exportIcsButton}{exportIcsButton}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a6506d7a9b8a57694c996de9f41ba1a11} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+export\+Ics\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_aec39a02f00382490e26fd8d9fad34628}\index{CalendarGridWidget@{CalendarGridWidget}!gridLayout@{gridLayout}}
+\index{gridLayout@{gridLayout}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{gridLayout}{gridLayout}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_aec39a02f00382490e26fd8d9fad34628} 
+QGrid\+Layout\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+grid\+Layout\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_a04e04c46be26b9814ea2aea9818f9fab}\index{CalendarGridWidget@{CalendarGridWidget}!gridWidget@{gridWidget}}
+\index{gridWidget@{gridWidget}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{gridWidget}{gridWidget}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a04e04c46be26b9814ea2aea9818f9fab} 
+QWidget\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+grid\+Widget\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_a6cb28abf019b054d2083d3e36d8eca61}\index{CalendarGridWidget@{CalendarGridWidget}!importIcsButton@{importIcsButton}}
+\index{importIcsButton@{importIcsButton}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{importIcsButton}{importIcsButton}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a6cb28abf019b054d2083d3e36d8eca61} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+import\+Ics\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_a4d58331470fa86a96de5c808c557e71f}\index{CalendarGridWidget@{CalendarGridWidget}!monthViewButton@{monthViewButton}}
+\index{monthViewButton@{monthViewButton}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{monthViewButton}{monthViewButton}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a4d58331470fa86a96de5c808c557e71f} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+month\+View\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_af5f611898991e6e4cbbeeef1c4e666af}\index{CalendarGridWidget@{CalendarGridWidget}!nextButton@{nextButton}}
+\index{nextButton@{nextButton}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{nextButton}{nextButton}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_af5f611898991e6e4cbbeeef1c4e666af} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+next\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_abaece649983b1587e39106ea8c755f98}\index{CalendarGridWidget@{CalendarGridWidget}!prevButton@{prevButton}}
+\index{prevButton@{prevButton}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{prevButton}{prevButton}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_abaece649983b1587e39106ea8c755f98} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+prev\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_a38f41e8dfb6c1642ab89fc39410de819}\index{CalendarGridWidget@{CalendarGridWidget}!todayButton@{todayButton}}
+\index{todayButton@{todayButton}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{todayButton}{todayButton}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a38f41e8dfb6c1642ab89fc39410de819} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+today\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_a1b57acd9e9fb6da6fa188dc66b0e88a6}\index{CalendarGridWidget@{CalendarGridWidget}!userId@{userId}}
+\index{userId@{userId}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{userId}{userId}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_a1b57acd9e9fb6da6fa188dc66b0e88a6} 
+int Calendar\+Grid\+Widget::\+user\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarGridWidget_ae3c7ad5779429b29a2f1cdeb315780cb}\index{CalendarGridWidget@{CalendarGridWidget}!weekViewButton@{weekViewButton}}
+\index{weekViewButton@{weekViewButton}!CalendarGridWidget@{CalendarGridWidget}}
+\doxysubsubsection{\texorpdfstring{weekViewButton}{weekViewButton}}
+{\footnotesize\ttfamily \label{classCalendarGridWidget_ae3c7ad5779429b29a2f1cdeb315780cb} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Calendar\+Grid\+Widget::\+week\+View\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+ui/\+\doxymbox{\hyperlink{CalendarGridWidget_8h}{Calendar\+Grid\+Widget.\+h}}\item 
+src/\+ui/\+\doxymbox{\hyperlink{CalendarGridWidget_8cpp}{Calendar\+Grid\+Widget.\+cpp}}\end{DoxyCompactItemize}

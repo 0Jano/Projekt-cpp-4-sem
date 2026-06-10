@@ -1,0 +1,10 @@
+<map id="AuthManager::getUserId" name="AuthManager::getUserId">
+<area shape="rect" id="Node000001" title="Resolves an email address or username to a numeric user ID." alt="" coords="5,44,185,72"/>
+<area shape="rect" id="Node000002" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="233,5,464,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,42,241,35,236,37,186,47"/>
+<area shape="rect" id="Node000003" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="247,81,450,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,68,237,78,232,79,185,74"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="305,80,298,72,304,63,321,57,348,55,378,57,396,66,390,66,377,62,348,60,322,62,307,67,304,72,310,82"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="512,73,722,118"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="450,93,499,95,494,95,450,98"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="InvitationManager::getPendingInvitationsForUser" name="InvitationManager::getPendingInvitationsForUser">
+<area shape="rect" id="Node000001" title="Returns pending invitations for a user." alt="" coords="5,36,219,80"/>
+<area shape="rect" id="Node000002" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="267,5,498,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,40,269,35,263,36,220,45"/>
+<area shape="rect" id="Node000003" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="281,81,484,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,70,268,79,263,79,219,75"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="337,80,329,72,335,63,353,57,382,55,414,57,432,66,427,66,413,62,382,60,354,62,338,67,335,72,342,82"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="546,73,756,118"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="484,93,533,95,528,95,484,98"/>
+</map>

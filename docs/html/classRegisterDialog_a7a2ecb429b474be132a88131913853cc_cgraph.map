@@ -1,0 +1,18 @@
+<map id="RegisterDialog::onRegisterClicked" name="RegisterDialog::onRegisterClicked">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,101,201,146"/>
+<area shape="rect" id="Node000002" href="$classAuthManager.html#a28bacdf33d6f1fd304edb21845f2e4a1" title="Registers a new user in the database." alt="" coords="249,109,445,137"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,121,236,122,231,124,202,126"/>
+<area shape="rect" id="Node000003" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="493,5,724,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="369,107,424,75,492,43,521,37,516,39,494,48,426,80,372,111"/>
+<area shape="rect" id="Node000004" href="$classUser.html#a080b4119344d333a59d14bd5d0667797" title="Returns the user&#39;s email address." alt="" coords="550,57,667,85"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="420,106,537,85,532,87,421,111"/>
+<area shape="rect" id="Node000005" href="$classUser.html#a0479f7f168b8ec592ecc1ea9f95d0868" title="Returns the user&#39;s password value." alt="" coords="538,109,680,137"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="445,121,524,123,519,124,446,126"/>
+<area shape="rect" id="Node000006" href="$classUser.html#a1c9ee5527f563fb644e0ad6bbab79f41" title="Returns the user&#39;s username." alt="" coords="535,161,682,189"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="420,135,523,157,518,158,420,140"/>
+<area shape="rect" id="Node000007" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="507,237,710,265"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="374,135,494,198,562,231,557,231,492,203,373,140"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="564,236,557,228,563,219,580,213,609,211,639,213,657,222,652,222,638,218,609,216,581,218,566,223,562,228,569,238"/>
+<area shape="rect" id="Node000008" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="772,229,983,274"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="711,249,759,251,754,251,711,254"/>
+</map>

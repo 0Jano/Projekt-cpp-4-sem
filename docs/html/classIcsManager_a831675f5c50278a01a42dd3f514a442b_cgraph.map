@@ -1,0 +1,26 @@
+<map id="IcsManager::importEventsFromIcs" name="IcsManager::importEventsFromIcs">
+<area shape="rect" id="Node000001" title="Imports events from an ICS file into a calendar." alt="" coords="5,205,197,250"/>
+<area shape="rect" id="Node000002" href="$classEventManager.html#a3f0bb65968223d7927ea3860f514e7c4" title="Inserts a new event row." alt="" coords="245,213,446,241"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,225,232,226,227,228,198,230"/>
+<area shape="rect" id="Node000003" href="$classEvent.html#a3a54da793e92b1b78ce6a3d166c4b948" title="Returns the calendar ID." alt="" coords="531,5,688,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="352,211,372,177,403,131,443,84,493,44,518,33,514,36,495,48,447,87,407,134,376,180,356,214"/>
+<area shape="rect" id="Node000004" href="$classEvent.html#aaa8f85b2904745ca96672197b44556d7" title="Returns the creator user ID." alt="" coords="532,57,687,85"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="357,211,411,155,450,123,493,95,519,87,515,89,495,100,453,127,415,159,360,215"/>
+<area shape="rect" id="Node000005" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="494,109,725,137"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="368,211,424,179,493,147,522,140,517,143,495,152,426,184,371,215"/>
+<area shape="rect" id="Node000006" href="$classEvent.html#a465db87d6ca9c578db843e9568133429" title="Returns the event description." alt="" coords="529,161,690,189"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="419,210,523,191,518,194,420,215"/>
+<area shape="rect" id="Node000007" href="$classEvent.html#a3ea15fe799cf30995efeedc3f3f70b17" title="Returns the event end date and time." alt="" coords="522,213,697,241"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="446,225,510,226,505,228,447,230"/>
+<area shape="rect" id="Node000008" href="$classEvent.html#a524612c15098e19730be3ab5fe9aaf09" title="Returns the event location." alt="" coords="538,265,681,293"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="419,239,526,262,521,263,420,244"/>
+<area shape="rect" id="Node000009" href="$classEvent.html#a8b22f9274fb6ea8fd205dc64be43472d" title="Returns the event start date and time." alt="" coords="519,317,700,345"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="370,239,426,271,495,302,522,313,517,313,493,307,424,275,369,244"/>
+<area shape="rect" id="Node000010" href="$classEvent.html#a6f749b39efd056b54ebf35470b95a4e7" title="Returns the event title." alt="" coords="552,369,667,397"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="359,239,415,296,453,327,495,354,540,372,535,372,493,359,450,332,411,300,358,244"/>
+<area shape="rect" id="Node000011" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="508,445,711,473"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="356,239,410,317,450,364,496,406,522,423,552,440,547,439,520,428,492,411,446,368,405,320,354,244"/>
+<area shape="poly" id="edge12_Node000011_Node000011" title=" " alt="" coords="565,444,557,436,563,427,581,421,610,419,641,421,659,430,654,430,639,426,610,424,582,426,567,431,563,436,570,446"/>
+<area shape="rect" id="Node000012" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="773,437,984,482"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="712,457,760,459,755,459,712,462"/>
+</map>

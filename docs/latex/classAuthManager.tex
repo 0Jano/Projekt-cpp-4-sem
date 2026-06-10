@@ -1,0 +1,126 @@
+\doxysection{Auth\+Manager Class Reference}
+\hypertarget{classAuthManager}{}\label{classAuthManager}\index{AuthManager@{AuthManager}}
+
+
+Handles user registration and authentication against the SQLite database.  
+
+
+
+
+{\ttfamily \+\#include $<$Auth\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Auth\+Manager:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{classAuthManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classAuthManager_a28bacdf33d6f1fd304edb21845f2e4a1}{register\+User}} (const \doxymbox{\hyperlink{classUser}{User}} \&user)
+\begin{DoxyCompactList}\small\item\em Registers a new user in the database. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classAuthManager_ab0d4136658c961170f19683764431551}{login\+User}} (const QString \&identifier, const QString \&password) const
+\begin{DoxyCompactList}\small\item\em Authenticates a user by email or username and password. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classAuthManager_a01a515357f880c930884f57be9eb7913}{get\+User\+Id}} (const QString \&identifier) const
+\begin{DoxyCompactList}\small\item\em Resolves an email address or username to a numeric user ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles user registration and authentication against the SQLite database. 
+
+Provides methods to register users, verify login credentials by email or username, and resolve user identifiers to database IDs. Database access is performed through \doxylink{classDatabaseManager}{Database\+Manager}. 
+
+\label{doc-func-members}
+\Hypertarget{classAuthManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAuthManager_a01a515357f880c930884f57be9eb7913}\index{AuthManager@{AuthManager}!getUserId@{getUserId}}
+\index{getUserId@{getUserId}!AuthManager@{AuthManager}}
+\doxysubsubsection{\texorpdfstring{getUserId()}{getUserId()}}
+{\footnotesize\ttfamily \label{classAuthManager_a01a515357f880c930884f57be9eb7913} 
+int Auth\+Manager::\+get\+User\+Id (\begin{DoxyParamCaption}\item[{const QString \&}]{identifier}{}\end{DoxyParamCaption}) const}
+
+
+
+Resolves an email address or username to a numeric user ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em identifier} & Email address or username. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classUser}{User} ID if found, or -\/1 if no matching user exists. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAuthManager_a01a515357f880c930884f57be9eb7913_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAuthManager_ab0d4136658c961170f19683764431551}\index{AuthManager@{AuthManager}!loginUser@{loginUser}}
+\index{loginUser@{loginUser}!AuthManager@{AuthManager}}
+\doxysubsubsection{\texorpdfstring{loginUser()}{loginUser()}}
+{\footnotesize\ttfamily \label{classAuthManager_ab0d4136658c961170f19683764431551} 
+bool Auth\+Manager::\+login\+User (\begin{DoxyParamCaption}\item[{const QString \&}]{identifier}{, }\item[{const QString \&}]{password}{}\end{DoxyParamCaption}) const}
+
+
+
+Authenticates a user by email or username and password. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em identifier} & Email address or username. \\
+\hline
+{\em password} & Password value to compare against the stored record. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the credentials match a user record. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAuthManager_ab0d4136658c961170f19683764431551_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAuthManager_a28bacdf33d6f1fd304edb21845f2e4a1}\index{AuthManager@{AuthManager}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!AuthManager@{AuthManager}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily \label{classAuthManager_a28bacdf33d6f1fd304edb21845f2e4a1} 
+bool Auth\+Manager::\+register\+User (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classUser}{User}} \&}]{user}{}\end{DoxyParamCaption})}
+
+
+
+Registers a new user in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \doxylink{classUser}{User} object containing username, email, and password. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if registration succeeded; false if the email is already taken. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAuthManager_a28bacdf33d6f1fd304edb21845f2e4a1_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+managers/\+\doxymbox{\hyperlink{AuthManager_8h}{Auth\+Manager.\+h}}\item 
+src/\+managers/\+\doxymbox{\hyperlink{AuthManager_8cpp}{Auth\+Manager.\+cpp}}\end{DoxyCompactItemize}

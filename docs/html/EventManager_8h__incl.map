@@ -1,0 +1,12 @@
+<map id="src/managers/EventManager.h" name="src/managers/EventManager.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,225,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="16,81,78,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,36,71,71,67,68,104,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="68,157,162,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="117,32,118,141,112,140,113,35"/>
+<area shape="rect" id="Node000004" href="$Event_8h.html" title=" " alt="" coords="152,81,275,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="133,31,187,71,182,72,132,36"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="199,108,146,150,143,145,193,110"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="186,157,255,184"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="217,107,220,142,215,140,213,111"/>
+</map>

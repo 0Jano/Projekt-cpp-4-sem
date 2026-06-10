@@ -1,0 +1,14 @@
+<map id="CalendarGridWidget::updateEventControls" name="CalendarGridWidget::updateEventControls">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,36,171,80"/>
+<area shape="rect" id="Node000002" href="$classCalendarGridWidget.html#a0b9f839d3a7cd2d73f650fc9b5c828bb" title=" " alt="" coords="219,36,371,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,55,206,57,200,58,172,60"/>
+<area shape="rect" id="Node000003" href="$classCalendarManager.html#a8b511624f033d20ae4d0341ca5851b7f" title="Returns a user&#39;s role in a calendar." alt="" coords="419,36,614,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,55,406,58,401,58,372,60"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="662,5,894,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="614,41,662,36,667,36,615,46"/>
+<area shape="rect" id="Node000005" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="676,81,880,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="615,69,664,79,659,78,615,74"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="733,80,726,72,732,63,750,57,778,55,809,57,827,66,821,66,807,62,778,60,751,62,735,67,732,72,738,82"/>
+<area shape="rect" id="Node000006" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="942,73,1152,118"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="880,93,929,95,923,95,880,98"/>
+</map>

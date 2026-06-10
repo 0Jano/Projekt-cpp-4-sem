@@ -1,0 +1,297 @@
+\doxysection{Calendar\+List\+Widget Class Reference}
+\hypertarget{classCalendarListWidget}{}\label{classCalendarListWidget}\index{CalendarListWidget@{CalendarListWidget}}
+
+
+{\ttfamily \+\#include $<$Calendar\+List\+Widget.\+h$>$}
+
+
+
+Inheritance diagram for Calendar\+List\+Widget:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classCalendarListWidget__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Calendar\+List\+Widget:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classCalendarListWidget__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classCalendarListWidget_a2c6d182d640847a915cb8a1f2c3a1f05}{calendar\+Selected}} (int calendar\+Id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classCalendarListWidget_afcc8e58485d5fdcaf823e751f5be9481}{Calendar\+List\+Widget}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+void \doxymbox{\hyperlink{classCalendarListWidget_a83f929786a50f3aa4cec4d17cec8a5ad}{set\+User\+Id}} (int \doxymbox{\hyperlink{classCalendarListWidget_a7425d8bf318a8cf99026aa756e2ae506}{user\+Id}})
+\item 
+void \doxymbox{\hyperlink{classCalendarListWidget_a387b531fd310d268894b201d1efe5e98}{refresh}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classCalendarListWidget_a4018a26a9be94b443a73586a0dacfe1f}{event\+Filter}} (QObject \texorpdfstring{$\ast$}{*}obj, QEvent \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classCalendarListWidget_a55f5cda221a82e38b80d6e15bc7eccd5}{on\+Add\+Clicked}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classCalendarListWidget_a848dbc1d26b29ed35e2604bb444a645d}{setup\+Ui}} ()
+\item 
+void \doxymbox{\hyperlink{classCalendarListWidget_aae980fa5f86e308fa1d61c21f58aaa3c}{clear\+Layout}} (QVBox\+Layout \texorpdfstring{$\ast$}{*}layout)
+\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarListWidget_a9abd97ef60472bbd44cb3ea52f8c777d}{create\+Calendar\+Card}} (const \doxymbox{\hyperlink{classCalendar}{Calendar}} \&calendar)
+\item 
+void \doxymbox{\hyperlink{classCalendarListWidget_a42c2d01f14946c3338e77977539d55a0}{select\+Calendar}} (int calendar\+Id, bool emit\+Selection)
+\item 
+void \doxymbox{\hyperlink{classCalendarListWidget_a19c8dbbae4418e53c8e03c5151a79b3e}{select\+Initial\+Calendar}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{classCalendarListWidget_a7425d8bf318a8cf99026aa756e2ae506}{user\+Id}}
+\item 
+int \doxymbox{\hyperlink{classCalendarListWidget_ac1fd9e9327d93652606a7db3113ed43a}{selected\+Calendar\+Id}}
+\item 
+int \doxymbox{\hyperlink{classCalendarListWidget_a6e21e6a26d72810943b47dc8b1a6b7c8}{favorite\+Calendar\+Id}}
+\item 
+QVBox\+Layout \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarListWidget_a5477f951de041c6d47fb887a8203ecc0}{my\+Calendars\+Layout}}
+\item 
+QVBox\+Layout \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarListWidget_a7448e781cc09854151a98ea26cb703e2}{shared\+Calendars\+Layout}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarListWidget_af71a56017b455e259c6a9e9257b46dd4}{add\+Button}}
+\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarListWidget_a852e269f0e94a8dc353d1f9ddcf99ecc}{my\+Calendars\+Header}}
+\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalendarListWidget_a400cb19ffca0a481d318db6863377152}{shared\+Calendars\+Header}}
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{classCalendar}{Calendar}} $>$ \doxymbox{\hyperlink{classCalendarListWidget_ade6b72dfa0354498b4a7d83eb09c143c}{calendars}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classCalendarListWidget_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalendarListWidget_afcc8e58485d5fdcaf823e751f5be9481}\index{CalendarListWidget@{CalendarListWidget}!CalendarListWidget@{CalendarListWidget}}
+\index{CalendarListWidget@{CalendarListWidget}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{CalendarListWidget()}{CalendarListWidget()}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_afcc8e58485d5fdcaf823e751f5be9481} 
+Calendar\+List\+Widget::\+\+Calendar\+List\+Widget (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarListWidget_afcc8e58485d5fdcaf823e751f5be9481_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{classCalendarListWidget_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalendarListWidget_a2c6d182d640847a915cb8a1f2c3a1f05}\index{CalendarListWidget@{CalendarListWidget}!calendarSelected@{calendarSelected}}
+\index{calendarSelected@{calendarSelected}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{calendarSelected}{calendarSelected}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a2c6d182d640847a915cb8a1f2c3a1f05} 
+void Calendar\+List\+Widget::\+calendar\+Selected (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\Hypertarget{classCalendarListWidget_aae980fa5f86e308fa1d61c21f58aaa3c}\index{CalendarListWidget@{CalendarListWidget}!clearLayout@{clearLayout}}
+\index{clearLayout@{clearLayout}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{clearLayout()}{clearLayout()}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_aae980fa5f86e308fa1d61c21f58aaa3c} 
+void Calendar\+List\+Widget::\+clear\+Layout (\begin{DoxyParamCaption}\item[{QVBox\+Layout \texorpdfstring{$\ast$}{*}}]{layout}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarListWidget_a9abd97ef60472bbd44cb3ea52f8c777d}\index{CalendarListWidget@{CalendarListWidget}!createCalendarCard@{createCalendarCard}}
+\index{createCalendarCard@{createCalendarCard}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{createCalendarCard()}{createCalendarCard()}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a9abd97ef60472bbd44cb3ea52f8c777d} 
+QWidget \texorpdfstring{$\ast$}{*} Calendar\+List\+Widget::\+create\+Calendar\+Card (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classCalendar}{Calendar}} \&}]{calendar}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarListWidget_a9abd97ef60472bbd44cb3ea52f8c777d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarListWidget_a4018a26a9be94b443a73586a0dacfe1f}\index{CalendarListWidget@{CalendarListWidget}!eventFilter@{eventFilter}}
+\index{eventFilter@{eventFilter}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{eventFilter()}{eventFilter()}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a4018a26a9be94b443a73586a0dacfe1f} 
+bool Calendar\+List\+Widget::\+event\+Filter (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{obj}{, }\item[{QEvent \texorpdfstring{$\ast$}{*}}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarListWidget_a4018a26a9be94b443a73586a0dacfe1f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarListWidget_a55f5cda221a82e38b80d6e15bc7eccd5}\index{CalendarListWidget@{CalendarListWidget}!onAddClicked@{onAddClicked}}
+\index{onAddClicked@{onAddClicked}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{onAddClicked}{onAddClicked}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a55f5cda221a82e38b80d6e15bc7eccd5} 
+void Calendar\+List\+Widget::\+on\+Add\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarListWidget_a55f5cda221a82e38b80d6e15bc7eccd5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarListWidget_a387b531fd310d268894b201d1efe5e98}\index{CalendarListWidget@{CalendarListWidget}!refresh@{refresh}}
+\index{refresh@{refresh}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a387b531fd310d268894b201d1efe5e98} 
+void Calendar\+List\+Widget::\+refresh (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarListWidget_a387b531fd310d268894b201d1efe5e98_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarListWidget_a42c2d01f14946c3338e77977539d55a0}\index{CalendarListWidget@{CalendarListWidget}!selectCalendar@{selectCalendar}}
+\index{selectCalendar@{selectCalendar}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{selectCalendar()}{selectCalendar()}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a42c2d01f14946c3338e77977539d55a0} 
+void Calendar\+List\+Widget::\+select\+Calendar (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{, }\item[{bool}]{emit\+Selection}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarListWidget_a42c2d01f14946c3338e77977539d55a0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarListWidget_a19c8dbbae4418e53c8e03c5151a79b3e}\index{CalendarListWidget@{CalendarListWidget}!selectInitialCalendar@{selectInitialCalendar}}
+\index{selectInitialCalendar@{selectInitialCalendar}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{selectInitialCalendar()}{selectInitialCalendar()}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a19c8dbbae4418e53c8e03c5151a79b3e} 
+void Calendar\+List\+Widget::\+select\+Initial\+Calendar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarListWidget_a19c8dbbae4418e53c8e03c5151a79b3e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarListWidget_a848dbc1d26b29ed35e2604bb444a645d}\index{CalendarListWidget@{CalendarListWidget}!setupUi@{setupUi}}
+\index{setupUi@{setupUi}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{setupUi()}{setupUi()}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a848dbc1d26b29ed35e2604bb444a645d} 
+void Calendar\+List\+Widget::\+setup\+Ui (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarListWidget_a848dbc1d26b29ed35e2604bb444a645d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCalendarListWidget_a83f929786a50f3aa4cec4d17cec8a5ad}\index{CalendarListWidget@{CalendarListWidget}!setUserId@{setUserId}}
+\index{setUserId@{setUserId}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{setUserId()}{setUserId()}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a83f929786a50f3aa4cec4d17cec8a5ad} 
+void Calendar\+List\+Widget::\+set\+User\+Id (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalendarListWidget_a83f929786a50f3aa4cec4d17cec8a5ad_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classCalendarListWidget_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCalendarListWidget_af71a56017b455e259c6a9e9257b46dd4}\index{CalendarListWidget@{CalendarListWidget}!addButton@{addButton}}
+\index{addButton@{addButton}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{addButton}{addButton}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_af71a56017b455e259c6a9e9257b46dd4} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Calendar\+List\+Widget::\+add\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarListWidget_ade6b72dfa0354498b4a7d83eb09c143c}\index{CalendarListWidget@{CalendarListWidget}!calendars@{calendars}}
+\index{calendars@{calendars}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{calendars}{calendars}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_ade6b72dfa0354498b4a7d83eb09c143c} 
+std::\+vector$<$\doxymbox{\hyperlink{classCalendar}{Calendar}}$>$ Calendar\+List\+Widget::\+calendars\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarListWidget_a6e21e6a26d72810943b47dc8b1a6b7c8}\index{CalendarListWidget@{CalendarListWidget}!favoriteCalendarId@{favoriteCalendarId}}
+\index{favoriteCalendarId@{favoriteCalendarId}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{favoriteCalendarId}{favoriteCalendarId}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a6e21e6a26d72810943b47dc8b1a6b7c8} 
+int Calendar\+List\+Widget::\+favorite\+Calendar\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarListWidget_a852e269f0e94a8dc353d1f9ddcf99ecc}\index{CalendarListWidget@{CalendarListWidget}!myCalendarsHeader@{myCalendarsHeader}}
+\index{myCalendarsHeader@{myCalendarsHeader}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{myCalendarsHeader}{myCalendarsHeader}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a852e269f0e94a8dc353d1f9ddcf99ecc} 
+QLabel\texorpdfstring{$\ast$}{*} Calendar\+List\+Widget::\+my\+Calendars\+Header\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarListWidget_a5477f951de041c6d47fb887a8203ecc0}\index{CalendarListWidget@{CalendarListWidget}!myCalendarsLayout@{myCalendarsLayout}}
+\index{myCalendarsLayout@{myCalendarsLayout}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{myCalendarsLayout}{myCalendarsLayout}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a5477f951de041c6d47fb887a8203ecc0} 
+QVBox\+Layout\texorpdfstring{$\ast$}{*} Calendar\+List\+Widget::\+my\+Calendars\+Layout\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarListWidget_ac1fd9e9327d93652606a7db3113ed43a}\index{CalendarListWidget@{CalendarListWidget}!selectedCalendarId@{selectedCalendarId}}
+\index{selectedCalendarId@{selectedCalendarId}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{selectedCalendarId}{selectedCalendarId}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_ac1fd9e9327d93652606a7db3113ed43a} 
+int Calendar\+List\+Widget::\+selected\+Calendar\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarListWidget_a400cb19ffca0a481d318db6863377152}\index{CalendarListWidget@{CalendarListWidget}!sharedCalendarsHeader@{sharedCalendarsHeader}}
+\index{sharedCalendarsHeader@{sharedCalendarsHeader}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{sharedCalendarsHeader}{sharedCalendarsHeader}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a400cb19ffca0a481d318db6863377152} 
+QLabel\texorpdfstring{$\ast$}{*} Calendar\+List\+Widget::\+shared\+Calendars\+Header\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarListWidget_a7448e781cc09854151a98ea26cb703e2}\index{CalendarListWidget@{CalendarListWidget}!sharedCalendarsLayout@{sharedCalendarsLayout}}
+\index{sharedCalendarsLayout@{sharedCalendarsLayout}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{sharedCalendarsLayout}{sharedCalendarsLayout}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a7448e781cc09854151a98ea26cb703e2} 
+QVBox\+Layout\texorpdfstring{$\ast$}{*} Calendar\+List\+Widget::\+shared\+Calendars\+Layout\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCalendarListWidget_a7425d8bf318a8cf99026aa756e2ae506}\index{CalendarListWidget@{CalendarListWidget}!userId@{userId}}
+\index{userId@{userId}!CalendarListWidget@{CalendarListWidget}}
+\doxysubsubsection{\texorpdfstring{userId}{userId}}
+{\footnotesize\ttfamily \label{classCalendarListWidget_a7425d8bf318a8cf99026aa756e2ae506} 
+int Calendar\+List\+Widget::\+user\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+ui/\+\doxymbox{\hyperlink{CalendarListWidget_8h}{Calendar\+List\+Widget.\+h}}\item 
+src/\+ui/\+\doxymbox{\hyperlink{CalendarListWidget_8cpp}{Calendar\+List\+Widget.\+cpp}}\end{DoxyCompactItemize}

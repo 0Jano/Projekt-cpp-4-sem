@@ -1,0 +1,160 @@
+\doxysection{Database\+Manager Class Reference}
+\hypertarget{classDatabaseManager}{}\label{classDatabaseManager}\index{DatabaseManager@{DatabaseManager}}
+
+
+Singleton that owns the QSql\+Database connection and creates tables.  
+
+
+
+
+{\ttfamily \+\#include $<$Database\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Database\+Manager:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classDatabaseManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classDatabaseManager_a821938632d65b93bbd348d6b3a75fd47}{open\+Database}} (const QString \&database\+Name="{}synccal.\+db"{})
+\begin{DoxyCompactList}\small\item\em Opens the SQLite database and initializes schema objects. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classDatabaseManager_a90600e6de3ad5fd99a81409054626dfa}{create\+Tables}} ()
+\begin{DoxyCompactList}\small\item\em Creates all tables and indexes if they do not exist. \end{DoxyCompactList}\item 
+QSql\+Database \doxymbox{\hyperlink{classDatabaseManager_a63548261b9b7c4da2faae5078c844aee}{get\+Database}} () const
+\begin{DoxyCompactList}\small\item\em Returns the underlying Qt SQL database handle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{classDatabaseManager}{Database\+Manager}} \& \doxymbox{\hyperlink{classDatabaseManager_a4abb527066e28f3928ef45af856e134c}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Returns the singleton database manager instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classDatabaseManager_aa162d97472e6c31a4e873adda435dbb6}{Database\+Manager}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QSql\+Database \doxymbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}
+\begin{DoxyCompactList}\small\item\em Shared Qt SQL database connection handle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton that owns the QSql\+Database connection and creates tables. 
+
+Opens the application SQLite database, enables required database settings, and initializes tables and indexes on first run. Manager classes retrieve the shared database handle from this singleton. 
+
+\label{doc-constructors}
+\Hypertarget{classDatabaseManager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDatabaseManager_aa162d97472e6c31a4e873adda435dbb6}\index{DatabaseManager@{DatabaseManager}!DatabaseManager@{DatabaseManager}}
+\index{DatabaseManager@{DatabaseManager}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{DatabaseManager()}{DatabaseManager()}}
+{\footnotesize\ttfamily \label{classDatabaseManager_aa162d97472e6c31a4e873adda435dbb6} 
+Database\+Manager::\+\+Database\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classDatabaseManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDatabaseManager_a90600e6de3ad5fd99a81409054626dfa}\index{DatabaseManager@{DatabaseManager}!createTables@{createTables}}
+\index{createTables@{createTables}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{createTables()}{createTables()}}
+{\footnotesize\ttfamily \label{classDatabaseManager_a90600e6de3ad5fd99a81409054626dfa} 
+bool Database\+Manager::\+create\+Tables (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates all tables and indexes if they do not exist. 
+
+\begin{DoxyReturn}{Returns}
+true if every schema statement succeeded. 
+\end{DoxyReturn}
+\Hypertarget{classDatabaseManager_a63548261b9b7c4da2faae5078c844aee}\index{DatabaseManager@{DatabaseManager}!getDatabase@{getDatabase}}
+\index{getDatabase@{getDatabase}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{getDatabase()}{getDatabase()}}
+{\footnotesize\ttfamily \label{classDatabaseManager_a63548261b9b7c4da2faae5078c844aee} 
+QSql\+Database Database\+Manager::\+get\+Database (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the underlying Qt SQL database handle. 
+
+\begin{DoxyReturn}{Returns}
+QSql\+Database handle used by manager classes. 
+\end{DoxyReturn}
+\Hypertarget{classDatabaseManager_a4abb527066e28f3928ef45af856e134c}\index{DatabaseManager@{DatabaseManager}!instance@{instance}}
+\index{instance@{instance}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \label{classDatabaseManager_a4abb527066e28f3928ef45af856e134c} 
+\doxymbox{\hyperlink{classDatabaseManager}{Database\+Manager}} \& Database\+Manager::\+instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the singleton database manager instance. 
+
+\begin{DoxyReturn}{Returns}
+Shared \doxylink{classDatabaseManager}{Database\+Manager} instance. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDatabaseManager_a4abb527066e28f3928ef45af856e134c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classDatabaseManager_a821938632d65b93bbd348d6b3a75fd47}\index{DatabaseManager@{DatabaseManager}!openDatabase@{openDatabase}}
+\index{openDatabase@{openDatabase}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{openDatabase()}{openDatabase()}}
+{\footnotesize\ttfamily \label{classDatabaseManager_a821938632d65b93bbd348d6b3a75fd47} 
+bool Database\+Manager::\+open\+Database (\begin{DoxyParamCaption}\item[{const QString \&}]{database\+Name}{ = {\ttfamily "{}synccal.db"{}}}\end{DoxyParamCaption})}
+
+
+
+Opens the SQLite database and initializes schema objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em database\+Name} & Name or path of the SQLite database file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the database opened and table creation succeeded. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDatabaseManager_a821938632d65b93bbd348d6b3a75fd47_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classDatabaseManager_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classDatabaseManager_a48728975c70722593bb73736d7e76efb}\index{DatabaseManager@{DatabaseManager}!db@{db}}
+\index{db@{db}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{db}{db}}
+{\footnotesize\ttfamily \label{classDatabaseManager_a48728975c70722593bb73736d7e76efb} 
+QSql\+Database Database\+Manager::\+db\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Shared Qt SQL database connection handle. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+managers/\+\doxymbox{\hyperlink{DatabaseManager_8h}{Database\+Manager.\+h}}\item 
+src/\+managers/\+\doxymbox{\hyperlink{DatabaseManager_8cpp}{Database\+Manager.\+cpp}}\end{DoxyCompactItemize}

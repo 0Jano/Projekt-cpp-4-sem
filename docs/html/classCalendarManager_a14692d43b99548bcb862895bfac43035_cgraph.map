@@ -1,0 +1,10 @@
+<map id="CalendarManager::createCalendar" name="CalendarManager::createCalendar">
+<area shape="rect" id="Node000001" title="Creates a calendar owned by a user." alt="" coords="5,44,249,72"/>
+<area shape="rect" id="Node000002" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="297,5,528,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,41,293,35,288,36,235,46"/>
+<area shape="rect" id="Node000003" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="311,81,514,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="238,70,298,80,293,80,238,75"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="367,80,359,72,365,63,383,57,412,55,444,57,462,66,457,66,443,62,412,60,384,62,368,67,365,72,372,82"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="576,73,786,118"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="514,93,563,95,558,95,514,98"/>
+</map>

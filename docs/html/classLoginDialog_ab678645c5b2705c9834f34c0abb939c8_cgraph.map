@@ -1,0 +1,14 @@
+<map id="LoginDialog::setupUi" name="LoginDialog::setupUi">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,44,162,72"/>
+<area shape="rect" id="Node000002" href="$classLoginDialog.html#ab6a51c7e011badcce449cd19c9ac2fb9" title=" " alt="" coords="210,44,414,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,55,196,57,191,58,162,60"/>
+<area shape="rect" id="Node000003" href="$classAuthManager.html#ab0d4136658c961170f19683764431551" title="Authenticates a user by email or username and password." alt="" coords="462,44,640,72"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="414,55,449,58,444,58,415,60"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="688,5,920,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="640,42,691,36,697,36,641,47"/>
+<area shape="rect" id="Node000005" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="702,81,906,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="641,68,694,79,688,78,641,74"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="761,80,754,72,760,63,776,57,804,55,834,57,851,66,846,66,832,62,804,60,778,62,763,67,759,72,766,82"/>
+<area shape="rect" id="Node000006" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="968,73,1178,118"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="906,93,955,95,949,95,906,98"/>
+</map>

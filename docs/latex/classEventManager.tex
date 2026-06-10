@@ -1,0 +1,186 @@
+\doxysection{Event\+Manager Class Reference}
+\hypertarget{classEventManager}{}\label{classEventManager}\index{EventManager@{EventManager}}
+
+
+Handles CRUD operations for events stored in the events table.  
+
+
+
+
+{\ttfamily \+\#include $<$Event\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Event\+Manager:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classEventManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classEventManager_a3f0bb65968223d7927ea3860f514e7c4}{create\+Event}} (const \doxymbox{\hyperlink{classEvent}{Event}} \&event)
+\begin{DoxyCompactList}\small\item\em Inserts a new event row. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classEventManager_a9d4532adf630023856f38cb1f1db3f1f}{update\+Event}} (const \doxymbox{\hyperlink{classEvent}{Event}} \&event)
+\begin{DoxyCompactList}\small\item\em Updates an existing event row by event ID. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classEventManager_a0ba805dc0631822bcee68f0be4232e96}{delete\+Event}} (int event\+Id)
+\begin{DoxyCompactList}\small\item\em Deletes an event row by ID. \end{DoxyCompactList}\item 
+std::\+vector$<$ \doxymbox{\hyperlink{classEvent}{Event}} $>$ \doxymbox{\hyperlink{classEventManager_a177fbe1ec5d854f958d1b339fd72589b}{get\+Events\+For\+Calendar}} (int calendar\+Id) const
+\begin{DoxyCompactList}\small\item\em Returns all events belonging to a calendar. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classEventManager_a3121ab98d9a7460150d8441a0a73e4a3}{has\+Conflict}} (int calendar\+Id, const QDate\+Time \&start, const QDate\+Time \&end, int ignored\+Event\+Id=-\/1)
+\begin{DoxyCompactList}\small\item\em Checks whether a time range conflicts with existing events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles CRUD operations for events stored in the events table. 
+
+Creates, updates, deletes, and queries calendar events through the SQLite database. It also provides conflict checks for event time ranges in a single calendar. 
+
+\label{doc-func-members}
+\Hypertarget{classEventManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEventManager_a3f0bb65968223d7927ea3860f514e7c4}\index{EventManager@{EventManager}!createEvent@{createEvent}}
+\index{createEvent@{createEvent}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{createEvent()}{createEvent()}}
+{\footnotesize\ttfamily \label{classEventManager_a3f0bb65968223d7927ea3860f514e7c4} 
+bool Event\+Manager::\+create\+Event (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classEvent}{Event}} \&}]{event}{}\end{DoxyParamCaption})}
+
+
+
+Inserts a new event row. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \doxylink{classEvent}{Event} model containing the values to insert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the event was created successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classEventManager_a3f0bb65968223d7927ea3860f514e7c4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classEventManager_a0ba805dc0631822bcee68f0be4232e96}\index{EventManager@{EventManager}!deleteEvent@{deleteEvent}}
+\index{deleteEvent@{deleteEvent}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{deleteEvent()}{deleteEvent()}}
+{\footnotesize\ttfamily \label{classEventManager_a0ba805dc0631822bcee68f0be4232e96} 
+bool Event\+Manager::\+delete\+Event (\begin{DoxyParamCaption}\item[{int}]{event\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Deletes an event row by ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event\+Id} & Database identifier of the event to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the event was deleted successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classEventManager_a0ba805dc0631822bcee68f0be4232e96_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classEventManager_a177fbe1ec5d854f958d1b339fd72589b}\index{EventManager@{EventManager}!getEventsForCalendar@{getEventsForCalendar}}
+\index{getEventsForCalendar@{getEventsForCalendar}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{getEventsForCalendar()}{getEventsForCalendar()}}
+{\footnotesize\ttfamily \label{classEventManager_a177fbe1ec5d854f958d1b339fd72589b} 
+std::\+vector$<$ \doxymbox{\hyperlink{classEvent}{Event}} $>$ Event\+Manager::\+get\+Events\+For\+Calendar (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns all events belonging to a calendar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Id} & ID of the calendar whose events should be loaded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of events for the given calendar. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classEventManager_a177fbe1ec5d854f958d1b339fd72589b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classEventManager_a3121ab98d9a7460150d8441a0a73e4a3}\index{EventManager@{EventManager}!hasConflict@{hasConflict}}
+\index{hasConflict@{hasConflict}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{hasConflict()}{hasConflict()}}
+{\footnotesize\ttfamily \label{classEventManager_a3121ab98d9a7460150d8441a0a73e4a3} 
+bool Event\+Manager::\+has\+Conflict (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{, }\item[{const QDate\+Time \&}]{start}{, }\item[{const QDate\+Time \&}]{end}{, }\item[{int}]{ignored\+Event\+Id}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})}
+
+
+
+Checks whether a time range conflicts with existing events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Id} & ID of the calendar to check. \\
+\hline
+{\em start} & Start date and time of the proposed event. \\
+\hline
+{\em end} & End date and time of the proposed event. \\
+\hline
+{\em ignored\+Event\+Id} & \doxylink{classEvent}{Event} ID to ignore during edit checks. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if an overlapping event exists. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classEventManager_a3121ab98d9a7460150d8441a0a73e4a3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classEventManager_a9d4532adf630023856f38cb1f1db3f1f}\index{EventManager@{EventManager}!updateEvent@{updateEvent}}
+\index{updateEvent@{updateEvent}!EventManager@{EventManager}}
+\doxysubsubsection{\texorpdfstring{updateEvent()}{updateEvent()}}
+{\footnotesize\ttfamily \label{classEventManager_a9d4532adf630023856f38cb1f1db3f1f} 
+bool Event\+Manager::\+update\+Event (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classEvent}{Event}} \&}]{event}{}\end{DoxyParamCaption})}
+
+
+
+Updates an existing event row by event ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \doxylink{classEvent}{Event} model containing the updated values and target ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the event was updated successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classEventManager_a9d4532adf630023856f38cb1f1db3f1f_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+managers/\+\doxymbox{\hyperlink{EventManager_8h}{Event\+Manager.\+h}}\item 
+src/\+managers/\+\doxymbox{\hyperlink{EventManager_8cpp}{Event\+Manager.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,16 @@
+<map id="ShareCalendarDialog::onShareClicked" name="ShareCalendarDialog::onShareClicked">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,36,164,81"/>
+<area shape="rect" id="Node000002" href="$classInvitationManager.html#aec74619343575960463b8a35bd262a94" title="Creates a pending calendar invitation." alt="" coords="227,5,376,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,45,214,39,209,41,164,50"/>
+<area shape="rect" id="Node000006" href="$classAuthManager.html#a01a515357f880c930884f57be9eb7913" title="Resolves an email address or username to a numeric user ID." alt="" coords="212,74,391,102"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="164,66,199,73,194,74,164,72"/>
+<area shape="rect" id="Node000003" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="439,6,670,34"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="376,23,426,23,421,24,376,28"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="453,82,656,110"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="376,45,488,77,483,77,376,50"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="511,80,505,73,510,63,527,57,555,55,584,58,602,67,597,66,583,63,555,60,528,62,513,67,510,73,516,82"/>
+<area shape="rect" id="Node000005" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="718,73,929,118"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="657,93,705,96,700,96,657,98"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="354,71,390,60,438,44,469,38,474,37,440,49,392,65,355,76"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="391,88,441,92,435,92,391,93"/>
+</map>

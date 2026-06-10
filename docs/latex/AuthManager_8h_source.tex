@@ -1,0 +1,23 @@
+\doxysection{Auth\+Manager.\+h}
+\hypertarget{AuthManager_8h_source}{}\label{AuthManager_8h_source}\index{src/managers/AuthManager.h@{src/managers/AuthManager.h}}
+\doxymbox{\hyperlink{AuthManager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ AUTHMANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ AUTHMANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{User_8h}{models/User.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classAuthManager}{AuthManager}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classAuthManager_a28bacdf33d6f1fd304edb21845f2e4a1}{registerUser}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classUser}{User}}\ \&user);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classAuthManager_ab0d4136658c961170f19683764431551}{loginUser}}(\textcolor{keyword}{const}\ QString\ \&identifier,\ \textcolor{keyword}{const}\ QString\ \&password)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classAuthManager_a01a515357f880c930884f57be9eb7913}{getUserId}}(\textcolor{keyword}{const}\ QString\ \&identifier)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

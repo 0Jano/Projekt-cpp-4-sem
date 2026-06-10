@@ -1,0 +1,320 @@
+\doxysection{Calendar\+Invitation Class Reference}
+\hypertarget{classCalendarInvitation}{}\label{classCalendarInvitation}\index{CalendarInvitation@{CalendarInvitation}}
+
+
+Represents an invitation sent to a user to join a shared calendar.  
+
+
+
+
+{\ttfamily \+\#include $<$Calendar\+Invitation.\+h$>$}
+
+
+
+Collaboration diagram for Calendar\+Invitation:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classCalendarInvitation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classCalendarInvitation_ae85ff5f5276d6c214df6869d609c6486}{Calendar\+Invitation}} ()
+\begin{DoxyCompactList}\small\item\em Constructs an empty calendar invitation model. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classCalendarInvitation_a2e18443f9711892e8727015a0856821b}{Calendar\+Invitation}} (int \doxymbox{\hyperlink{classCalendarInvitation_a96a78500bd818a3624903f2e682b3693}{id}}, int \doxymbox{\hyperlink{classCalendarInvitation_a999c911590edac8b4b34adc2663260af}{calendar\+Id}}, const QString \&\doxymbox{\hyperlink{classCalendarInvitation_a36ac487c95f5d61d10198973f7c17ae9}{calendar\+Name}}, int \doxymbox{\hyperlink{classCalendarInvitation_ab4c164c43bb0f7ce33e645a8304595e0}{inviter\+Id}}, const QString \&\doxymbox{\hyperlink{classCalendarInvitation_a36fc1a25b04599d48e9f8ae96a8d0df8}{inviter\+Name}}, int \doxymbox{\hyperlink{classCalendarInvitation_a19c3b7c800c889b889430cd753ea4a99}{invitee\+Id}}, const QString \&\doxymbox{\hyperlink{classCalendarInvitation_ade2ba5c75e8b11d24a7c2b9ef8361fa9}{role}}, const QString \&\doxymbox{\hyperlink{classCalendarInvitation_ac7f1bc5a3a248536526f09adbb112b1c}{status}}, const QString \&\doxymbox{\hyperlink{classCalendarInvitation_a3873cfb031d345b3dd29b7e810f4c031}{created\+At}})
+\begin{DoxyCompactList}\small\item\em Constructs a calendar invitation model with all persisted fields. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendarInvitation_a0ca2a10ff10835f6b059156f2be883a8}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the invitation ID. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendarInvitation_ace2cd4eef3d496562753b8c772e52319}{get\+Calendar\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the shared calendar ID. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_a4bfd17153368691cc1822c0b3f850723}{get\+Calendar\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Returns the shared calendar name. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendarInvitation_a0f3e2571aa98637ce5e0ba2efec96965}{get\+Inviter\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the inviter user ID. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_abae22eb54e5228272b31858eeb019a23}{get\+Inviter\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Returns the inviter name. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendarInvitation_a2ebdadb784266112f107d815af427f9f}{get\+Invitee\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the invitee user ID. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_a735e2af1ad44aa31e3c3f1817754d07a}{get\+Role}} () const
+\begin{DoxyCompactList}\small\item\em Returns the offered calendar role. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_af6809424002b53e0308ccb852fac700d}{get\+Status}} () const
+\begin{DoxyCompactList}\small\item\em Returns the invitation status. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_ad7fd7df1f2b9c675c2382f3449853eb3}{get\+Created\+At}} () const
+\begin{DoxyCompactList}\small\item\em Returns the creation timestamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{classCalendarInvitation_a96a78500bd818a3624903f2e682b3693}{id}}
+\begin{DoxyCompactList}\small\item\em Database identifier of the invitation. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendarInvitation_a999c911590edac8b4b34adc2663260af}{calendar\+Id}}
+\begin{DoxyCompactList}\small\item\em ID of the calendar being shared. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_a36ac487c95f5d61d10198973f7c17ae9}{calendar\+Name}}
+\begin{DoxyCompactList}\small\item\em Display name of the calendar being shared. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendarInvitation_ab4c164c43bb0f7ce33e645a8304595e0}{inviter\+Id}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classUser}{User} ID of the sender. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_a36fc1a25b04599d48e9f8ae96a8d0df8}{inviter\+Name}}
+\begin{DoxyCompactList}\small\item\em Display name of the sender. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classCalendarInvitation_a19c3b7c800c889b889430cd753ea4a99}{invitee\+Id}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classUser}{User} ID of the recipient. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_ade2ba5c75e8b11d24a7c2b9ef8361fa9}{role}}
+\begin{DoxyCompactList}\small\item\em Role offered to the invitee. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_ac7f1bc5a3a248536526f09adbb112b1c}{status}}
+\begin{DoxyCompactList}\small\item\em Current invitation status. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{classCalendarInvitation_a3873cfb031d345b3dd29b7e810f4c031}{created\+At}}
+\begin{DoxyCompactList}\small\item\em Creation timestamp stored for the invitation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an invitation sent to a user to join a shared calendar. 
+
+Stores the invitation identity, related calendar and user IDs, requested role, status, and creation timestamp. Invitation state changes are handled by \doxylink{classInvitationManager}{Invitation\+Manager}. 
+
+\label{doc-constructors}
+\Hypertarget{classCalendarInvitation_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalendarInvitation_ae85ff5f5276d6c214df6869d609c6486}\index{CalendarInvitation@{CalendarInvitation}!CalendarInvitation@{CalendarInvitation}}
+\index{CalendarInvitation@{CalendarInvitation}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{CalendarInvitation()}{CalendarInvitation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_ae85ff5f5276d6c214df6869d609c6486} 
+Calendar\+Invitation::\+\+Calendar\+Invitation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an empty calendar invitation model. 
+
+\Hypertarget{classCalendarInvitation_a2e18443f9711892e8727015a0856821b}\index{CalendarInvitation@{CalendarInvitation}!CalendarInvitation@{CalendarInvitation}}
+\index{CalendarInvitation@{CalendarInvitation}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{CalendarInvitation()}{CalendarInvitation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a2e18443f9711892e8727015a0856821b} 
+Calendar\+Invitation::\+\+Calendar\+Invitation (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{int}]{calendar\+Id}{, }\item[{const QString \&}]{calendar\+Name}{, }\item[{int}]{inviter\+Id}{, }\item[{const QString \&}]{inviter\+Name}{, }\item[{int}]{invitee\+Id}{, }\item[{const QString \&}]{role}{, }\item[{const QString \&}]{status}{, }\item[{const QString \&}]{created\+At}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a calendar invitation model with all persisted fields. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{classCalendarInvitation_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalendarInvitation_ace2cd4eef3d496562753b8c772e52319}\index{CalendarInvitation@{CalendarInvitation}!getCalendarId@{getCalendarId}}
+\index{getCalendarId@{getCalendarId}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{getCalendarId()}{getCalendarId()}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_ace2cd4eef3d496562753b8c772e52319} 
+int Calendar\+Invitation::\+get\+Calendar\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the shared calendar ID. 
+
+\begin{DoxyReturn}{Returns}
+ID of the calendar being shared. 
+\end{DoxyReturn}
+\Hypertarget{classCalendarInvitation_a4bfd17153368691cc1822c0b3f850723}\index{CalendarInvitation@{CalendarInvitation}!getCalendarName@{getCalendarName}}
+\index{getCalendarName@{getCalendarName}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{getCalendarName()}{getCalendarName()}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a4bfd17153368691cc1822c0b3f850723} 
+QString Calendar\+Invitation::\+get\+Calendar\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the shared calendar name. 
+
+\begin{DoxyReturn}{Returns}
+Display name of the calendar being shared. 
+\end{DoxyReturn}
+\Hypertarget{classCalendarInvitation_ad7fd7df1f2b9c675c2382f3449853eb3}\index{CalendarInvitation@{CalendarInvitation}!getCreatedAt@{getCreatedAt}}
+\index{getCreatedAt@{getCreatedAt}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{getCreatedAt()}{getCreatedAt()}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_ad7fd7df1f2b9c675c2382f3449853eb3} 
+QString Calendar\+Invitation::\+get\+Created\+At (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the creation timestamp. 
+
+\begin{DoxyReturn}{Returns}
+Creation timestamp stored for the invitation. 
+\end{DoxyReturn}
+\Hypertarget{classCalendarInvitation_a0ca2a10ff10835f6b059156f2be883a8}\index{CalendarInvitation@{CalendarInvitation}!getId@{getId}}
+\index{getId@{getId}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a0ca2a10ff10835f6b059156f2be883a8} 
+int Calendar\+Invitation::\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the invitation ID. 
+
+\begin{DoxyReturn}{Returns}
+Database identifier of the invitation. 
+\end{DoxyReturn}
+\Hypertarget{classCalendarInvitation_a2ebdadb784266112f107d815af427f9f}\index{CalendarInvitation@{CalendarInvitation}!getInviteeId@{getInviteeId}}
+\index{getInviteeId@{getInviteeId}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{getInviteeId()}{getInviteeId()}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a2ebdadb784266112f107d815af427f9f} 
+int Calendar\+Invitation::\+get\+Invitee\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the invitee user ID. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classUser}{User} ID of the recipient. 
+\end{DoxyReturn}
+\Hypertarget{classCalendarInvitation_a0f3e2571aa98637ce5e0ba2efec96965}\index{CalendarInvitation@{CalendarInvitation}!getInviterId@{getInviterId}}
+\index{getInviterId@{getInviterId}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{getInviterId()}{getInviterId()}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a0f3e2571aa98637ce5e0ba2efec96965} 
+int Calendar\+Invitation::\+get\+Inviter\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the inviter user ID. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classUser}{User} ID of the sender. 
+\end{DoxyReturn}
+\Hypertarget{classCalendarInvitation_abae22eb54e5228272b31858eeb019a23}\index{CalendarInvitation@{CalendarInvitation}!getInviterName@{getInviterName}}
+\index{getInviterName@{getInviterName}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{getInviterName()}{getInviterName()}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_abae22eb54e5228272b31858eeb019a23} 
+QString Calendar\+Invitation::\+get\+Inviter\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the inviter name. 
+
+\begin{DoxyReturn}{Returns}
+Display name of the sender. 
+\end{DoxyReturn}
+\Hypertarget{classCalendarInvitation_a735e2af1ad44aa31e3c3f1817754d07a}\index{CalendarInvitation@{CalendarInvitation}!getRole@{getRole}}
+\index{getRole@{getRole}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{getRole()}{getRole()}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a735e2af1ad44aa31e3c3f1817754d07a} 
+QString Calendar\+Invitation::\+get\+Role (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the offered calendar role. 
+
+\begin{DoxyReturn}{Returns}
+Role offered to the invitee. 
+\end{DoxyReturn}
+\Hypertarget{classCalendarInvitation_af6809424002b53e0308ccb852fac700d}\index{CalendarInvitation@{CalendarInvitation}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_af6809424002b53e0308ccb852fac700d} 
+QString Calendar\+Invitation::\+get\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the invitation status. 
+
+\begin{DoxyReturn}{Returns}
+Current invitation status. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{classCalendarInvitation_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCalendarInvitation_a999c911590edac8b4b34adc2663260af}\index{CalendarInvitation@{CalendarInvitation}!calendarId@{calendarId}}
+\index{calendarId@{calendarId}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{calendarId}{calendarId}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a999c911590edac8b4b34adc2663260af} 
+int Calendar\+Invitation::\+calendar\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ID of the calendar being shared. 
+
+\Hypertarget{classCalendarInvitation_a36ac487c95f5d61d10198973f7c17ae9}\index{CalendarInvitation@{CalendarInvitation}!calendarName@{calendarName}}
+\index{calendarName@{calendarName}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{calendarName}{calendarName}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a36ac487c95f5d61d10198973f7c17ae9} 
+QString Calendar\+Invitation::\+calendar\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Display name of the calendar being shared. 
+
+\Hypertarget{classCalendarInvitation_a3873cfb031d345b3dd29b7e810f4c031}\index{CalendarInvitation@{CalendarInvitation}!createdAt@{createdAt}}
+\index{createdAt@{createdAt}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{createdAt}{createdAt}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a3873cfb031d345b3dd29b7e810f4c031} 
+QString Calendar\+Invitation::\+created\+At\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creation timestamp stored for the invitation. 
+
+\Hypertarget{classCalendarInvitation_a96a78500bd818a3624903f2e682b3693}\index{CalendarInvitation@{CalendarInvitation}!id@{id}}
+\index{id@{id}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a96a78500bd818a3624903f2e682b3693} 
+int Calendar\+Invitation::\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Database identifier of the invitation. 
+
+\Hypertarget{classCalendarInvitation_a19c3b7c800c889b889430cd753ea4a99}\index{CalendarInvitation@{CalendarInvitation}!inviteeId@{inviteeId}}
+\index{inviteeId@{inviteeId}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{inviteeId}{inviteeId}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a19c3b7c800c889b889430cd753ea4a99} 
+int Calendar\+Invitation::\+invitee\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{classUser}{User} ID of the recipient. 
+
+\Hypertarget{classCalendarInvitation_ab4c164c43bb0f7ce33e645a8304595e0}\index{CalendarInvitation@{CalendarInvitation}!inviterId@{inviterId}}
+\index{inviterId@{inviterId}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{inviterId}{inviterId}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_ab4c164c43bb0f7ce33e645a8304595e0} 
+int Calendar\+Invitation::\+inviter\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{classUser}{User} ID of the sender. 
+
+\Hypertarget{classCalendarInvitation_a36fc1a25b04599d48e9f8ae96a8d0df8}\index{CalendarInvitation@{CalendarInvitation}!inviterName@{inviterName}}
+\index{inviterName@{inviterName}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{inviterName}{inviterName}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_a36fc1a25b04599d48e9f8ae96a8d0df8} 
+QString Calendar\+Invitation::\+inviter\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Display name of the sender. 
+
+\Hypertarget{classCalendarInvitation_ade2ba5c75e8b11d24a7c2b9ef8361fa9}\index{CalendarInvitation@{CalendarInvitation}!role@{role}}
+\index{role@{role}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{role}{role}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_ade2ba5c75e8b11d24a7c2b9ef8361fa9} 
+QString Calendar\+Invitation::\+role\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Role offered to the invitee. 
+
+\Hypertarget{classCalendarInvitation_ac7f1bc5a3a248536526f09adbb112b1c}\index{CalendarInvitation@{CalendarInvitation}!status@{status}}
+\index{status@{status}!CalendarInvitation@{CalendarInvitation}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \label{classCalendarInvitation_ac7f1bc5a3a248536526f09adbb112b1c} 
+QString Calendar\+Invitation::\+status\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current invitation status. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+models/\+\doxymbox{\hyperlink{CalendarInvitation_8h}{Calendar\+Invitation.\+h}}\item 
+src/\+models/\+\doxymbox{\hyperlink{CalendarInvitation_8cpp}{Calendar\+Invitation.\+cpp}}\end{DoxyCompactItemize}

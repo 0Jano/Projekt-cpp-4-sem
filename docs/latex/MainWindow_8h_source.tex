@@ -1,0 +1,58 @@
+\doxysection{Main\+Window.\+h}
+\hypertarget{MainWindow_8h_source}{}\label{MainWindow_8h_source}\index{src/ui/MainWindow.h@{src/ui/MainWindow.h}}
+\doxymbox{\hyperlink{MainWindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAINWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAINWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QHBoxLayout>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QStackedWidget>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{CalendarListWidget_8h}{ui/CalendarListWidget.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{CalendarGridWidget_8h}{ui/CalendarGridWidget.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{MainWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{MainWindow}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_a44b1462463b23490276f54034ab12325}{onLoginClicked}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_a8bcbd90fb589a0f8011374076f887e66}{onRegisterClicked}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_a75c121f531a98f64d9f7916a7e89cfed}{onLogoutClicked}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_a657fc1a2b341aeb7463a4777a7bf607b}{onInvitationsClicked}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_ae4a8f2fe2233920def25cecf6fae5bb6}{onCalendarSelected}}(\textcolor{keywordtype}{int}\ calendarId);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_aa353e8faed952a95e2fc62d7a5018a89}{setupUi}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_a7cc6ae51527e7885199d378e05f15412}{updateStatus}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_ae1030b6c7d269af338fcde229d851677}{updateInvitationsButton}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_ae2018973c346adf0591e25e19bba3faa}{showLoggedInView}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classMainWindow_a4ceb5129ab0b8ffbc5f2aa4c234907cd}{showLoggedOutView}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ QLabel\ *\doxymbox{\hyperlink{classMainWindow_ac68fb8d23913c7e25906ad05d0e9d218}{statusLabel}};}
+\DoxyCodeLine{00034\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classMainWindow_aa0b3757bd2a0b71a40393fff4a07c64b}{loginButton}};}
+\DoxyCodeLine{00035\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classMainWindow_a4d3f16c0c530f59554e81da7e5d24e7b}{registerButton}};}
+\DoxyCodeLine{00036\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classMainWindow_aa2eb7e992b61fc84c47f7ee605557130}{logoutButton}};}
+\DoxyCodeLine{00037\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classMainWindow_abb91366f46b681ffc5edaa0abc342d55}{invitationsButton}};}
+\DoxyCodeLine{00038\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classMainWindow_ab8100a7310a5b7616ff81db12e098cf8}{newEventButton}};}
+\DoxyCodeLine{00039\ \ \ \ \ QLabel\ *\doxymbox{\hyperlink{classMainWindow_a81443e886f1604ea185287a3a26af775}{userAvatarLabel}};}
+\DoxyCodeLine{00040\ \ \ \ \ QWidget\ *\doxymbox{\hyperlink{classMainWindow_a57fa8fc3874487ad3f9e18a7b33a4259}{userPill}};}
+\DoxyCodeLine{00041\ \ \ \ \ QWidget\ *\doxymbox{\hyperlink{classMainWindow_a194803481685ac30a5f3a0d74dd05d40}{sidebarWidget}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ QWidget\ *\doxymbox{\hyperlink{classMainWindow_a00cac1fec0ad020aef4d87a183ec4937}{loggedOutView}};}
+\DoxyCodeLine{00044\ \ \ \ \ QWidget\ *\doxymbox{\hyperlink{classMainWindow_a76bb92bfcb093f5a7b6944dafe5f0755}{loggedInView}};}
+\DoxyCodeLine{00045\ \ \ \ \ QStackedWidget\ *\doxymbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}};}
+\DoxyCodeLine{00046\ \ \ \ \ \doxymbox{\hyperlink{classCalendarListWidget}{CalendarListWidget}}\ *\doxymbox{\hyperlink{classMainWindow_ad6ac26583c342bda19cdce9e9a243266}{calendarListWidget}};}
+\DoxyCodeLine{00047\ \ \ \ \ \doxymbox{\hyperlink{classCalendarGridWidget}{CalendarGridWidget}}\ *\doxymbox{\hyperlink{classMainWindow_a22f3a317003f0f076caec37cdd627fa9}{calendarGridWidget}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classMainWindow_a04b98cc7b1762efd908051d762698439}{loggedInUserId}};}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,9 @@
+<map id="src/managers/CalendarManager.h" name="src/managers/CalendarManager.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="274,5,514,33"/>
+<area shape="rect" id="Node000002" href="$CalendarManager_8cpp.html" title=" " alt="" coords="5,81,261,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="336,38,180,83,179,78,330,37"/>
+<area shape="rect" id="Node000003" href="$CalendarGridWidget_8cpp.html" title=" " alt="" coords="285,81,504,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="396,47,396,82,392,79,392,51"/>
+<area shape="rect" id="Node000004" href="$CalendarListWidget_8cpp.html" title=" " alt="" coords="527,81,742,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="452,35,594,80,589,81,451,41"/>
+</map>

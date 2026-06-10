@@ -1,0 +1,52 @@
+\doxysection{Create\+Event\+Dialog.\+h}
+\hypertarget{CreateEventDialog_8h_source}{}\label{CreateEventDialog_8h_source}\index{src/ui/CreateEventDialog.h@{src/ui/CreateEventDialog.h}}
+\doxymbox{\hyperlink{CreateEventDialog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CREATEEVENTDIALOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CREATEEVENTDIALOG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QLineEdit>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QTextEdit>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QDateTimeEdit>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCreateEventDialog_ac4b0158b21e8198e7eb9a7ee3ac947da}{CreateEventDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classCreateEventDialog_ac4b0158b21e8198e7eb9a7ee3ac947da}{CreateEventDialog}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCreateEventDialog_a78db9ebfabb3c97e7af221dd19f6f998}{getTitle}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCreateEventDialog_ac3b21e36d094fde0c3dfbe26ad0abe2a}{getDescription}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCreateEventDialog_ab782c76f5dc1bf7f44fdc71ff6f8b3b6}{getLocation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ QDateTime\ \doxymbox{\hyperlink{classCreateEventDialog_a3638765c16dbaa3adf2c7135c69504e1}{getStartDateTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ QDateTime\ \doxymbox{\hyperlink{classCreateEventDialog_aabd62b80a33677fa138b2c21284003dd}{getEndDateTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCreateEventDialog_aa2b6081aef8cb80b833713ebb3bb24e0}{setTitle}}(\textcolor{keyword}{const}\ QString\ \&title);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCreateEventDialog_a508d7e86c72faf9deaa51dab56d68939}{setDescription}}(\textcolor{keyword}{const}\ QString\ \&description);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCreateEventDialog_a5f181e33786cd7ee4cf58a67c2229b62}{setLocation}}(\textcolor{keyword}{const}\ QString\ \&location);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCreateEventDialog_a373de3d38eb7b41b48f9ad2a665e9334}{setStartDateTime}}(\textcolor{keyword}{const}\ QDateTime\ \&dateTime);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCreateEventDialog_a82645676c962b2bce5c56619d719eda1}{setEndDateTime}}(\textcolor{keyword}{const}\ QDateTime\ \&dateTime);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCreateEventDialog_a652477916261e0e71d87d723d6efebad}{onCreateClicked}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ QLineEdit\ *\doxymbox{\hyperlink{classCreateEventDialog_a2fc6ea300885e0e434e8f38a29f575ac}{titleEdit}};}
+\DoxyCodeLine{00035\ \ \ \ \ QTextEdit\ *\doxymbox{\hyperlink{classCreateEventDialog_aad58d8da93ebe396dc343bd91c0e202e}{descriptionEdit}};}
+\DoxyCodeLine{00036\ \ \ \ \ QLineEdit\ *\doxymbox{\hyperlink{classCreateEventDialog_ad0a23cf42d9a124f5ac166d26acfc8f1}{locationEdit}};}
+\DoxyCodeLine{00037\ \ \ \ \ QDateTimeEdit\ *\doxymbox{\hyperlink{classCreateEventDialog_afe93222aafc87aa567cde909c9c4945b}{startDateTimeEdit}};}
+\DoxyCodeLine{00038\ \ \ \ \ QDateTimeEdit\ *\doxymbox{\hyperlink{classCreateEventDialog_ad1b5163a1390248453d17d649f44e8a3}{endDateTimeEdit}};}
+\DoxyCodeLine{00039\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classCreateEventDialog_af1489c930940eccf59994586c853732b}{createButton}};}
+\DoxyCodeLine{00040\ \ \ \ \ QPushButton\ *\doxymbox{\hyperlink{classCreateEventDialog_a52a2425f8579780a51169a98a1b3b66c}{cancelButton}};}
+\DoxyCodeLine{00041\ \ \ \ \ QLabel\ *\doxymbox{\hyperlink{classCreateEventDialog_a00ea5f72e8683d3d0595b5ffbcbc91f1}{errorLabel}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCreateEventDialog_ac5270bb054792a454b9dee9c320e94e5}{setupUi}}();}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

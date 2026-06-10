@@ -1,0 +1,12 @@
+<map id="MainWindow::updateInvitationsButton" name="MainWindow::updateInvitationsButton">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,36,233,80"/>
+<area shape="rect" id="Node000002" href="$classInvitationManager.html#a58b6c32a9b00f4c664624aff02201160" title="Counts pending invitations for badge display." alt="" coords="281,36,525,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,55,268,57,263,58,233,60"/>
+<area shape="rect" id="Node000003" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="573,5,804,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="525,39,569,35,564,36,526,44"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="587,81,790,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="526,71,574,80,569,80,525,76"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="643,80,636,72,642,63,659,57,689,55,720,57,739,66,733,66,719,62,689,60,660,62,645,67,641,72,648,82"/>
+<area shape="rect" id="Node000005" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="852,73,1063,118"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="791,93,839,95,834,95,791,98"/>
+</map>

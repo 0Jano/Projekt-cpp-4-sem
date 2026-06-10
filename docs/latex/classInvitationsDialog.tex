@@ -1,0 +1,214 @@
+\doxysection{Invitations\+Dialog Class Reference}
+\hypertarget{classInvitationsDialog}{}\label{classInvitationsDialog}\index{InvitationsDialog@{InvitationsDialog}}
+
+
+{\ttfamily \+\#include $<$Invitations\+Dialog.\+h$>$}
+
+
+
+Inheritance diagram for Invitations\+Dialog:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classInvitationsDialog__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Invitations\+Dialog:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classInvitationsDialog__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classInvitationsDialog_a284f72e9bf1e94d60945f64037262464}{invitations\+Changed}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classInvitationsDialog_a34dcc51aeaae7a15203378182e3e9c4e}{Invitations\+Dialog}} (int \doxymbox{\hyperlink{classInvitationsDialog_a7b3956e5400e2912365a115381e77cc8}{user\+Id}}, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classInvitationsDialog_abe4fe646161f9fefd4fb5f2e517b4114}{on\+Accept\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classInvitationsDialog_a58800872626716b039b39e78e179c28f}{on\+Decline\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classInvitationsDialog_ae0cd1ecdb96d23ceebf4731d104bbc17}{on\+Selection\+Changed}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classInvitationsDialog_a197fcaf7d0c786f9fa199f4a77a9d0d6}{setup\+Ui}} ()
+\item 
+void \doxymbox{\hyperlink{classInvitationsDialog_a36396c561b738885afef29a9d1c7016e}{load\+Invitations}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{classInvitationsDialog_a7b3956e5400e2912365a115381e77cc8}{user\+Id}}
+\item 
+QList\+Widget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classInvitationsDialog_a669bc5ab532c523bffddafe8f9c90b83}{list\+Widget}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classInvitationsDialog_a3c45eafd7280af99b907775576574492}{accept\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classInvitationsDialog_afe87084214db60435452f45cb2dc445e}{decline\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classInvitationsDialog_ac6dfcd2c6e4ac761213112c36d9facfa}{close\+Button}}
+\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classInvitationsDialog_a574244c11d8b1b470354a4badb8a8fd3}{empty\+Label}}
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{classCalendarInvitation}{Calendar\+Invitation}} $>$ \doxymbox{\hyperlink{classInvitationsDialog_a3dd4a00e43b46f06ac529d68134b5d85}{invitations}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classInvitationsDialog_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classInvitationsDialog_a34dcc51aeaae7a15203378182e3e9c4e}\index{InvitationsDialog@{InvitationsDialog}!InvitationsDialog@{InvitationsDialog}}
+\index{InvitationsDialog@{InvitationsDialog}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{InvitationsDialog()}{InvitationsDialog()}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a34dcc51aeaae7a15203378182e3e9c4e} 
+Invitations\+Dialog::\+\+Invitations\+Dialog (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{, }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationsDialog_a34dcc51aeaae7a15203378182e3e9c4e_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{classInvitationsDialog_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classInvitationsDialog_a284f72e9bf1e94d60945f64037262464}\index{InvitationsDialog@{InvitationsDialog}!invitationsChanged@{invitationsChanged}}
+\index{invitationsChanged@{invitationsChanged}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{invitationsChanged}{invitationsChanged}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a284f72e9bf1e94d60945f64037262464} 
+void Invitations\+Dialog::\+invitations\+Changed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\Hypertarget{classInvitationsDialog_a36396c561b738885afef29a9d1c7016e}\index{InvitationsDialog@{InvitationsDialog}!loadInvitations@{loadInvitations}}
+\index{loadInvitations@{loadInvitations}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{loadInvitations()}{loadInvitations()}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a36396c561b738885afef29a9d1c7016e} 
+void Invitations\+Dialog::\+load\+Invitations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationsDialog_a36396c561b738885afef29a9d1c7016e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInvitationsDialog_abe4fe646161f9fefd4fb5f2e517b4114}\index{InvitationsDialog@{InvitationsDialog}!onAcceptClicked@{onAcceptClicked}}
+\index{onAcceptClicked@{onAcceptClicked}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{onAcceptClicked}{onAcceptClicked}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_abe4fe646161f9fefd4fb5f2e517b4114} 
+void Invitations\+Dialog::\+on\+Accept\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationsDialog_abe4fe646161f9fefd4fb5f2e517b4114_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInvitationsDialog_a58800872626716b039b39e78e179c28f}\index{InvitationsDialog@{InvitationsDialog}!onDeclineClicked@{onDeclineClicked}}
+\index{onDeclineClicked@{onDeclineClicked}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{onDeclineClicked}{onDeclineClicked}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a58800872626716b039b39e78e179c28f} 
+void Invitations\+Dialog::\+on\+Decline\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationsDialog_a58800872626716b039b39e78e179c28f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInvitationsDialog_ae0cd1ecdb96d23ceebf4731d104bbc17}\index{InvitationsDialog@{InvitationsDialog}!onSelectionChanged@{onSelectionChanged}}
+\index{onSelectionChanged@{onSelectionChanged}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{onSelectionChanged}{onSelectionChanged}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_ae0cd1ecdb96d23ceebf4731d104bbc17} 
+void Invitations\+Dialog::\+on\+Selection\+Changed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\Hypertarget{classInvitationsDialog_a197fcaf7d0c786f9fa199f4a77a9d0d6}\index{InvitationsDialog@{InvitationsDialog}!setupUi@{setupUi}}
+\index{setupUi@{setupUi}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{setupUi()}{setupUi()}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a197fcaf7d0c786f9fa199f4a77a9d0d6} 
+void Invitations\+Dialog::\+setup\+Ui (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInvitationsDialog_a197fcaf7d0c786f9fa199f4a77a9d0d6_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classInvitationsDialog_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classInvitationsDialog_a3c45eafd7280af99b907775576574492}\index{InvitationsDialog@{InvitationsDialog}!acceptButton@{acceptButton}}
+\index{acceptButton@{acceptButton}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{acceptButton}{acceptButton}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a3c45eafd7280af99b907775576574492} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Invitations\+Dialog::\+accept\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInvitationsDialog_ac6dfcd2c6e4ac761213112c36d9facfa}\index{InvitationsDialog@{InvitationsDialog}!closeButton@{closeButton}}
+\index{closeButton@{closeButton}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{closeButton}{closeButton}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_ac6dfcd2c6e4ac761213112c36d9facfa} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Invitations\+Dialog::\+close\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInvitationsDialog_afe87084214db60435452f45cb2dc445e}\index{InvitationsDialog@{InvitationsDialog}!declineButton@{declineButton}}
+\index{declineButton@{declineButton}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{declineButton}{declineButton}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_afe87084214db60435452f45cb2dc445e} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Invitations\+Dialog::\+decline\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInvitationsDialog_a574244c11d8b1b470354a4badb8a8fd3}\index{InvitationsDialog@{InvitationsDialog}!emptyLabel@{emptyLabel}}
+\index{emptyLabel@{emptyLabel}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{emptyLabel}{emptyLabel}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a574244c11d8b1b470354a4badb8a8fd3} 
+QLabel\texorpdfstring{$\ast$}{*} Invitations\+Dialog::\+empty\+Label\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInvitationsDialog_a3dd4a00e43b46f06ac529d68134b5d85}\index{InvitationsDialog@{InvitationsDialog}!invitations@{invitations}}
+\index{invitations@{invitations}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{invitations}{invitations}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a3dd4a00e43b46f06ac529d68134b5d85} 
+std::\+vector$<$\doxymbox{\hyperlink{classCalendarInvitation}{Calendar\+Invitation}}$>$ Invitations\+Dialog::\+invitations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInvitationsDialog_a669bc5ab532c523bffddafe8f9c90b83}\index{InvitationsDialog@{InvitationsDialog}!listWidget@{listWidget}}
+\index{listWidget@{listWidget}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{listWidget}{listWidget}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a669bc5ab532c523bffddafe8f9c90b83} 
+QList\+Widget\texorpdfstring{$\ast$}{*} Invitations\+Dialog::\+list\+Widget\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInvitationsDialog_a7b3956e5400e2912365a115381e77cc8}\index{InvitationsDialog@{InvitationsDialog}!userId@{userId}}
+\index{userId@{userId}!InvitationsDialog@{InvitationsDialog}}
+\doxysubsubsection{\texorpdfstring{userId}{userId}}
+{\footnotesize\ttfamily \label{classInvitationsDialog_a7b3956e5400e2912365a115381e77cc8} 
+int Invitations\+Dialog::\+user\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+ui/\+\doxymbox{\hyperlink{InvitationsDialog_8h}{Invitations\+Dialog.\+h}}\item 
+src/\+ui/\+\doxymbox{\hyperlink{InvitationsDialog_8cpp}{Invitations\+Dialog.\+cpp}}\end{DoxyCompactItemize}

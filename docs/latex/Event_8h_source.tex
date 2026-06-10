@@ -1,0 +1,54 @@
+\doxysection{Event.\+h}
+\hypertarget{Event_8h_source}{}\label{Event_8h_source}\index{src/models/Event.h@{src/models/Event.h}}
+\doxymbox{\hyperlink{Event_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ EVENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ EVENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QDateTime>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEvent_a5a40dd4708297f7031e29b39e039ae10}{Event}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \doxymbox{\hyperlink{classEvent_a5a40dd4708297f7031e29b39e039ae10}{Event}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{classEvent_a5a40dd4708297f7031e29b39e039ae10}{Event}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classEvent_aed32d3c2b73827b3db16573de2ad1472}{calendarId}},}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&\doxymbox{\hyperlink{classEvent_adaf3afcf619c5f01fc7ec455bf1d1e76}{title}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&\doxymbox{\hyperlink{classEvent_aeccdcf5893474a314f5a6aaf0f828249}{description}},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&\doxymbox{\hyperlink{classEvent_ac0dfeaef205a76c5ff2313ad90ab7da1}{location}},}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QDateTime\ \&\doxymbox{\hyperlink{classEvent_a9ffecc76a00badf251484724914e4d36}{startDateTime}},}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QDateTime\ \&\doxymbox{\hyperlink{classEvent_a0dd5425a88ec7a703efaf7ae3ca95f6a}{endDateTime}},}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classEvent_a6f7c4fcf66a862e66cc32bb7ede6e119}{createdBy}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classEvent_a4f739685eb3d97465ae9ce4e1898f447}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classEvent_a3a54da793e92b1b78ce6a3d166c4b948}{getCalendarId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ QString\ \doxymbox{\hyperlink{classEvent_a6f749b39efd056b54ebf35470b95a4e7}{getTitle}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ QString\ \doxymbox{\hyperlink{classEvent_a465db87d6ca9c578db843e9568133429}{getDescription}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ QString\ \doxymbox{\hyperlink{classEvent_a524612c15098e19730be3ab5fe9aaf09}{getLocation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ QDateTime\ \doxymbox{\hyperlink{classEvent_a8b22f9274fb6ea8fd205dc64be43472d}{getStartDateTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ QDateTime\ \doxymbox{\hyperlink{classEvent_a3ea15fe799cf30995efeedc3f3f70b17}{getEndDateTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classEvent_aaa8f85b2904745ca96672197b44556d7}{getCreatedBy}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classEvent_a08ba599a781bea8b678251fdb7290890}{id}};\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classEvent_aed32d3c2b73827b3db16573de2ad1472}{calendarId}};\ }
+\DoxyCodeLine{00085\ \ \ \ \ QString\ \doxymbox{\hyperlink{classEvent_adaf3afcf619c5f01fc7ec455bf1d1e76}{title}};\ }
+\DoxyCodeLine{00086\ \ \ \ \ QString\ \doxymbox{\hyperlink{classEvent_aeccdcf5893474a314f5a6aaf0f828249}{description}};\ }
+\DoxyCodeLine{00087\ \ \ \ \ QString\ \doxymbox{\hyperlink{classEvent_ac0dfeaef205a76c5ff2313ad90ab7da1}{location}};\ }
+\DoxyCodeLine{00088\ \ \ \ \ QDateTime\ \doxymbox{\hyperlink{classEvent_a9ffecc76a00badf251484724914e4d36}{startDateTime}};\ }
+\DoxyCodeLine{00089\ \ \ \ \ QDateTime\ \doxymbox{\hyperlink{classEvent_a0dd5425a88ec7a703efaf7ae3ca95f6a}{endDateTime}};\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classEvent_a6f7c4fcf66a862e66cc32bb7ede6e119}{createdBy}};\ }
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

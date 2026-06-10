@@ -1,0 +1,16 @@
+<map id="MainWindow::onInvitationsClicked" name="MainWindow::onInvitationsClicked">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,40,204,85"/>
+<area shape="rect" id="Node000002" href="$classInvitationsDialog.html#a284f72e9bf1e94d60945f64037262464" title=" " alt="" coords="292,5,439,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,47,279,38,274,40,205,52"/>
+<area shape="rect" id="Node000003" href="$classMainWindow.html#ae1030b6c7d269af338fcde229d851677" title=" " alt="" coords="252,75,479,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,73,239,79,233,80,204,78"/>
+<area shape="rect" id="Node000004" href="$classInvitationManager.html#a58b6c32a9b00f4c664624aff02201160" title="Counts pending invitations for badge display." alt="" coords="527,75,771,119"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="479,94,514,97,509,97,480,100"/>
+<area shape="rect" id="Node000005" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="819,44,1051,72"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="772,78,810,75,815,75,772,83"/>
+<area shape="rect" id="Node000006" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="833,120,1037,148"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="772,110,821,119,815,119,772,116"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="889,119,882,112,888,102,906,96,935,94,966,96,985,106,980,105,965,102,935,99,907,101,891,106,887,111,894,121"/>
+<area shape="rect" id="Node000007" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="1099,112,1309,157"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1037,132,1086,134,1080,134,1037,137"/>
+</map>

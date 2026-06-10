@@ -1,0 +1,14 @@
+<map id="CalendarGridWidget::onExportIcsClicked" name="CalendarGridWidget::onExportIcsClicked">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,36,158,80"/>
+<area shape="rect" id="Node000002" href="$classIcsManager.html#aec3eec6f1200f0a38d4af5853680d8e6" title="Exports all events from a calendar to an ICS file." alt="" coords="206,36,410,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,55,193,57,188,58,158,60"/>
+<area shape="rect" id="Node000003" href="$classEventManager.html#a177fbe1ec5d854f958d1b339fd72589b" title="Returns all events belonging to a calendar." alt="" coords="458,36,666,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="410,55,445,58,440,58,411,60"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="714,5,946,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="666,40,712,36,717,35,667,45"/>
+<area shape="rect" id="Node000005" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="728,81,932,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="667,70,715,79,710,79,667,75"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="784,80,777,72,783,63,801,57,830,55,861,57,880,66,874,66,860,62,830,60,802,62,786,67,782,72,789,82"/>
+<area shape="rect" id="Node000006" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="994,73,1204,118"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="932,93,981,95,975,95,932,98"/>
+</map>

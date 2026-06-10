@@ -1,0 +1,10 @@
+<map id="src/managers/InvitationManager.h" name="src/managers/InvitationManager.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,250,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="28,81,91,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,36,84,71,80,68,117,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="162,157,232,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,31,141,68,155,107,178,145,173,144,150,110,135,69,129,36"/>
+<area shape="rect" id="Node000004" href="$CalendarInvitation_8h.html" title=" " alt="" coords="165,81,370,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="153,31,232,73,227,74,152,36"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="257,108,221,148,218,143,252,110"/>
+</map>

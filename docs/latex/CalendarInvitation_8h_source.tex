@@ -1,0 +1,57 @@
+\doxysection{Calendar\+Invitation.\+h}
+\hypertarget{CalendarInvitation_8h_source}{}\label{CalendarInvitation_8h_source}\index{src/models/CalendarInvitation.h@{src/models/CalendarInvitation.h}}
+\doxymbox{\hyperlink{CalendarInvitation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CALENDARINVITATION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CALENDARINVITATION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalendarInvitation_ae85ff5f5276d6c214df6869d609c6486}{CalendarInvitation}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{classCalendarInvitation_ae85ff5f5276d6c214df6869d609c6486}{CalendarInvitation}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{classCalendarInvitation_ae85ff5f5276d6c214df6869d609c6486}{CalendarInvitation}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_a999c911590edac8b4b34adc2663260af}{calendarId}},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&\doxymbox{\hyperlink{classCalendarInvitation_a36ac487c95f5d61d10198973f7c17ae9}{calendarName}},}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_ab4c164c43bb0f7ce33e645a8304595e0}{inviterId}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&\doxymbox{\hyperlink{classCalendarInvitation_a36fc1a25b04599d48e9f8ae96a8d0df8}{inviterName}},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_a19c3b7c800c889b889430cd753ea4a99}{inviteeId}},}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&\doxymbox{\hyperlink{classCalendarInvitation_ade2ba5c75e8b11d24a7c2b9ef8361fa9}{role}},}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&\doxymbox{\hyperlink{classCalendarInvitation_ac7f1bc5a3a248536526f09adbb112b1c}{status}},}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&\doxymbox{\hyperlink{classCalendarInvitation_a3873cfb031d345b3dd29b7e810f4c031}{createdAt}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_a0ca2a10ff10835f6b059156f2be883a8}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_ace2cd4eef3d496562753b8c772e52319}{getCalendarId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_a4bfd17153368691cc1822c0b3f850723}{getCalendarName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_a0f3e2571aa98637ce5e0ba2efec96965}{getInviterId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_abae22eb54e5228272b31858eeb019a23}{getInviterName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_a2ebdadb784266112f107d815af427f9f}{getInviteeId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_a735e2af1ad44aa31e3c3f1817754d07a}{getRole}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_af6809424002b53e0308ccb852fac700d}{getStatus}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00086\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_ad7fd7df1f2b9c675c2382f3449853eb3}{getCreatedAt}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_a96a78500bd818a3624903f2e682b3693}{id}};\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_a999c911590edac8b4b34adc2663260af}{calendarId}};\ }
+\DoxyCodeLine{00091\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_a36ac487c95f5d61d10198973f7c17ae9}{calendarName}};\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_ab4c164c43bb0f7ce33e645a8304595e0}{inviterId}};\ }
+\DoxyCodeLine{00093\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_a36fc1a25b04599d48e9f8ae96a8d0df8}{inviterName}};\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classCalendarInvitation_a19c3b7c800c889b889430cd753ea4a99}{inviteeId}};\ }
+\DoxyCodeLine{00095\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_ade2ba5c75e8b11d24a7c2b9ef8361fa9}{role}};\ }
+\DoxyCodeLine{00096\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_ac7f1bc5a3a248536526f09adbb112b1c}{status}};\ }
+\DoxyCodeLine{00097\ \ \ \ \ QString\ \doxymbox{\hyperlink{classCalendarInvitation_a3873cfb031d345b3dd29b7e810f4c031}{createdAt}};\ }
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

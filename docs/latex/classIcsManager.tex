@@ -1,0 +1,102 @@
+\doxysection{Ics\+Manager Class Reference}
+\hypertarget{classIcsManager}{}\label{classIcsManager}\index{IcsManager@{IcsManager}}
+
+
+Imports and exports calendar events using ICS files.  
+
+
+
+
+{\ttfamily \+\#include $<$Ics\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Ics\+Manager:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classIcsManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classIcsManager_aec3eec6f1200f0a38d4af5853680d8e6}{export\+Calendar\+To\+Ics}} (int calendar\+Id, const QString \&file\+Path) const
+\begin{DoxyCompactList}\small\item\em Exports all events from a calendar to an ICS file. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classIcsManager_a831675f5c50278a01a42dd3f514a442b}{import\+Events\+From\+Ics}} (int calendar\+Id, int user\+Id, const QString \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Imports events from an ICS file into a calendar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Imports and exports calendar events using ICS files. 
+
+Provides file-\/based interoperability for calendar events by writing events to i\+Calendar format and importing VEVENT entries into an existing calendar. \doxylink{classEvent}{Event} persistence is delegated to \doxylink{classEventManager}{Event\+Manager}. 
+
+\label{doc-func-members}
+\Hypertarget{classIcsManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIcsManager_aec3eec6f1200f0a38d4af5853680d8e6}\index{IcsManager@{IcsManager}!exportCalendarToIcs@{exportCalendarToIcs}}
+\index{exportCalendarToIcs@{exportCalendarToIcs}!IcsManager@{IcsManager}}
+\doxysubsubsection{\texorpdfstring{exportCalendarToIcs()}{exportCalendarToIcs()}}
+{\footnotesize\ttfamily \label{classIcsManager_aec3eec6f1200f0a38d4af5853680d8e6} 
+bool Ics\+Manager::\+export\+Calendar\+To\+Ics (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{, }\item[{const QString \&}]{file\+Path}{}\end{DoxyParamCaption}) const}
+
+
+
+Exports all events from a calendar to an ICS file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Id} & ID of the calendar whose events should be exported. \\
+\hline
+{\em file\+Path} & Destination file path for the generated ICS file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the file was written successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIcsManager_aec3eec6f1200f0a38d4af5853680d8e6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classIcsManager_a831675f5c50278a01a42dd3f514a442b}\index{IcsManager@{IcsManager}!importEventsFromIcs@{importEventsFromIcs}}
+\index{importEventsFromIcs@{importEventsFromIcs}!IcsManager@{IcsManager}}
+\doxysubsubsection{\texorpdfstring{importEventsFromIcs()}{importEventsFromIcs()}}
+{\footnotesize\ttfamily \label{classIcsManager_a831675f5c50278a01a42dd3f514a442b} 
+bool Ics\+Manager::\+import\+Events\+From\+Ics (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{, }\item[{int}]{user\+Id}{, }\item[{const QString \&}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Imports events from an ICS file into a calendar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar\+Id} & ID of the calendar that should receive imported events. \\
+\hline
+{\em user\+Id} & ID of the user recorded as the creator of imported events. \\
+\hline
+{\em file\+Path} & Source file path of the ICS file to import. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if at least one event was imported successfully. 
+\end{DoxyReturn}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIcsManager_a831675f5c50278a01a42dd3f514a442b_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+managers/\+\doxymbox{\hyperlink{IcsManager_8h}{Ics\+Manager.\+h}}\item 
+src/\+managers/\+\doxymbox{\hyperlink{IcsManager_8cpp}{Ics\+Manager.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,10 @@
+<map id="EventManager::deleteEvent" name="EventManager::deleteEvent">
+<area shape="rect" id="Node000001" title="Deletes an event row by ID." alt="" coords="5,44,207,72"/>
+<area shape="rect" id="Node000002" href="$classDatabaseManager.html#a63548261b9b7c4da2faae5078c844aee" title="Returns the underlying Qt SQL database handle." alt="" coords="255,5,486,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,41,259,35,254,37,206,46"/>
+<area shape="rect" id="Node000003" href="$classDatabaseManager.html#a4abb527066e28f3928ef45af856e134c" title="Returns the singleton database manager instance." alt="" coords="269,81,472,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,69,256,78,251,79,207,75"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="325,80,318,72,324,63,342,57,370,55,401,57,419,66,414,66,400,62,370,60,343,62,327,67,323,72,330,82"/>
+<area shape="rect" id="Node000004" href="$classDatabaseManager.html#aa162d97472e6c31a4e873adda435dbb6" title=" " alt="" coords="534,73,744,118"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="472,93,521,95,516,95,472,98"/>
+</map>

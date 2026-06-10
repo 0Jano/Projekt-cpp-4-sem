@@ -1,0 +1,22 @@
+<map id="src/models/Calendar.h" name="src/models/Calendar.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="546,5,712,33"/>
+<area shape="rect" id="Node000002" href="$CalendarManager_8h.html" title=" " alt="" coords="274,81,514,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="570,39,437,83,435,78,575,37"/>
+<area shape="rect" id="Node000006" href="$Calendar_8cpp.html" title=" " alt="" coords="538,81,720,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="631,47,631,82,627,79,627,51"/>
+<area shape="rect" id="Node000007" href="$CalendarListWidget_8h.html" title=" " alt="" coords="744,81,943,109"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="682,36,808,80,803,81,682,41"/>
+<area shape="rect" id="Node000003" href="$CalendarManager_8cpp.html" title=" " alt="" coords="5,157,261,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="331,115,181,159,179,154,335,111"/>
+<area shape="rect" id="Node000004" href="$CalendarGridWidget_8cpp.html" title=" " alt="" coords="285,157,504,184"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="396,122,397,158,392,155,393,127"/>
+<area shape="rect" id="Node000005" href="$CalendarListWidget_8cpp.html" title=" " alt="" coords="527,157,742,184"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="452,111,594,156,589,156,451,116"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="795,114,672,159,671,154,790,115"/>
+<area shape="rect" id="Node000008" href="$MainWindow_8h.html" title=" " alt="" coords="766,157,921,184"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="845,123,846,158,842,155,842,126"/>
+<area shape="rect" id="Node000009" href="$main_8cpp.html" title=" " alt="" coords="710,232,814,260"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="821,194,778,234,776,229,816,196"/>
+<area shape="rect" id="Node000010" href="$MainWindow_8cpp.html" title=" " alt="" coords="838,232,1009,260"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="870,193,912,233,907,231,868,198"/>
+</map>

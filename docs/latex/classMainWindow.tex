@@ -1,0 +1,315 @@
+\doxysection{Main\+Window Class Reference}
+\hypertarget{classMainWindow}{}\label{classMainWindow}\index{MainWindow@{MainWindow}}
+
+
+{\ttfamily \+\#include $<$Main\+Window.\+h$>$}
+
+
+
+Inheritance diagram for Main\+Window:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMainWindow__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Main\+Window:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMainWindow__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classMainWindow_a44b1462463b23490276f54034ab12325}{on\+Login\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classMainWindow_a8bcbd90fb589a0f8011374076f887e66}{on\+Register\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classMainWindow_a75c121f531a98f64d9f7916a7e89cfed}{on\+Logout\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classMainWindow_a657fc1a2b341aeb7463a4777a7bf607b}{on\+Invitations\+Clicked}} ()
+\item 
+void \doxymbox{\hyperlink{classMainWindow_ae4a8f2fe2233920def25cecf6fae5bb6}{on\+Calendar\+Selected}} (int calendar\+Id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classMainWindow_aa353e8faed952a95e2fc62d7a5018a89}{setup\+Ui}} ()
+\item 
+void \doxymbox{\hyperlink{classMainWindow_a7cc6ae51527e7885199d378e05f15412}{update\+Status}} ()
+\item 
+void \doxymbox{\hyperlink{classMainWindow_ae1030b6c7d269af338fcde229d851677}{update\+Invitations\+Button}} ()
+\item 
+void \doxymbox{\hyperlink{classMainWindow_ae2018973c346adf0591e25e19bba3faa}{show\+Logged\+In\+View}} ()
+\item 
+void \doxymbox{\hyperlink{classMainWindow_a4ceb5129ab0b8ffbc5f2aa4c234907cd}{show\+Logged\+Out\+View}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_ac68fb8d23913c7e25906ad05d0e9d218}{status\+Label}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_aa0b3757bd2a0b71a40393fff4a07c64b}{login\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_a4d3f16c0c530f59554e81da7e5d24e7b}{register\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_aa2eb7e992b61fc84c47f7ee605557130}{logout\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_abb91366f46b681ffc5edaa0abc342d55}{invitations\+Button}}
+\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_ab8100a7310a5b7616ff81db12e098cf8}{new\+Event\+Button}}
+\item 
+QLabel \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_a81443e886f1604ea185287a3a26af775}{user\+Avatar\+Label}}
+\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_a57fa8fc3874487ad3f9e18a7b33a4259}{user\+Pill}}
+\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_a194803481685ac30a5f3a0d74dd05d40}{sidebar\+Widget}}
+\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_a00cac1fec0ad020aef4d87a183ec4937}{logged\+Out\+View}}
+\item 
+QWidget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_a76bb92bfcb093f5a7b6944dafe5f0755}{logged\+In\+View}}
+\item 
+QStacked\+Widget \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stacked\+Widget}}
+\item 
+\doxymbox{\hyperlink{classCalendarListWidget}{Calendar\+List\+Widget}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_ad6ac26583c342bda19cdce9e9a243266}{calendar\+List\+Widget}}
+\item 
+\doxymbox{\hyperlink{classCalendarGridWidget}{Calendar\+Grid\+Widget}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classMainWindow_a22f3a317003f0f076caec37cdd627fa9}{calendar\+Grid\+Widget}}
+\item 
+int \doxymbox{\hyperlink{classMainWindow_a04b98cc7b1762efd908051d762698439}{logged\+In\+User\+Id}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classMainWindow_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMainWindow_a996c5a2b6f77944776856f08ec30858d}\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily \label{classMainWindow_a996c5a2b6f77944776856f08ec30858d} 
+Main\+Window::\+\+Main\+Window (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMainWindow_a996c5a2b6f77944776856f08ec30858d_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{classMainWindow_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMainWindow_ae4a8f2fe2233920def25cecf6fae5bb6}\index{MainWindow@{MainWindow}!onCalendarSelected@{onCalendarSelected}}
+\index{onCalendarSelected@{onCalendarSelected}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onCalendarSelected}{onCalendarSelected}}
+{\footnotesize\ttfamily \label{classMainWindow_ae4a8f2fe2233920def25cecf6fae5bb6} 
+void Main\+Window::\+on\+Calendar\+Selected (\begin{DoxyParamCaption}\item[{int}]{calendar\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\Hypertarget{classMainWindow_a657fc1a2b341aeb7463a4777a7bf607b}\index{MainWindow@{MainWindow}!onInvitationsClicked@{onInvitationsClicked}}
+\index{onInvitationsClicked@{onInvitationsClicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onInvitationsClicked}{onInvitationsClicked}}
+{\footnotesize\ttfamily \label{classMainWindow_a657fc1a2b341aeb7463a4777a7bf607b} 
+void Main\+Window::\+on\+Invitations\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMainWindow_a657fc1a2b341aeb7463a4777a7bf607b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMainWindow_a44b1462463b23490276f54034ab12325}\index{MainWindow@{MainWindow}!onLoginClicked@{onLoginClicked}}
+\index{onLoginClicked@{onLoginClicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onLoginClicked}{onLoginClicked}}
+{\footnotesize\ttfamily \label{classMainWindow_a44b1462463b23490276f54034ab12325} 
+void Main\+Window::\+on\+Login\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMainWindow_a44b1462463b23490276f54034ab12325_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMainWindow_a75c121f531a98f64d9f7916a7e89cfed}\index{MainWindow@{MainWindow}!onLogoutClicked@{onLogoutClicked}}
+\index{onLogoutClicked@{onLogoutClicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onLogoutClicked}{onLogoutClicked}}
+{\footnotesize\ttfamily \label{classMainWindow_a75c121f531a98f64d9f7916a7e89cfed} 
+void Main\+Window::\+on\+Logout\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMainWindow_a75c121f531a98f64d9f7916a7e89cfed_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMainWindow_a8bcbd90fb589a0f8011374076f887e66}\index{MainWindow@{MainWindow}!onRegisterClicked@{onRegisterClicked}}
+\index{onRegisterClicked@{onRegisterClicked}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onRegisterClicked}{onRegisterClicked}}
+{\footnotesize\ttfamily \label{classMainWindow_a8bcbd90fb589a0f8011374076f887e66} 
+void Main\+Window::\+on\+Register\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+\Hypertarget{classMainWindow_aa353e8faed952a95e2fc62d7a5018a89}\index{MainWindow@{MainWindow}!setupUi@{setupUi}}
+\index{setupUi@{setupUi}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setupUi()}{setupUi()}}
+{\footnotesize\ttfamily \label{classMainWindow_aa353e8faed952a95e2fc62d7a5018a89} 
+void Main\+Window::\+setup\+Ui (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMainWindow_aa353e8faed952a95e2fc62d7a5018a89_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMainWindow_ae2018973c346adf0591e25e19bba3faa}\index{MainWindow@{MainWindow}!showLoggedInView@{showLoggedInView}}
+\index{showLoggedInView@{showLoggedInView}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{showLoggedInView()}{showLoggedInView()}}
+{\footnotesize\ttfamily \label{classMainWindow_ae2018973c346adf0591e25e19bba3faa} 
+void Main\+Window::\+show\+Logged\+In\+View (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_a4ceb5129ab0b8ffbc5f2aa4c234907cd}\index{MainWindow@{MainWindow}!showLoggedOutView@{showLoggedOutView}}
+\index{showLoggedOutView@{showLoggedOutView}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{showLoggedOutView()}{showLoggedOutView()}}
+{\footnotesize\ttfamily \label{classMainWindow_a4ceb5129ab0b8ffbc5f2aa4c234907cd} 
+void Main\+Window::\+show\+Logged\+Out\+View (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_ae1030b6c7d269af338fcde229d851677}\index{MainWindow@{MainWindow}!updateInvitationsButton@{updateInvitationsButton}}
+\index{updateInvitationsButton@{updateInvitationsButton}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{updateInvitationsButton()}{updateInvitationsButton()}}
+{\footnotesize\ttfamily \label{classMainWindow_ae1030b6c7d269af338fcde229d851677} 
+void Main\+Window::\+update\+Invitations\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMainWindow_ae1030b6c7d269af338fcde229d851677_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classMainWindow_a7cc6ae51527e7885199d378e05f15412}\index{MainWindow@{MainWindow}!updateStatus@{updateStatus}}
+\index{updateStatus@{updateStatus}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{updateStatus()}{updateStatus()}}
+{\footnotesize\ttfamily \label{classMainWindow_a7cc6ae51527e7885199d378e05f15412} 
+void Main\+Window::\+update\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classMainWindow_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classMainWindow_a22f3a317003f0f076caec37cdd627fa9}\index{MainWindow@{MainWindow}!calendarGridWidget@{calendarGridWidget}}
+\index{calendarGridWidget@{calendarGridWidget}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{calendarGridWidget}{calendarGridWidget}}
+{\footnotesize\ttfamily \label{classMainWindow_a22f3a317003f0f076caec37cdd627fa9} 
+\doxymbox{\hyperlink{classCalendarGridWidget}{Calendar\+Grid\+Widget}}\texorpdfstring{$\ast$}{*} Main\+Window::\+calendar\+Grid\+Widget\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_ad6ac26583c342bda19cdce9e9a243266}\index{MainWindow@{MainWindow}!calendarListWidget@{calendarListWidget}}
+\index{calendarListWidget@{calendarListWidget}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{calendarListWidget}{calendarListWidget}}
+{\footnotesize\ttfamily \label{classMainWindow_ad6ac26583c342bda19cdce9e9a243266} 
+\doxymbox{\hyperlink{classCalendarListWidget}{Calendar\+List\+Widget}}\texorpdfstring{$\ast$}{*} Main\+Window::\+calendar\+List\+Widget\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_abb91366f46b681ffc5edaa0abc342d55}\index{MainWindow@{MainWindow}!invitationsButton@{invitationsButton}}
+\index{invitationsButton@{invitationsButton}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{invitationsButton}{invitationsButton}}
+{\footnotesize\ttfamily \label{classMainWindow_abb91366f46b681ffc5edaa0abc342d55} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+invitations\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_a04b98cc7b1762efd908051d762698439}\index{MainWindow@{MainWindow}!loggedInUserId@{loggedInUserId}}
+\index{loggedInUserId@{loggedInUserId}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{loggedInUserId}{loggedInUserId}}
+{\footnotesize\ttfamily \label{classMainWindow_a04b98cc7b1762efd908051d762698439} 
+int Main\+Window::\+logged\+In\+User\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_a76bb92bfcb093f5a7b6944dafe5f0755}\index{MainWindow@{MainWindow}!loggedInView@{loggedInView}}
+\index{loggedInView@{loggedInView}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{loggedInView}{loggedInView}}
+{\footnotesize\ttfamily \label{classMainWindow_a76bb92bfcb093f5a7b6944dafe5f0755} 
+QWidget\texorpdfstring{$\ast$}{*} Main\+Window::\+logged\+In\+View\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_a00cac1fec0ad020aef4d87a183ec4937}\index{MainWindow@{MainWindow}!loggedOutView@{loggedOutView}}
+\index{loggedOutView@{loggedOutView}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{loggedOutView}{loggedOutView}}
+{\footnotesize\ttfamily \label{classMainWindow_a00cac1fec0ad020aef4d87a183ec4937} 
+QWidget\texorpdfstring{$\ast$}{*} Main\+Window::\+logged\+Out\+View\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_aa0b3757bd2a0b71a40393fff4a07c64b}\index{MainWindow@{MainWindow}!loginButton@{loginButton}}
+\index{loginButton@{loginButton}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{loginButton}{loginButton}}
+{\footnotesize\ttfamily \label{classMainWindow_aa0b3757bd2a0b71a40393fff4a07c64b} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+login\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_aa2eb7e992b61fc84c47f7ee605557130}\index{MainWindow@{MainWindow}!logoutButton@{logoutButton}}
+\index{logoutButton@{logoutButton}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{logoutButton}{logoutButton}}
+{\footnotesize\ttfamily \label{classMainWindow_aa2eb7e992b61fc84c47f7ee605557130} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+logout\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_ab8100a7310a5b7616ff81db12e098cf8}\index{MainWindow@{MainWindow}!newEventButton@{newEventButton}}
+\index{newEventButton@{newEventButton}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{newEventButton}{newEventButton}}
+{\footnotesize\ttfamily \label{classMainWindow_ab8100a7310a5b7616ff81db12e098cf8} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+new\+Event\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_a4d3f16c0c530f59554e81da7e5d24e7b}\index{MainWindow@{MainWindow}!registerButton@{registerButton}}
+\index{registerButton@{registerButton}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{registerButton}{registerButton}}
+{\footnotesize\ttfamily \label{classMainWindow_a4d3f16c0c530f59554e81da7e5d24e7b} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Main\+Window::\+register\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_a194803481685ac30a5f3a0d74dd05d40}\index{MainWindow@{MainWindow}!sidebarWidget@{sidebarWidget}}
+\index{sidebarWidget@{sidebarWidget}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{sidebarWidget}{sidebarWidget}}
+{\footnotesize\ttfamily \label{classMainWindow_a194803481685ac30a5f3a0d74dd05d40} 
+QWidget\texorpdfstring{$\ast$}{*} Main\+Window::\+sidebar\+Widget\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}\index{MainWindow@{MainWindow}!stackedWidget@{stackedWidget}}
+\index{stackedWidget@{stackedWidget}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{stackedWidget}{stackedWidget}}
+{\footnotesize\ttfamily \label{classMainWindow_aa86720a51d3246a6dc316d51488dcb15} 
+QStacked\+Widget\texorpdfstring{$\ast$}{*} Main\+Window::\+stacked\+Widget\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_ac68fb8d23913c7e25906ad05d0e9d218}\index{MainWindow@{MainWindow}!statusLabel@{statusLabel}}
+\index{statusLabel@{statusLabel}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{statusLabel}{statusLabel}}
+{\footnotesize\ttfamily \label{classMainWindow_ac68fb8d23913c7e25906ad05d0e9d218} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+status\+Label\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_a81443e886f1604ea185287a3a26af775}\index{MainWindow@{MainWindow}!userAvatarLabel@{userAvatarLabel}}
+\index{userAvatarLabel@{userAvatarLabel}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{userAvatarLabel}{userAvatarLabel}}
+{\footnotesize\ttfamily \label{classMainWindow_a81443e886f1604ea185287a3a26af775} 
+QLabel\texorpdfstring{$\ast$}{*} Main\+Window::\+user\+Avatar\+Label\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainWindow_a57fa8fc3874487ad3f9e18a7b33a4259}\index{MainWindow@{MainWindow}!userPill@{userPill}}
+\index{userPill@{userPill}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{userPill}{userPill}}
+{\footnotesize\ttfamily \label{classMainWindow_a57fa8fc3874487ad3f9e18a7b33a4259} 
+QWidget\texorpdfstring{$\ast$}{*} Main\+Window::\+user\+Pill\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+ui/\+\doxymbox{\hyperlink{MainWindow_8h}{Main\+Window.\+h}}\item 
+src/\+ui/\+\doxymbox{\hyperlink{MainWindow_8cpp}{Main\+Window.\+cpp}}\end{DoxyCompactItemize}
